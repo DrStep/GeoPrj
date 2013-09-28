@@ -20,7 +20,7 @@
 
         </script>
     </head>
-    <body onload="setInterval(reload(), ${refreshPeriod}); setClientTime();">
+    <body onload="setInterval(function() {reload()}, ${refreshPeriod}); setClientTime();">
         <p>Client time: <span id='ClientTime'></span></p>
         <p>Server time: ${serverTime}</p>
     </body>
