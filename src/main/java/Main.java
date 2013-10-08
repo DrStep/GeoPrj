@@ -1,14 +1,11 @@
-import handlers.FrontendFroSession;
+import handlers.VkAuth;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import handlers.JettyServer;
-import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-
-import javax.servlet.ServletRegistration;
+import utils.Logger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,21 +21,21 @@ public class Main {
 
         Server server = new Server(PORT);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new FrontendFroSession()), "/*");
+        context.addServlet(new ServletHolder(new VkAuth()), "/*");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);
         resource_handler.setResourceBase("static");
 
         HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[]{resource_handler, context, new JettyServer()});
+        handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
         try {
             server.start();
             server.join();
         } catch (Exception e) {
-            System.out.println("Server: " + e.getMessage());
+            Logger.server(e.getMessage());
         }
     }
 }
