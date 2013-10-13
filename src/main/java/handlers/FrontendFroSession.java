@@ -25,7 +25,11 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class FrontendFroSession extends HttpServlet {
     private AtomicLong  userIdGenerator = new AtomicLong();
+
+    // Contain Name and user_id
     private Map<String, Long> dataUserId;
+
+    // Contain Session_id and user_id
     private Map<Long, Long> dataSessionMapUser;
 
     private void createSession() {
@@ -71,8 +75,6 @@ public class FrontendFroSession extends HttpServlet {
             HttpSession session = request.getSession();
             Long sessionId = (Long) session.getAttribute("sessionId");
 
-
-
            if (sessionId != null) {
 
                pageVariables.put("serverTime", getTime());
@@ -93,20 +95,23 @@ public class FrontendFroSession extends HttpServlet {
 
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
         Map<String, Object> pageVariables = new HashMap<String, Object>();
+
         if (request.getPathInfo().equals("/userid"))  {
 
             String login = request.getParameter("login");
             String password = request.getParameter("password");
-            response.setContentType("text/html;charset=utf-8");
-            response.setStatus(HttpServletResponse.SC_OK);
+
             if (login != null) {
                 if (dataUserId.containsKey(login)) {
                     if (login.equals(password)) {
                         HttpSession session = request.getSession();
+                        Long sessionId = (Long) session.getAttribute("sessionId");
+
                         Long userId = dataUserId.get(login);
 
-                        Long sessionId = (Long) session.getAttribute("sessionId");
                         if (sessionId == null) {
                             sessionId = userIdGenerator.getAndIncrement();
                             dataSessionMapUser.put(sessionId, userId);
@@ -116,7 +121,6 @@ public class FrontendFroSession extends HttpServlet {
                          response.getWriter().println(PageGenerator.getPage("timer.tml", pageVariables));
                             return;
                         }
-
 
                         pageVariables.put("serverTime", getTime());
                         pageVariables.put("refreshPeriod", "1000");
