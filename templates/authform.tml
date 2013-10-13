@@ -5,7 +5,6 @@
 <img src="jetty-logo-80x22.png"/>
 <form action = "/userid" method = "POST">
     Логин: <input type="text" name="login" /> </br>
-    Пароль: <input type="text" name="password" />
     <input type="submit" value="Отправить">
 </form>
 

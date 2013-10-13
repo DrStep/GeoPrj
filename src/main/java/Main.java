@@ -1,4 +1,6 @@
-import handlers.VkAuth;
+import handlers.AccountService;
+import handlers.Frontend;
+import handlers.MessageSystem;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -18,10 +20,18 @@ public class Main {
     public final static int PORT = 8090;
 
     public static void main(String []args) {
+        MessageSystem ms = new MessageSystem();
+
+        Frontend frontend = new Frontend(ms);
+        AccountService accountService = new AccountService(ms);
+
+        new Thread(frontend).start();
+        new Thread(accountService).start();
 
         Server server = new Server(PORT);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new VkAuth()), "/*");
+        context.addServlet(new ServletHolder(frontend), "/*");
+        //context.addServlet(new ServletHolder(new VkAuth()), "/vk-auth");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);
