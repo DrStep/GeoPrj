@@ -14,7 +14,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class MessageSystem {
     private Map<Address, ConcurrentLinkedQueue<Msg>> messages = new HashMap<Address, ConcurrentLinkedQueue<Msg>>();
-    private AddressService accountService = new AddressService();
     private AddressService accountVkService = new AddressService();
 
     public void addService(Abonent abonent) {
@@ -36,10 +35,6 @@ public class MessageSystem {
             Msg message = messageQueue.poll();
             message.exec(abonent);
         }
-    }
-
-    public AddressService getAccountService(){
-        return accountService;
     }
 
     public AddressService getAccountVkService() {

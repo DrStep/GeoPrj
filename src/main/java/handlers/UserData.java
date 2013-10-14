@@ -19,7 +19,7 @@ public class UserData {
 
     }
 
-    public boolean isEmpty() {
+    public boolean isTokenExist() {
         if (accessToken == null) {
             return true;
         }
@@ -32,7 +32,7 @@ public class UserData {
         this.expiresIn = expiresIn;
     }
 
-    public void copy(UserData userData) {
+    public void createUser(UserData userData) {
         setId(userData.getId());
         setAccessToken(userData.getAccessToken());
         setExpiresIn(userData.expiresIn);

@@ -25,23 +25,23 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
     public static final String ACCESS_TOKEN = "access_token";
     public static final String PATH_VK_AUTH = "/vk-auth";
     public static final String CODE = "code";
-    private MessageSystem ms;
+    private MessageSystem messageSystem;
     private Address address;
 
     // Contain Session_id and userData
     private Map<String, UserData> sessionIdToUserData;
 
-    public Frontend(MessageSystem ms) {
+    public Frontend(MessageSystem messageSystem) {
         super();
-        this. ms = ms;
+        this.messageSystem = messageSystem;
         address = new Address();
-        ms.addService(this);
+        messageSystem.addService(this);
         sessionIdToUserData = new HashMap<String, UserData>();
     }
 
     public void setUserData(String sessionId, UserData userData) {
         if (sessionIdToUserData.containsKey(sessionId)) {
-            sessionIdToUserData.get(sessionId).copy(userData);
+            sessionIdToUserData.get(sessionId).createUser(userData);
         }
     }
 
@@ -51,11 +51,11 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
         Map<String, Object> pageVariables = new HashMap<String, Object>();
 
         if (request.getPathInfo().equals(PATH_VK_AUTH)) {
-            String accessToken = getCookie(request, ACCESS_TOKEN);
+            String accessToken = getCookie(request, ACCESS_TOKEN, null);
 
             /* Access_Token exist. Redirect user to main page */
             if (accessToken != null) {
-                responseUserPage(response, "Welcome");
+                response.sendRedirect("/profile");
                 return;
             }
 
@@ -64,7 +64,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             /* Set user access_token */
             if (sessionIdToUserData.containsKey(sessionId)) {
                 UserData userData = sessionIdToUserData.get(sessionId);
-                if (!userData.isEmpty()) {
+                if (!userData.isTokenExist()) {
                     response.addCookie(new Cookie(ACCESS_TOKEN, userData.getAccessToken()));
                     responseUserPage(response, "Set Token");
                     return;
@@ -76,12 +76,15 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             if (code != null) {
                 sessionIdToUserData.put(sessionId, new UserData());
                 Address from = getAddress();
-                Address to = ms.getAccountVkService().getAccountService();
+                Address to = messageSystem.getAccountVkService().getAccountService();
 
-                ms.sendMessage(new MsgGetVkUserData(from, to, sessionId, code));
+                messageSystem.sendMessage(new MsgGetVkUserData(from, to, sessionId, code));
                 responseUserPage(response, "started");
                 return;
             }
+        } else if (request.getPathInfo().equals("/profile")) {
+            response.getWriter().println(PageGenerator.getPage("profile.tml", pageVariables));
+            return;
         }
         responseUserPage(response, "Permission denied. Please authorized you account.");
     }
@@ -96,7 +99,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
     }
 
     /* Get cookie by Key*/
-    private String getCookie(HttpServletRequest request, String key) {
+    private String getCookie(HttpServletRequest request, String key, String defaultValue) {
         Cookie[] cookies = request.getCookies();
         String accessToken = null;
 
@@ -106,7 +109,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
                 return accessToken;
             }
         }
-        return accessToken;
+        return defaultValue;
     }
 
     private void responseUserPage(HttpServletResponse response, String userState) throws IOException {
@@ -130,7 +133,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
     @Override
     public void run() {
         while (true) {
-            ms.execForAbonent(this);
+            messageSystem.execForAbonent(this);
             TimeHelper.sleep(10);
         }
     }
