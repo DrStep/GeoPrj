@@ -1,7 +1,7 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <title>Timer</title>
-    <script>
+    <title></title>
+    <script type="text/javascript">
         function setClientTime() {
             var currentTime = new Date();
             var hours = currentTime.getHours();
@@ -11,16 +11,16 @@
                 minutes = '0' + minutes;
             if (seconds < 10)
                 seconds = '0' + seconds;
-            document.getElementById('ClientTime').innerHTML = hours + ':' + minutes + ':' + seconds;
+            document.getElementById("ClientTime").innerHTML = hours + ":" + minutes + ":" + seconds;
         }
-        function refresh() {
+
+        function reload() {
             location.reload();
         }
+
     </script>
 </head>
-<body onload='setInterval(function(){refresh()}, ${refreshPeriod} ); setClientTime();'>
-<p>Client time: <span id='ClientTime'></span></p>
-<p>Server time: ${serverTime}</p>
-<p>User state: ${userState}</p>
+<body>
+      ${userState}
 </body>
 </html>

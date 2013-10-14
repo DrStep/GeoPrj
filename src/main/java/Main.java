@@ -1,4 +1,3 @@
-import handlers.AccountService;
 import handlers.Frontend;
 import handlers.MessageSystem;
 import org.eclipse.jetty.server.Handler;
@@ -8,6 +7,7 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import utils.Logger;
+import handlers.AccountVkService;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,10 +23,10 @@ public class Main {
         MessageSystem ms = new MessageSystem();
 
         Frontend frontend = new Frontend(ms);
-        AccountService accountService = new AccountService(ms);
+        AccountVkService vkService = new AccountVkService(ms);
 
         new Thread(frontend).start();
-        new Thread(accountService).start();
+        new Thread(vkService).start();
 
         Server server = new Server(PORT);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

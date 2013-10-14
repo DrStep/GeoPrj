@@ -13,7 +13,7 @@ public class Address {
     private static AtomicInteger abonentIdCreator = new AtomicInteger();
     final private int abonentId;
 
-    Address() {
+    public Address() {
         this.abonentId = abonentIdCreator.incrementAndGet();
     }
 

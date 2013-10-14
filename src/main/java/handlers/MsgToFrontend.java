@@ -9,7 +9,7 @@ package handlers;
  */
 public abstract class MsgToFrontend extends Msg {
 
-    MsgToFrontend(Address from, Address to) {
+    public MsgToFrontend(Address from, Address to) {
         super(from, to);
     }
 

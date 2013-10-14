@@ -1,4 +1,7 @@
-package handlers;
+package task2;
+
+import handlers.Address;
+import handlers.AddressService;
 
 /**
  * Created with IntelliJ IDEA.

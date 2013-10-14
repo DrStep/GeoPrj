@@ -20,7 +20,7 @@ import utils.Logger;
  * Time: 0:08
  * To change this template use File | Settings | File Templates.
  */
-public class VkAuth extends HttpServlet {
+public class VkAuth {
 
     private final static String ACCESS_TOKEN = "https://oauth.vk.com/access_token?";
     private final static String CLIENT_SECRET = "RWLmNUUpg2HfW01LjhNf";
@@ -40,16 +40,13 @@ public class VkAuth extends HttpServlet {
     private final static String response_type = "code";
     private final static String display = "page";
 
-    public VkAuth() {
-        super();
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
+ /*   public void perform() throws ServletException, IOException {
+        *//*response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         Map<String, Object> pageVariables = new HashMap<String, Object>();
+        *//*
 
-        if (request.getPathInfo().equals("/vk-auth")) {
+       // if (request.getPathInfo().equals("/vk-auth")) {
             String token = getCookieValue(request.getCookies(), ATTR_ACCESS_TOKEN, null);
             String userId = getCookieValue(request.getCookies(), ATTR_USER_ID, null);
 
@@ -76,11 +73,11 @@ public class VkAuth extends HttpServlet {
                 }
             }
             return;
-        }
+        //}
         response.getWriter().println("Error");
-    }
+    }*/
 
-    public String getUserData(String userId, String token) throws IOException {
+   /* public String getUserData(String userId, String token) throws IOException {
         StringBuilder sb = new StringBuilder("https://api.vk.com/method/users.get?user_id=");
         sb.append(userId);
         sb.append("&v=5.2&fields=photo_100&access_token=");
@@ -88,7 +85,7 @@ public class VkAuth extends HttpServlet {
         return performRequest(sb.toString());
     }
 
-    public void getAccessToken(String code, HttpServletResponse response) throws IOException{
+    public void getAccessToken(String code) throws IOException{
         StringBuilder sb = new StringBuilder(ACCESS_TOKEN);
         sb.append("client_id=" + CLIENT_ID);
         sb.append("&code=" + code);
@@ -97,35 +94,14 @@ public class VkAuth extends HttpServlet {
         Logger.network(sb.toString());
 
         JSONObject jsonData = new JSONObject(performRequest(sb.toString()));
-        String accessToken = jsonData.getString(ATTR_ACCESS_TOKEN);
-        int userId = jsonData.getInt(ATTR_USER_ID);
-        int expires_in = jsonData.getInt(ATTR_EXPIRES_IN);
 
-        Logger.network("token: " + accessToken + " userId:" + userId + " expires_in:" + expires_in);
-
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.addCookie(new Cookie(ATTR_ACCESS_TOKEN, accessToken));
-        response.addCookie(new Cookie(ATTR_USER_ID, userId + ""));
-        response.sendRedirect(REDIRECT_URI + "/" + AUTH_URI + "?key=happy");
-        /*
+        *//*
          * Save token and user_id in database
           *  and getCookie to user
-          * */
-    }
+          * *//*
+    }*/
 
-    public String performRequest(String data) throws IOException {
-        URL url = new URL(data);
-        URLConnection urlConnection = url.openConnection();
-        urlConnection.connect();
-        BufferedReader out = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-        String responseData = "";
-        String line = "";
-        while ((line =  out.readLine()) != null) {
-            responseData += line;
-        }
-        Logger.network(responseData);
-        return responseData;
-    }
+
 
     public static String getCookieValue(Cookie[] cookies, String cookieName, String defaultValue) {
         for(int i = 0; i < cookies.length; i++) {
@@ -134,9 +110,5 @@ public class VkAuth extends HttpServlet {
                 return(cookie.getValue());
         }
         return defaultValue;
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

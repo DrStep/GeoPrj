@@ -1,13 +1,12 @@
 package handlers;
 
-import org.eclipse.jetty.security.RunAsToken;
 import templater.PageGenerator;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,28 +22,26 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class Frontend extends HttpServlet implements Abonent, Runnable {
+    public static final String ACCESS_TOKEN = "access_token";
+    public static final String PATH_VK_AUTH = "/vk-auth";
+    public static final String CODE = "code";
     private MessageSystem ms;
     private Address address;
 
-    // Contain Session_id and user_id
-    private Map<String, UserSession> sessionIdToUserSession;
-
+    // Contain Session_id and userData
+    private Map<String, UserData> sessionIdToUserData;
 
     public Frontend(MessageSystem ms) {
         super();
         this. ms = ms;
         address = new Address();
         ms.addService(this);
-        sessionIdToUserSession = new HashMap<String, UserSession>();
+        sessionIdToUserData = new HashMap<String, UserData>();
     }
 
-    public void setUserId(String sessionId, Long userId) {
-        UserSession userSession = sessionIdToUserSession.get(sessionId);
-        if (userSession != null) {
-            userSession.setUserId(userId);
-        } else {
-            System.out.append("Can't find user session for: ").append(sessionId);
-            return;
+    public void setUserData(String sessionId, UserData userData) {
+        if (sessionIdToUserData.containsKey(sessionId)) {
+            sessionIdToUserData.get(sessionId).copy(userData);
         }
     }
 
@@ -53,28 +50,40 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
         response.setStatus(HttpServletResponse.SC_OK);
         Map<String, Object> pageVariables = new HashMap<String, Object>();
 
-        if (request.getPathInfo().equals("/authform"))  {
-            response.getWriter().println(PageGenerator.getPage("authform.tml", pageVariables));
-            return;
-        }
+        if (request.getPathInfo().equals(PATH_VK_AUTH)) {
+            String accessToken = getCookie(request, ACCESS_TOKEN);
 
-        if (request.getPathInfo().equals("/userid")) {
-            HttpSession session = request.getSession();
-            UserSession userSession = sessionIdToUserSession.get(session.getId());
-
-            if (userSession == null) {
-                responseUserPage(response, "Auth error");
+            /* Access_Token exist. Redirect user to main page */
+            if (accessToken != null) {
+                responseUserPage(response, "Welcome");
                 return;
             }
 
-            if (userSession.getUserId() == null) {
-                responseUserPage(response, "wait for authorization");
-                return;
+            String sessionId = request.getSession().getId();
+
+            /* Set user access_token */
+            if (sessionIdToUserData.containsKey(sessionId)) {
+                UserData userData = sessionIdToUserData.get(sessionId);
+                if (!userData.isEmpty()) {
+                    response.addCookie(new Cookie(ACCESS_TOKEN, userData.getAccessToken()));
+                    responseUserPage(response, "Set Token");
+                    return;
+                }
             }
 
-            responseUserPage(response, "UserId:" + userSession.getUserId() + " " + "SessionId:" + userSession.getSessionId());
-            return;
+            String code = request.getParameter(CODE);
+            /* Get Access_Token By Code */
+            if (code != null) {
+                sessionIdToUserData.put(sessionId, new UserData());
+                Address from = getAddress();
+                Address to = ms.getAccountVkService().getAccountService();
+
+                ms.sendMessage(new MsgGetVkUserData(from, to, sessionId, code));
+                responseUserPage(response, "started");
+                return;
+            }
         }
+        responseUserPage(response, "Permission denied. Please authorized you account.");
     }
 
     public void doPost(HttpServletRequest request,
@@ -82,31 +91,26 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         Map<String, Object> pageVariables = new HashMap<String, Object>();
-
-        if (request.getPathInfo().equals("/userid")) {
-            String login = request.getParameter("login");
-            String sessionId = request.getSession().getId();
-            if (login != null) {
-                UserSession userSession = new UserSession(sessionId, login, ms.getAddressService());
-                sessionIdToUserSession.put(sessionId, userSession);
-
-                Address from = getAddress();
-                Address to = userSession.getAccountService();
-
-                ms.sendMessage(new MsgGetUserId(from, to, sessionId, login));
-                responseUserPage(response, "authorization started");
-                return;
-            }
-        }
-
         response.getWriter().println(PageGenerator.getPage("timer.tml", pageVariables));
         return;
     }
 
+    /* Get cookie by Key*/
+    private String getCookie(HttpServletRequest request, String key) {
+        Cookie[] cookies = request.getCookies();
+        String accessToken = null;
+
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals(key)){
+                accessToken = cookie.getValue();
+                return accessToken;
+            }
+        }
+        return accessToken;
+    }
+
     private void responseUserPage(HttpServletResponse response, String userState) throws IOException {
         Map<String, Object> pageVariables = new HashMap<String, Object>();
-        pageVariables.put("refreshPeriod", "1000");
-        pageVariables.put("serverTime", getTime());
         pageVariables.put("userState", userState);
         response.getWriter().println(PageGenerator.getPage("userid.tml", pageVariables));
     }

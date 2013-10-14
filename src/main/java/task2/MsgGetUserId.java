@@ -1,4 +1,9 @@
-package handlers;
+package task2;
+
+import handlers.Address;
+import task2.AccountService;
+import task2.MsgToAS;
+import task2.MsgUpdateUserId;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +16,7 @@ public class MsgGetUserId extends MsgToAS {
     private String login;
     private String sessionId;
 
-    MsgGetUserId(Address from, Address to, String sessionId, String login) {
+    public MsgGetUserId(Address from, Address to, String sessionId, String login) {
         super(from, to);
         this.login = login;
         this.sessionId = sessionId;
@@ -19,9 +24,7 @@ public class MsgGetUserId extends MsgToAS {
 
     @Override
     void exec(AccountService accountService) {
-        System.out.println("exec");
         Long userId = accountService.getUserId(login);
-        System.out.println("UserId: " + userId);
         accountService.getMessageSystem().sendMessage(new MsgUpdateUserId(getTo(), getFrom(), sessionId, userId));
     }
 }

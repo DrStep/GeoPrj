@@ -1,4 +1,9 @@
-package handlers;
+package task2;
+
+import handlers.Abonent;
+import handlers.Address;
+import handlers.MessageSystem;
+import handlers.TimeHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +25,7 @@ public class AccountService implements Abonent, Runnable {
         this.ms = ms;
         address = new Address();
         ms.addService(this);
-        ms.getAddressService().setAccountService(address);
+        ms.getAccountService().setAccountService(address);
 
         fakeAccounter.put("user1", 1L);
         fakeAccounter.put("user2", 2L);

@@ -1,4 +1,8 @@
-package handlers;
+package task2;
+
+import handlers.Address;
+import handlers.Frontend;
+import handlers.MsgToFrontend;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +23,6 @@ public class MsgUpdateUserId extends MsgToFrontend {
 
     @Override
     void exec(Frontend frontend) {
-        frontend.setUserId(sessionId, userId);
+        //frontend.setUserId(sessionId, userId);
     }
 }
