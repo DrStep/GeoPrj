@@ -3,10 +3,14 @@ package handlers;
 import templater.PageGenerator;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,26 +18,123 @@ import java.util.Map;
  * Created with IntelliJ IDEA.
  * User: Антон
  * Date: 27.09.13
- * Time: 23:20
+ * Time: 23:26
  * To change this template use File | Settings | File Templates.
  */
-public class Frontend extends HttpServlet {
-    String login = "";
+public class Frontend extends HttpServlet implements Abonent, Runnable {
+    public static final String ACCESS_TOKEN = "access_token";
+    public static final String PATH_VK_AUTH = "/vk-auth";
+    public static final String CODE = "code";
+    private MessageSystem messageSystem;
+    private Address address;
+
+    // Contain Session_id and userData
+    private Map<String, UserData> sessionIdToUserData;
+
+    public Frontend(MessageSystem messageSystem) {
+        super();
+        this.messageSystem = messageSystem;
+        address = new Address();
+        messageSystem.addService(this);
+        sessionIdToUserData = new HashMap<String, UserData>();
+    }
+
+    public void setUserData(String sessionId, UserData userData) {
+        if (sessionIdToUserData.containsKey(sessionId)) {
+            sessionIdToUserData.get(sessionId).createUser(userData);
+        }
+    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
-        Map<String, Object> pageVar = new HashMap<String, Object>();
-        pageVar.put("lastLogin", login);
-        response.getWriter().println(PageGenerator.getPage("", pageVar));
+        Map<String, Object> pageVariables = new HashMap<String, Object>();
+
+        if (request.getPathInfo().equals(PATH_VK_AUTH)) {
+            String accessToken = getCookie(request, ACCESS_TOKEN, null);
+
+            /* Access_Token exist. Redirect user to main page */
+            if (accessToken != null) {
+                response.sendRedirect("/profile");
+                return;
+            }
+
+            String sessionId = request.getSession().getId();
+
+            /* Set user access_token */
+            if (sessionIdToUserData.containsKey(sessionId)) {
+                UserData userData = sessionIdToUserData.get(sessionId);
+                if (!userData.isTokenExist()) {
+                    response.addCookie(new Cookie(ACCESS_TOKEN, userData.getAccessToken()));
+                    responseUserPage(response, "Set Token");
+                    return;
+                }
+            }
+
+            String code = request.getParameter(CODE);
+            /* Get Access_Token By Code */
+            if (code != null) {
+                sessionIdToUserData.put(sessionId, new UserData());
+                Address from = getAddress();
+                Address to = messageSystem.getAccountVkService().getAccountService();
+
+                messageSystem.sendMessage(new MsgGetVkUserData(from, to, sessionId, code));
+                responseUserPage(response, "started");
+                return;
+            }
+        } else if (request.getPathInfo().equals("/profile")) {
+            response.getWriter().println(PageGenerator.getPage("profile.tml", pageVariables));
+            return;
+        }
+        responseUserPage(response, "Permission denied. Please authorized you account.");
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        login = request.getParameter("login");
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
-        Map<String, Object> pageVar = new HashMap<String, Object>();
-        pageVar.put("lastLogin", login);
-        response.getWriter().println(PageGenerator.getPage("", pageVar));
+        Map<String, Object> pageVariables = new HashMap<String, Object>();
+        response.getWriter().println(PageGenerator.getPage("timer.tml", pageVariables));
+        return;
+    }
+
+    /* Get cookie by Key*/
+    private String getCookie(HttpServletRequest request, String key, String defaultValue) {
+        Cookie[] cookies = request.getCookies();
+        String accessToken = null;
+
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals(key)){
+                accessToken = cookie.getValue();
+                return accessToken;
+            }
+        }
+        return defaultValue;
+    }
+
+    private void responseUserPage(HttpServletResponse response, String userState) throws IOException {
+        Map<String, Object> pageVariables = new HashMap<String, Object>();
+        pageVariables.put("userState", userState);
+        response.getWriter().println(PageGenerator.getPage("userid.tml", pageVariables));
+    }
+
+    public static String getTime() {
+        Date date = new Date();
+        date.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("HH.mm.ss");
+        return dateFormat.format(date);
+    }
+
+    @Override
+    public Address getAddress() {
+        return address;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            messageSystem.execForAbonent(this);
+            TimeHelper.sleep(10);
+        }
     }
 }

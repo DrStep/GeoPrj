@@ -21,7 +21,6 @@
     </script>
 </head>
 <body>
-      <p>${last_name} ${first_name}</p>
-       <img src="${photo}"/>
+      ${userState}
 </body>
 </html>
