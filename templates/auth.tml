@@ -1,0 +1,85 @@
+<html>
+<head>
+      <title>UserAuth</title>
+        <script type="text/javascript">
+
+              function init() {
+                if (isCookieExist()) {
+                    //Get Profile
+                } else {
+                    initAuth();
+                }
+              }
+
+              function isCookieExist() {
+                var TOKEN_NAME = "access_token" + "=";
+                var cookie = document.cookie;
+                var length = cookie.length;
+                if (length > 0) {
+                    cookie += ';';
+                    if (cookie.indexOf(TOKEN_NAME) != -1) {
+                        var startIndex = cookie.indexOf(TOKEN_NAME) + TOKEN_NAME.length;
+                        var accessToken = cookie.substring(startIndex, cookie.indexOf(';', startIndex));
+                        console.log(accessToken);
+                        if (accessToken.length > 0) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+              }
+
+              function setCookie(key, value) {
+                document.cookie = key + "=" + value;
+              }
+
+              function initAuth() {
+                xmlHttp = new XMLHttpRequest();
+                updateTime = 1000;
+                timerFunction = 'createAuthRequest()';
+                createAuthRequest();
+              }
+
+              function createAuthRequest() {
+                if (xmlHttp) {
+                    try {
+                        if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0) {
+                                xmlHttp.open("GET", "http://localhost:8090/vk-auth", true);
+                                xmlHttp.onreadystatechange = authResponse;
+                                xmlHttp.send(null);
+                        } else {
+                            setTimeout(timerFunction, updateTime);
+                        }
+                    } catch(e) {
+
+                    }
+                }
+              }
+
+              function authResponse() {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        var headers = xmlHttp.getAllResponseHeaders().toLowerCase();
+                        if (headers.indexOf("access-token") != -1) {
+                            if (xmlHttp.getResponseHeader('access-token') == 'exist') {
+                                console.log('redirect');
+                            }
+                        } else {
+                            setTimeout(timerFunction, updateTime);
+                        }
+                    }
+                }
+              }
+              initAuth();
+          </script>
+</head>
+<body>
+<form method="POST">
+       <input type="text" name="name"/>
+       <input type="password" name="password"/>
+       <input type="submit"/>
+</form>
+<button onclick="init()"></button>
+</body>
+</html>

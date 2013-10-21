@@ -2,6 +2,16 @@
 <head>
     <title></title>
     <script type="text/javascript">
+        $(document).ready(function(){
+            alert("Welcomes");
+        });
+    </script>
+    <script type="text/javascript">
+
+        function getUserCookie() {
+
+        }
+
         function setClientTime() {
             var currentTime = new Date();
             var hours = currentTime.getHours();

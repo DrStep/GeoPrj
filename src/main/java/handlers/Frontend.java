@@ -60,13 +60,16 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             }
 
             String sessionId = request.getSession().getId();
+            System.out.println(sessionId);
+
 
             /* Set user access_token */
             if (sessionIdToUserData.containsKey(sessionId)) {
                 UserData userData = sessionIdToUserData.get(sessionId);
                 if (!userData.isTokenExist()) {
                     response.addCookie(new Cookie(ACCESS_TOKEN, userData.getAccessToken()));
-                    responseUserPage(response, "Set Token");
+                    response.setHeader("access-token", "exist");
+                    responseUserPage(response, "Ok.");
                     return;
                 }
             }
@@ -79,11 +82,14 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
                 Address to = messageSystem.getAccountVkService().getAccountService();
 
                 messageSystem.sendMessage(new MsgGetVkUserData(from, to, sessionId, code));
-                responseUserPage(response, "started");
+                response.sendRedirect("http://localhost:8090/auth");
                 return;
             }
         } else if (request.getPathInfo().equals("/profile")) {
             response.getWriter().println(PageGenerator.getPage("profile.tml", pageVariables));
+            return;
+        }  else if (request.getPathInfo().equals("/auth")) {
+            response.getWriter().println(PageGenerator.getPage("auth.tml", pageVariables));
             return;
         }
         responseUserPage(response, "Permission denied. Please authorized you account.");
