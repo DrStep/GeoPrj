@@ -8,23 +8,17 @@ package handlers;
  * To change this template use File | Settings | File Templates.
  */
 public class UserData {
+    /* Authorization */
     private Long id;
     private String accessToken;
+    private int expiresIn;
+
+    /* OPTIONAL */
     private String name;
     private String lastName;
     private String urlPhoto;
-    private int expiresIn;
 
-    public UserData() {
-
-    }
-
-    public boolean isTokenExist() {
-        if (accessToken == null) {
-            return true;
-        }
-        return false;
-    }
+    public UserData() {}
 
     public UserData(Long id, String accessToken, int expiresIn) {
         this.id = id;
@@ -32,10 +26,30 @@ public class UserData {
         this.expiresIn = expiresIn;
     }
 
+    public void setOptionalData(String name, String lastName, String urlPhoto) {
+        this.name = name;
+        this.lastName = lastName;
+        this.urlPhoto = urlPhoto;
+    }
+
     public void createUser(UserData userData) {
         setId(userData.getId());
         setAccessToken(userData.getAccessToken());
         setExpiresIn(userData.expiresIn);
+    }
+
+    public boolean hasOptionalData() {
+        if (name == null || lastName == null || urlPhoto == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isTokenExist() {
+        if (accessToken == null) {
+            return false;
+        }
+        return true;
     }
 
     public Long getId() {

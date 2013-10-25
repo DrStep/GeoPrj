@@ -23,13 +23,14 @@ public class FrontendTest {
     @Test
     public void testDoGet() throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("user", "toha");
-        String page = PageGenerator.getPage("userform.tml", map);
 
-        Assert.assertTrue(page.contains("name"));
-        Assert.assertTrue(page.contains("password"));
-        Assert.assertTrue(page.contains("submit"));
+       /* map.put("error", "Session can't create");
+        String page = PageGenerator.getPage("error.tml", map);
+        Assert.assertTrue(page.contains("Session can't create"));*/
 
+        map.put("token", new String("abc").hashCode());
+        String page = PageGenerator.getPage("authform.tml", map);
+        Assert.assertTrue(page.contains("dasd"));
     }
 
     public void testDoPost() throws Exception {

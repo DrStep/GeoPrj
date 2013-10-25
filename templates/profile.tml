@@ -1,8 +1,112 @@
 <html>
 <head>
+<script type="text/javascript">
 
+                function getCookie(key) {
+                console.log("Key:" + key);
+                    var cookie = document.cookie;
+                    var length = cookie.length;
+                    if (length > 0) {
+                        cookie += ';';
+                        key += '=';
+                        if (cookie.indexOf(key) != -1) {
+                            var startIndex = cookie.indexOf(key) + key.length;
+                            var accessToken = cookie.substring(startIndex, cookie.indexOf(';', startIndex));
+                            if (accessToken.length > 0) {
+                            console.log(accessToken + " " + key);
+                                return accessToken;
+                            } else {
+                                return "";
+                            }
+                        }
+                    }
+                    return "";
+                }
+
+                function delCookie(name) {
+                   document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+                }
+
+                function initVkApi(url) {
+                    var token = getCookie("access_token");
+                    if (token != "") {
+                        var userId = getCookie("user_id");
+                        if (userId == "") {
+                            getUserId(token);
+                        } else {
+                            getUserData(userId, token);
+                        }
+                    }
+                }
+
+                  function getUserId(accessToken) {
+                    var script = document.createElement('script');
+                    var callbackFunc = "responseGetUserId";
+                    script.src = "https://api.vk.com/method/getProfiles?v=5.2&access_token=" + accessToken + "&callback=" + callbackFunc;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                  }
+
+                  function responseGetUserId(result) {
+                    setCookie("user_id", result.response[0].id);
+                    initVkApi("");
+                  }
+
+                  function getUserData(userId, accessToken) {
+                    var fields = "uid,first_name,last_name,nickname,screen_name,sex,bdate,city,country,timezone,photo_200_orig";
+
+                    var script = document.createElement('script');
+                    var callbackFunc = "responseGetUserData";
+                    script.src = "https://api.vk.com/method/users.get?uids=" + userId + "&fields=" + fields + "&access_token=" + accessToken + "&callback=" + callbackFunc;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                  }
+
+
+                    function setCookie(key, value) {
+                        document.cookie = key + "=" + value;
+                    }
+
+                    function vkauth() {
+                        var client_id = 3913319;
+                        var scope = 12;
+                        var redirect_uri = "http://localhost:8090/vk-auth";
+                        var response_type = "code";
+                        var display = "page";
+                        location.href = "https://oauth.vk.com/authorize?client_id=" + client_id + "&scope=" + scope + "&redirect_uri=" + redirect_uri + "&response_type=" + response_type + "&display=" + display;
+                      }
+
+                  function responseGetUserData(result) {
+                      try {
+                        var data = result.response[0];
+
+                        var img = data.photo_200_orig;
+                        var firstName = data.first_name;
+                        var lastName = data.last_name;
+
+                        document.getElementById("photo").src = img;
+                        document.getElementById("name").innerText = lastName + " " + firstName;
+
+                      } catch (err) {
+                        var errorCode = result.error.error_code;
+                        if (errorCode == 5) {
+                            //Redirect
+                            delCookie("access_token");
+                            delCookie("user_id");
+                            vkauth();
+                            window.location.href = "index.html";
+                        }
+                  }
+                    return result.response[0].uid;
+                  }
+
+                  function isAccessTokenExpired() {
+
+                  }
+
+                initVkApi("");
+</script>
 </head>
 <body>
-<img src="jetty-logo-80x22.png"/>
+    <img src="" id="photo"/>
+    <span id="name"></span>
 </body>
 </html>

@@ -1,6 +1,36 @@
 <html>
     <head>
+        <script type="text/javascript" src="js/cookie.js"/>
+        <script type="text/javascript" src="js/vkapi.js"/>
+        <script type="text/javascript">
 
+            var getUserData = function (userData) {
+                alert(userData.name + " " + userData.lastName + " " + userData.photo);
+            }
+
+            vkAuth = new  VkAuth();
+
+            function initAuth() {
+                var script = document.createElement('script');
+                var callbackFunc = "authRequest";
+                script.src = "http://localhost:8090/vk-auth?callback=" + callbackFunc;
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+
+            function authRequest(response) {
+                if (response.status == "wait") {
+                    setTimeout("initAuth()", 1000);
+                }
+
+                if (response.status == "ok") {
+                    var token = response.access_token;
+                    cookie.SetCookie("access_token", token);
+                    vkAuth.initUser(getUserData);
+                }
+            }
+
+           initAuth();
+        </script>
     </head>
     <body>
         <p>Error</p>

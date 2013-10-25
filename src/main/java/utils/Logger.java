@@ -9,7 +9,16 @@ package utils;
  */
 
 enum LogStatus {
-    ERROR, NETWORK_REQUEST, SERVER
+    ERROR("ERROR"), NETWORK_REQUEST("NETWORK_REQUEST"), SERVER("SERVER"), USERDATA("USERDATA");
+    private final String status;
+
+    LogStatus(String logStatus) {
+        status = logStatus;
+    }
+
+    public String toString() {
+        return status;
+    }
 }
 
 public class Logger {
@@ -25,7 +34,11 @@ public class Logger {
         Logger.print(LogStatus.SERVER, message);
     }
 
+    public static void userData(String message) {
+        Logger.print(LogStatus.USERDATA, new StringBuffer().append(": ").append(message).toString());
+    }
+
     public static void print(LogStatus logStatus, String message) {
-        System.out.println(logStatus + ": " + message);
+        System.out.println(new StringBuilder(logStatus.toString()).append(": ").append(message));
     }
 }

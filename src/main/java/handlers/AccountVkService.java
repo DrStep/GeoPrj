@@ -1,5 +1,7 @@
 package handlers;
 
+import utils.Logger;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Антон
@@ -8,6 +10,8 @@ package handlers;
  * To change this template use File | Settings | File Templates.
  */
 public class AccountVkService implements Abonent, Runnable {
+    private static final int TICK_TIME = 20;
+
     private MessageSystem ms;
     private Address address;
 
@@ -36,8 +40,16 @@ public class AccountVkService implements Abonent, Runnable {
     @Override
     public void run() {
         while(true) {
-            ms.execForAbonent(this);
-            TimeHelper.sleep(10);
+            try {
+                long startTime = System.currentTimeMillis();
+                ms.execForAbonent(this);
+                long deltaTime = System.currentTimeMillis() - startTime;
+                if (deltaTime < TICK_TIME) {
+                    Thread.sleep(TICK_TIME - deltaTime);
+                }
+            } catch (InterruptedException e) {
+                Logger.error(e.getMessage());
+            }
         }
     }
 }

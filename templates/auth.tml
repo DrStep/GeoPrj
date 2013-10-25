@@ -1,85 +1,86 @@
 <html>
-<head>
-      <title>UserAuth</title>
+    <head>
+    <link  rel="stylesheet" href="css/bootstrap.min.css">
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.min.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9bDvcYISpv2_REwL2gImu7Ep0JJFpntc&sensor=true"></script>
+            <style type="text/css">
+                html { height: 100% }
+                body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    background-image: url('img/map.png');
+                }
+                #map-canvas { height: 100%; z-index: 3; }
+                .background {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0; left: 0;
+                    background-color: grey;
+                    background-color:rgba(0,0,0,.3);
+                    z-index: 5;
+                }
+                .menu {
+                    position: absolute;
+                    width: 850px;
+                    height: 500px;
+                    top: 50%; left: 50%;
+                    margin: -250px 0 0 -425px;
+                    background-color:rgba(255,255,255,.8);
+                }
+            </style>
+        <script type="text/javascript" src="js/cookie.js"></script>
+        <script type="text/javascript" src="js/vkapi.js"></script>
         <script type="text/javascript">
 
-              function init() {
-                if (isCookieExist()) {
-                    //Get Profile
+            vkAuth = new  VkAuth();
+            cookie = new Cookie();
+
+            function initAuth() {
+                if (cookie.IsCookieExist("access_token")) {
+                    vkAuth.initUser(getUserData);
                 } else {
-                    initAuth();
+                    var script = document.createElement('script');
+                    var callbackFunc = "authRequest";
+                    script.src = "http://localhost:8090/vk-auth?callback=" + callbackFunc;
+                    document.getElementsByTagName("head")[0].appendChild(script);
                 }
-              }
+            }
 
-              function isCookieExist() {
-                var TOKEN_NAME = "access_token" + "=";
-                var cookie = document.cookie;
-                var length = cookie.length;
-                if (length > 0) {
-                    cookie += ';';
-                    if (cookie.indexOf(TOKEN_NAME) != -1) {
-                        var startIndex = cookie.indexOf(TOKEN_NAME) + TOKEN_NAME.length;
-                        var accessToken = cookie.substring(startIndex, cookie.indexOf(';', startIndex));
-                        console.log(accessToken);
-                        if (accessToken.length > 0) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
+            function authRequest(response) {
+                if (response.status == "wait") {
+                    setTimeout("initAuth()", 1000);
                 }
-              }
 
-              function setCookie(key, value) {
-                document.cookie = key + "=" + value;
-              }
-
-              function initAuth() {
-                xmlHttp = new XMLHttpRequest();
-                updateTime = 1000;
-                timerFunction = 'createAuthRequest()';
-                createAuthRequest();
-              }
-
-              function createAuthRequest() {
-                if (xmlHttp) {
-                    try {
-                        if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0) {
-                                xmlHttp.open("GET", "http://localhost:8090/vk-auth", true);
-                                xmlHttp.onreadystatechange = authResponse;
-                                xmlHttp.send(null);
-                        } else {
-                            setTimeout(timerFunction, updateTime);
-                        }
-                    } catch(e) {
-
-                    }
+                if (response.status == "ok") {
+                    var token = response.access_token;
+                    cookie.SetCookie("access_token", token);
+                    vkAuth.initUser(getUserData);
                 }
-              }
+            }
 
-              function authResponse() {
-                if (xmlHttp.readyState == 4) {
-                    if (xmlHttp.status == 200) {
-                        var headers = xmlHttp.getAllResponseHeaders().toLowerCase();
-                        if (headers.indexOf("access-token") != -1) {
-                            if (xmlHttp.getResponseHeader('access-token') == 'exist') {
-                                console.log('redirect');
-                            }
-                        } else {
-                            setTimeout(timerFunction, updateTime);
-                        }
-                    }
-                }
-              }
-              initAuth();
-          </script>
-</head>
-<body>
-<form method="POST">
-       <input type="text" name="name"/>
-       <input type="password" name="password"/>
-       <input type="submit"/>
-</form>
-<button onclick="init()"></button>
-</body>
+             var getUserData = function (userData) {
+                document.getElementById("photo").src = userData.photo;
+                document.getElementById("name").innerText = userData.lastName + " " + userData.firstName;
+             }
+
+           initAuth();
+        </script>
+    </head>
+    <body>
+    <div class="background">
+                <div id="main_menu" class="alert alert-success menu">
+                    <div style="margin-top:50px;" align="center">
+                        <h1>Авторизация</h1></br>
+                        <div>
+                                <img src="" id="photo"/>
+                                <span id="name" style="font-size:20px"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </body>
 </html>
