@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+            <script type="text/javascript">
+                function authResponse(response) {
+                    alert(response.status);
+                    if (response.status == "wait") {
+                        setTimeout("initAuth()", 1000);
+                    }
+                }
+
+                function initAuth() {
+                    var script = document.createElement('script');
+                    var callbackFunc = "authResponse";
+                    script.src = "http://localhost:8090/checkuserjsonp?callback=" + callbackFunc;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                }
+
+            </script>
+</head>
+<body onload="initAuth()">
+
+</body>
+</html>

@@ -1,13 +1,14 @@
-import handlers.Frontend;
-import handlers.MessageSystem;
+import server.Frontend;
+import server.MessageSystem;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import server.innerauth.AccountService;
 import utils.Logger;
-import handlers.AccountVkService;
+import server.vk.AccountVkService;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,14 +25,15 @@ public class Main {
 
         Frontend frontend = new Frontend(ms);
         AccountVkService vkService = new AccountVkService(ms);
+        AccountService service = new AccountService(ms);
 
         new Thread(frontend).start();
         new Thread(vkService).start();
+        new Thread(service).start();
 
         Server server = new Server(PORT);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(frontend), "/*");
-        //context.addServlet(new ServletHolder(new VkAuth()), "/vk-auth");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);
