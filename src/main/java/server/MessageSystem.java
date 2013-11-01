@@ -45,4 +45,9 @@ public class MessageSystem {
     public AddressService getAccountVkService() {
         return accountVkService;
     }
+
+    public Queue<Msg> getAbonentMessagesQueue(Abonent abonent)
+    {
+        return messages.get(abonent.getAddress());
+    }
 }

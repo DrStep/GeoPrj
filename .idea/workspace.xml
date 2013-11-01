@@ -2,10 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/templater/PageGeneratorTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/server/SeleniumTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/server/innerauth/AccountServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_5_2_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_platform_3_4_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_websocket_8_1_12_v20130726.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_2_37_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_webbitserver_webbit_0_4_14.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/server/MessageServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/server/MessageServiceTest1.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_james_apache_mime4j_0_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_9_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_04.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r09.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_15_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_8.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_3_2_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_3_4_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_11.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_13.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_13.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_nekohtml_nekohtml_1_9_14.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_nekohtml_nekohtml_1_9_19.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_3_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_android_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_android_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_htmlunit_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_htmlunit_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_iphone_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_iphone_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_2_37_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_2_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_2_37_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/Frontend.java" afterPath="$PROJECT_DIR$/src/main/java/server/Frontend.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/server/FrontendTest.java" afterPath="$PROJECT_DIR$/src/test/java/server/FrontendTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/server/FunctionTest.java" afterPath="$PROJECT_DIR$/src/test/java/server/FunctionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/checkuser.tml" afterPath="$PROJECT_DIR$/templates/checkuser.tml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeoPrj.iml" afterPath="$PROJECT_DIR$/GeoPrj.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/MessageSystem.java" afterPath="$PROJECT_DIR$/src/main/java/server/MessageSystem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/server/SeleniumTest.java" afterPath="$PROJECT_DIR$/src/test/java/server/SeleniumTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GeoPrj.iws" />
@@ -14,8 +55,8 @@
     <file path="/JettyServer.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380306652525" ignored="false" />
     <file path="/PageGenerator.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380308775417" ignored="false" />
     <file path="/timer" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380309535942" ignored="false" />
-    <file path="/fragment.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383297406608" ignored="false" />
-    <file path="/Frontend.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383255218493" ignored="false" />
+    <file path="/fragment.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383339023401" ignored="false" />
+    <file path="/Frontend.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383339822042" ignored="false" />
     <file path="/FrontendFroSession.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380915218137" ignored="false" />
     <file path="$PROJECT_DIR$/../MavenGeo/src/main/java/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380310937248" ignored="false" />
     <file path="/HelloServer.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380312099172" ignored="false" />
@@ -47,18 +88,18 @@
     <file path="/DrawingPanel.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1381953107844" ignored="false" />
     <file path="$PROJECT_DIR$/../JavaTest/src/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1381953396661" ignored="false" />
     <file path="/userform.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382297859317" ignored="false" />
-    <file path="/FrontendTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382763993355" ignored="false" />
+    <file path="/FrontendTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383342477117" ignored="false" />
     <file path="/auth.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382733992623" ignored="false" />
     <file path="/UserInfoVkCmd.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382638549981" ignored="false" />
     <file path="/error.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382718553482" ignored="false" />
     <file path="/vkapi.js" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382728860958" ignored="false" />
-    <file path="/FunctionTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383301450125" ignored="false" />
+    <file path="/FunctionTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383322155824" ignored="false" />
     <file path="/AuthVkByCodeCmd.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383244202943" ignored="false" />
     <file path="/MsgToFrontend.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383244545311" ignored="false" />
     <file path="/MsgToVkService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383244414921" ignored="false" />
     <file path="/Msg.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383244528551" ignored="false" />
     <file path="/AccountService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383252898410" ignored="false" />
-    <file path="/MessageSystem.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383245297046" ignored="false" />
+    <file path="/MessageSystem.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383338308959" ignored="false" />
     <file path="/MessageToService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383245992937" ignored="false" />
     <file path="/MsgToGetUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383251076143" ignored="false" />
     <file path="/MsgUpdateUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383253048357" ignored="false" />
@@ -66,8 +107,11 @@
     <file path="/checkuser.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383316434421" ignored="false" />
     <file path="/PageGeneratorTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383296168410" ignored="false" />
     <file path="$PROJECT_DIR$/../../GeoPrj/src/main/java/templater/PageGeneratorTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383314857771" ignored="false" />
-    <file path="/SeleniumTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383318053906" ignored="false" />
+    <file path="/SeleniumTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383321523814" ignored="false" />
     <file path="$PROJECT_DIR$/../../GeoPrj_1/GeoPrj/src/test/java/seleniumtest/SeleniumTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383317757117" ignored="false" />
+    <file path="/MessageServiceTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383334154298" ignored="false" />
+    <file path="/MessageServiceTest1.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383338962660" ignored="false" />
+    <file path="/AccountServiceTest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383339397132" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,46 +173,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="checkuser.tml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/checkuser.tml">
+      <file leaf-file-name="Address.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/Address.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="59" selection-start="233" selection-end="247" vertical-scroll-proportion="0.0">
+            <state line="11" column="13" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.tml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/profile.tml">
+      <file leaf-file-name="Abonent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/Abonent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="10" column="22" selection-start="208" selection-end="218" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.tml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/error.tml">
+      <file leaf-file-name="AddressService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/AddressService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="9" column="13" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authform.tml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/authform.tml">
+      <file leaf-file-name="PageGenerator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="78" selection-start="690" selection-end="692" vertical-scroll-proportion="0.0">
+            <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrontendTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/server/FrontendTest.java">
+      <file leaf-file-name="AccountServiceTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/server/innerauth/AccountServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="6" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+            <state line="20" column="37" selection-start="441" selection-end="441" vertical-scroll-proportion="0.36952713">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,46 +220,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageGeneratorTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/templater/PageGeneratorTest.java">
+      <file leaf-file-name="Frontend.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/Frontend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="37" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
+            <state line="74" column="41" selection-start="2614" selection-end="2614" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#2628#2644#0" expanded="true" />
+                <element signature="e#3678#3694#0" expanded="true" />
+                <element signature="e#5666#5682#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageSystem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/MessageSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="45" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/server/FunctionTest.java">
+      <file leaf-file-name="MsgToFrontend.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/MsgToFrontend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="8" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1087#1274#0" expanded="true" />
-                <element signature="e#1263#1264#0" expanded="true" />
-              </folding>
+            <state line="14" column="22" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeleniumTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/server/SeleniumTest.java">
+      <file leaf-file-name="Msg.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/Msg.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="24" selection-start="629" selection-end="629" vertical-scroll-proportion="0.49930653">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="9" column="22" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Function.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/r09/guava-r09.jar!/com/google/common/base/Function.class">
+      <file leaf-file-name="UserData.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/UserData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="18" selection-start="347" selection-end="347" vertical-scroll-proportion="-6.6">
-              <folding>
-                <element signature="e#0#347#0" expanded="true" />
-              </folding>
+            <state line="9" column="13" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -238,22 +287,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/auth.tml" />
-        <option value="$PROJECT_DIR$/src/main/java/server/vk/VkUserData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/MsgToFrontend.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/innerauth/MsgToFrontend.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/innerauth/MsgToGetUserData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/innerauth/AccountService.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/innerauth/MsgUpdateUserData.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/innerauth/MsgGetUserData.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/UserData.java" />
         <option value="$PROJECT_DIR$/templates/checkuser.tml.html" />
         <option value="$PROJECT_DIR$/templates/authform.tml" />
-        <option value="$PROJECT_DIR$/src/main/java/server/Frontend.java" />
         <option value="$PROJECT_DIR$/src/test/java/templater/PageGeneratorTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/server/FunctionTest.java" />
         <option value="$PROJECT_DIR$/templates/checkuser.tml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/server/SeleniumTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/server/FunctionTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/server/MessageServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/server/MessageServiceTest1.java" />
+        <option value="$PROJECT_DIR$/src/test/java/server/innerauth/AccountServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/Frontend.java" />
+        <option value="$PROJECT_DIR$/src/test/java/server/FrontendTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/MessageSystem.java" />
       </list>
     </option>
   </component>
@@ -342,10 +391,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="GeoPrj" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -453,6 +498,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="innerauth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -606,11 +681,17 @@
     <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="server.innerauth" />
       <recent name="templater" />
       <recent name="handlers" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="server" />
+      <recent name="handlers" />
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -620,26 +701,73 @@
       <recent name="C:\Users\Антон\IdeaProjects\GeoPrj\static\css" />
       <recent name="C:\Users\Антон\IdeaProjects\GeoPrj\static" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="server" />
-      <recent name="handlers" />
-      <recent name="" />
-    </key>
   </component>
-  <component name="RunManager" selected="JUnit.SeleniumTest.startWebDriver">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="JUnit.FrontendTest.testDoGet">
+    <configuration default="false" name="MessageServiceTest.MsgGetUserDataTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="GeoPrj" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.MessageServiceTest" />
+      <option name="METHOD_NAME" value="MsgGetUserDataTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="GeoPrj" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MessageServiceTest1.GetUserDataTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="GeoPrj" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.MessageServiceTest1" />
+      <option name="METHOD_NAME" value="GetUserDataTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="MessageServiceTest1.CheckMsgQueueTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="GeoPrj" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="server" />
+      <option name="MAIN_CLASS_NAME" value="server.MessageServiceTest1" />
+      <option name="METHOD_NAME" value="CheckMsgQueueTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
@@ -647,6 +775,29 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AccountServiceTest.testGetUserData" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="GeoPrj" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="server.innerauth" />
+      <option name="MAIN_CLASS_NAME" value="server.innerauth.AccountServiceTest" />
+      <option name="METHOD_NAME" value="testGetUserData" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -658,75 +809,6 @@
       <option name="PACKAGE_NAME" value="server" />
       <option name="MAIN_CLASS_NAME" value="server.FrontendTest" />
       <option name="METHOD_NAME" value="testDoGet" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="FrontendTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="GeoPrj" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="server" />
-      <option name="MAIN_CLASS_NAME" value="server.FrontendTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PageGeneratorTest.testGetPage" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="GeoPrj" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="templater" />
-      <option name="MAIN_CLASS_NAME" value="templater.PageGeneratorTest" />
-      <option name="METHOD_NAME" value="testGetPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SeleniumTest.startWebDriver" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="GeoPrj" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="server" />
-      <option name="MAIN_CLASS_NAME" value="server.SeleniumTest" />
-      <option name="METHOD_NAME" value="startWebDriver" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -834,19 +916,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.FrontendTest.testDoGet" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.FrontendTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.PageGeneratorTest.testGetPage" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.SeleniumTest.startWebDriver" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.MessageServiceTest.MsgGetUserDataTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MessageServiceTest1.GetUserDataTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MessageServiceTest1.CheckMsgQueueTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AccountServiceTest.testGetUserData" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.FrontendTest.testDoGet" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.SeleniumTest.startWebDriver" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.PageGeneratorTest.testGetPage" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.FrontendTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.FrontendTest.testDoGet" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.FrontendTest.testDoGet" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AccountServiceTest.testGetUserData" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MessageServiceTest1.CheckMsgQueueTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MessageServiceTest1.GetUserDataTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MessageServiceTest.MsgGetUserDataTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -905,28 +987,28 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344098" sideWeight="0.5773746" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25612473" sideWeight="0.5421558" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41225627" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3425827" sideWeight="0.46905017" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34044823" sideWeight="0.17769477" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21291356" sideWeight="0.22411953" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41225627" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3425827" sideWeight="0.46905017" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1804009" sideWeight="0.49359658" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2289221" sideWeight="0.111358576" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.7033426" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.7033426" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14674494" sideWeight="0.7972252" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20277481" sideWeight="0.4578442" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21291356" sideWeight="0.434365" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34044823" sideWeight="0.8223052" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2925" y="109" width="571" height="881" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26726058" sideWeight="0.48826042" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1000,126 +1082,123 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/java/server/MessageServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="16" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/server/FrontendTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="77" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1161#1177#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/innerauth/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="54" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+        <state line="40" column="26" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auth.tml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/innerauth/MessageToService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="20" selection-start="2189" selection-end="2220" vertical-scroll-proportion="0.0">
+        <state line="13" column="22" selection-start="267" selection-end="267" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/innerauth/MsgGetUserData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="33" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/innerauth/MsgUpdateUserData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="657" selection-end="699" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Abonent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="208" selection-end="218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/AddressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="10" selection-start="7649" selection-end="7649" vertical-scroll-proportion="0.5630435">
+        <state line="74" column="41" selection-start="2614" selection-end="2614" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#2577#2593#0" expanded="true" />
-            <element signature="e#3595#3611#0" expanded="true" />
-            <element signature="e#5583#5599#0" expanded="true" />
+            <element signature="e#2628#2644#0" expanded="true" />
+            <element signature="e#3678#3694#0" expanded="true" />
+            <element signature="e#5666#5682#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/timer.tml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/MessageSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="19" column="45" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/MsgToFrontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Msg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/UserData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="23" selection-start="869" selection-end="869" vertical-scroll-proportion="0.0">
+        <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userid.tml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/server/innerauth/AccountServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="17" selection-start="839" selection-end="848" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/templater/PageGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="37" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/r09/guava-r09.jar!/com/google/common/base/Function.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="18" selection-start="347" selection-end="347" vertical-scroll-proportion="-6.6">
-          <folding>
-            <element signature="e#0#347#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/server/FunctionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="8" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1087#1274#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/error.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/authform.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="78" selection-start="690" selection-end="692" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/checkuser.tml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="59" selection-start="233" selection-end="247" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/server/FrontendTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="6" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.21323529">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/server/SeleniumTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="24" selection-start="629" selection-end="629" vertical-scroll-proportion="0.49930653">
+        <state line="20" column="37" selection-start="441" selection-end="441" vertical-scroll-proportion="0.36952713">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -69,9 +69,12 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(request.getPathInfo());
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         Map<String, Object> pageVariables = new HashMap<String, Object>();
+
+        request.getPathInfo();
 
         if (request.getPathInfo().equals(PATH_VK_AUTH)) {
             String accessToken = getCookie(request, ACCESS_TOKEN, null);
