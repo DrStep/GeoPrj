@@ -1,70 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/innerauth/AccountService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/server/FunctionTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_nodep_2_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r09.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_3_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_nekohtml_nekohtml_1_9_14.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_james_apache_mime4j_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20080701.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_8_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_android_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_htmlunit_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_iphone_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_w3c_css_sac_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_serializer_2_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_9_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_04.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/innerauth/MessageToService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/innerauth/MsgGetUserData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/innerauth/MsgUpdateUserData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/UserData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/vk/VkUserData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/checkuser.tml" />
-      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\TimeHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\UserData.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\VkAuth.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\Abonent.java" afterPath="$PROJECT_DIR$/src/main/java/server/Abonent.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\AccountVkService.java" afterPath="$PROJECT_DIR$/src/main/java/server/vk/AccountVkService.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\Address.java" afterPath="$PROJECT_DIR$/src/main/java/server/Address.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\AddressService.java" afterPath="$PROJECT_DIR$/src/main/java/server/AddressService.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\AuthVkByCodeCmd.java" afterPath="$PROJECT_DIR$/src/main/java/server/vk/AuthVkByCodeCmd.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\Command.java" afterPath="$PROJECT_DIR$/src/main/java/server/Command.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\Frontend.java" afterPath="$PROJECT_DIR$/src/main/java/server/Frontend.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\MessageSystem.java" afterPath="$PROJECT_DIR$/src/main/java/server/MessageSystem.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\Msg.java" afterPath="$PROJECT_DIR$/src/main/java/server/Msg.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\MsgGetVkUserData.java" afterPath="$PROJECT_DIR$/src/main/java/server/vk/MsgGetVkUserData.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\MsgToFrontend.java" afterPath="$PROJECT_DIR$/src/main/java/server/MsgToFrontend.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\MsgToVkService.java" afterPath="$PROJECT_DIR$/src/main/java/server/vk/MsgToVkService.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\handlers\MsgUpdateVkUserData.java" afterPath="$PROJECT_DIR$/src/main/java/server/vk/MsgUpdateVkUserData.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\test\java\handlers\FrontendTest.java" afterPath="$PROJECT_DIR$/src/test/java/server/FrontendTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeoPrj.iml" afterPath="$PROJECT_DIR$/GeoPrj.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/authform.tml" afterPath="$PROJECT_DIR$/templates/authform.tml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="" />
     <ignored path="GeoPrj.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383245724039" ignored="false" />
@@ -185,7 +122,7 @@
       <file leaf-file-name="Frontend.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/Frontend.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="66" selection-start="5851" selection-end="5851" vertical-scroll-proportion="0.58473283">
+            <state line="143" column="63" selection-start="6076" selection-end="6076" vertical-scroll-proportion="0.7145038">
               <folding>
                 <element signature="e#2577#2593#0" expanded="true" />
                 <element signature="e#3595#3611#0" expanded="true" />
@@ -1039,7 +976,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="66" selection-start="5851" selection-end="5851" vertical-scroll-proportion="0.58473283">
+        <state line="143" column="63" selection-start="6076" selection-end="6076" vertical-scroll-proportion="0.7145038">
           <folding>
             <element signature="e#2577#2593#0" expanded="true" />
             <element signature="e#3595#3611#0" expanded="true" />
