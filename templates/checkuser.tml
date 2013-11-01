@@ -5,6 +5,7 @@
             <script type="text/javascript">
                 function authResponse(response) {
                     alert(response.status);
+                    document.getElementById("returnedStatus").value=response.status;
                     if (response.status == "wait") {
                         setTimeout("initAuth()", 1000);
                     }
@@ -20,6 +21,6 @@
             </script>
 </head>
 <body onload="initAuth()">
-
+     <input type="hidden" name="returnedStatus" id="returnedStatus" value=""/>
 </body>
 </html>
