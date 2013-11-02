@@ -1,7 +1,7 @@
 package server.innerauth;
 
 import server.Address;
-import server.Frontend;
+import server.FrontendImpl;
 import server.MsgToFrontend;
 import server.UserData;
 
@@ -23,7 +23,7 @@ public class MsgUpdateUserData extends MsgToFrontend {
     }
 
     @Override
-    public void exec(Frontend frontend) {
-        frontend.setUserData(sessionId, userData);
+    public void exec(FrontendImpl frontendImpl) {
+        frontendImpl.setUserData(sessionId, userData);
     }
 }

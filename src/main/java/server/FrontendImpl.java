@@ -1,7 +1,7 @@
 package server;
 
+import base.Frontend;
 import server.innerauth.MsgGetUserData;
-import server.innerauth.MsgUpdateUserData;
 import server.vk.MsgGetVkUserData;
 import server.vk.VkUserData;
 import templater.PageGenerator;
@@ -27,7 +27,7 @@ import java.util.Map;
  * Time: 23:26
  * To change this template use File | Settings | File Templates.
  */
-public class Frontend extends HttpServlet implements Abonent, Runnable {
+public class FrontendImpl extends HttpServlet implements Frontend, Abonent, Runnable {
     private static final int TICK_TIME = 20;
 
     public static final String ACCESS_TOKEN = "access_token";
@@ -42,7 +42,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
 
     private Map<String, UserData> sessionIdToInvalidUserData;
 
-    public Frontend(MessageSystem messageSystem) {
+    public FrontendImpl(MessageSystem messageSystem) {
         super();
         this.messageSystem = messageSystem;
         address = new Address();
@@ -124,6 +124,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             }
             return;
         } else if (request.getPathInfo().equals("/authform")) {
+            System.out.println("--->>>>>\n--->>>>");
             pageVariables.put("token", new String("abc").hashCode());
             response.getWriter().println(PageGenerator.getPage("authform.tml", pageVariables));
             return;
@@ -145,6 +146,10 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
                 return;
             }
             return;
+        } else if (request.getPathInfo().equals("/admin")) {
+            int shutdown = Integer.valueOf(request.getParameter("shutdown"));
+            System.out.println("ShutDown " + shutdown + " sec");
+            System.exit(shutdown);
         }
         responseUserPage(response, "Permission denied. Please authorized you account.");
     }

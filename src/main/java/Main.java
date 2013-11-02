@@ -1,4 +1,4 @@
-import server.Frontend;
+import server.FrontendImpl;
 import server.MessageSystem;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -21,19 +21,28 @@ public class Main {
     public final static int PORT = 8090;
 
     public static void main(String []args) {
+        if (args.length != 1) {
+            System.out.append("Use port as the first argument");
+            System.exit(1);
+        }
+
+        String portString = args[0];
+        int port = Integer.valueOf(portString);
+        System.out.append("Starting at port: ").append(portString).append('\n');
+
         MessageSystem ms = new MessageSystem();
 
-        Frontend frontend = new Frontend(ms);
+        FrontendImpl frontendImpl = new FrontendImpl(ms);
         AccountVkService vkService = new AccountVkService(ms);
         AccountService service = new AccountService(ms);
 
-        new Thread(frontend).start();
+        new Thread(frontendImpl).start();
         new Thread(vkService).start();
         new Thread(service).start();
 
-        Server server = new Server(PORT);
+        Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(frontend), "/*");
+        context.addServlet(new ServletHolder(frontendImpl), "/*");
 
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setDirectoriesListed(true);

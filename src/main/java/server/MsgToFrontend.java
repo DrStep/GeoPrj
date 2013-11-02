@@ -1,10 +1,5 @@
 package server;
 
-import server.Abonent;
-import server.Address;
-import server.Frontend;
-import server.Msg;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Антон
@@ -19,10 +14,10 @@ public abstract class MsgToFrontend extends Msg {
     }
 
     public void exec(Abonent abonent) {
-        if (abonent instanceof Frontend) {
-            exec((Frontend) abonent);
+        if (abonent instanceof FrontendImpl) {
+            exec((FrontendImpl) abonent);
         }
     }
 
-    protected abstract void exec(Frontend frontend);
+    protected abstract void exec(FrontendImpl frontendImpl);
 }

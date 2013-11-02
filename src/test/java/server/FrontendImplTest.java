@@ -12,7 +12,7 @@ import java.util.Map;
  * Time: 10:43
  * To change this template use File | Settings | File Templates.
  */
-public class FrontendTest {
+public class FrontendImplTest {
 
     public void setUp() throws Exception {
 

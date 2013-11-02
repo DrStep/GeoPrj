@@ -1,7 +1,7 @@
 package server.vk;
 
 import server.Address;
-import server.Frontend;
+import server.FrontendImpl;
 import server.MsgToFrontend;
 
 /**
@@ -22,7 +22,7 @@ public class MsgUpdateVkUserData extends MsgToFrontend {
     }
 
     @Override
-    public void exec(Frontend frontend) {
-        frontend.setVkUserData(sessionId, vkUserData);
+    public void exec(FrontendImpl frontendImpl) {
+        frontendImpl.setVkUserData(sessionId, vkUserData);
     }
 }
