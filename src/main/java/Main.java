@@ -1,14 +1,15 @@
-import server.FrontendImpl;
-import server.MessageSystem;
+import server.frontend.FrontendImpl;
+import server.frontend.UrlList;
+import server.msgsystem.MessageSystemImpl;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import server.innerauth.AccountService;
+import server.auth.AccountServiceImpl;
 import utils.Logger;
-import server.vk.AccountVkService;
+import server.vkauth.AccountVkService;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,11 +31,11 @@ public class Main {
         int port = Integer.valueOf(portString);
         System.out.append("Starting at port: ").append(portString).append('\n');
 
-        MessageSystem ms = new MessageSystem();
+        MessageSystemImpl ms = new MessageSystemImpl();
 
         FrontendImpl frontendImpl = new FrontendImpl(ms);
         AccountVkService vkService = new AccountVkService(ms);
-        AccountService service = new AccountService(ms);
+        AccountServiceImpl service = new AccountServiceImpl(ms);
 
         new Thread(frontendImpl).start();
         new Thread(vkService).start();
