@@ -39,6 +39,7 @@ public class AccountService implements Abonent, Runnable {
     }
 
     public UserData getUserData(UserData user) {
+        System.out.println("Account Service getUserData");
         String name = user.getName();
         String password = user.getPassword();
         for(int i = 0; i < fakeAccount.size(); i++) {

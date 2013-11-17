@@ -45,14 +45,14 @@ public class MessageServiceTest  extends Asserts
     public void MsgGetUserDataTest()
     {
         Msg msg = new MsgGetUserData(frontend.getAddress(), null, "123456", userData );
-        Assert.assertEquals( "addresses do not matche", msg.getFrom(), frontend.getAddress());
+        Assert.assertEquals( "addresses do not match", msg.getFrom(), frontend.getAddress());
     }
 
     @Test
     public void MsgUpdateUserData()
     {
         Msg msg = new MsgUpdateUserData(null, frontend.getAddress(), "123456", userData );
-        Assert.assertEquals( "addresses do not matche", msg.getTo(), frontend.getAddress());
+        Assert.assertEquals( "addresses do not match", msg.getTo(), frontend.getAddress());
     }
 
 }

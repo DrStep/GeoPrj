@@ -82,6 +82,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
 
             /* Access_Token exist. Redirect user to main page */
             if (accessToken != null) {
+                System.out.println("access_token exists");
                 if (vkSessionIdToUserData.containsKey(sessionId)) {
                     VkUserData vkUserData = vkSessionIdToUserData.get(sessionId);   //
                 }
@@ -109,6 +110,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             String code = request.getParameter(CODE);
             /* Get Access_Token By Code */
             if (code != null) {
+                System.out.println("Get Access_Token By Code");
                 vkSessionIdToUserData.put(sessionId, new VkUserData());
                 Address from = getAddress();
                 Address to = messageSystem.getAccountVkService().getAccountService();
@@ -119,6 +121,7 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
             }
         } else if (request.getPathInfo().equals("/auth")) {
             String sessionId = request.getSession().getId();
+
             if (sessionId != null) {
                 response.getWriter().println(PageGenerator.getPage("auth.tml", pageVariables));
             } else {
@@ -220,6 +223,11 @@ public class Frontend extends HttpServlet implements Abonent, Runnable {
         date.getTime();
         DateFormat dateFormat = new SimpleDateFormat("HH.mm.ss");
         return dateFormat.format(date);
+    }
+
+    public UserData getUserDataBySessionId(String sessionId)
+    {
+        return  sessionIdToUserData.get(sessionId);
     }
 
     @Override
