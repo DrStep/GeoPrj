@@ -21,6 +21,12 @@ import server.vkauth.AccountVkService;
 public class Main {
     public final static int PORT = 8090;
 
+    private String generateIndent(int count) {
+        StringBuffer indent = new StringBuffer(" ");
+        for (int i = 0; i < count; indent.append(" "), i++) {};
+        return indent.toString();
+    }
+
     public static void main(String []args) {
         if (args.length != 1) {
             System.out.append("Use port as the first argument");
