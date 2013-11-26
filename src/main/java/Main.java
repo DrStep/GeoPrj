@@ -1,3 +1,4 @@
+import server.db.DBService;
 import server.frontend.FrontendImpl;
 import server.frontend.UrlList;
 import server.msgsystem.MessageSystemImpl;
@@ -10,6 +11,11 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import server.auth.AccountServiceImpl;
 import utils.Logger;
 import server.vkauth.AccountVkService;
+
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,9 +65,10 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
+        DBService db = new DBService();
         try {
-            server.start();
-            server.join();
+            //server.start();
+           // server.join();
         } catch (Exception e) {
             Logger.server(e.getMessage());
         }
