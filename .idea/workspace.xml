@@ -12,6 +12,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/set_url.py" afterPath="$PROJECT_DIR$/set_url.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="" />
     <ignored path="GeoPrj.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383374354694" ignored="false" />
@@ -28,6 +29,10 @@
     <file path="/timer.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382726082478" ignored="false" />
     <file path="/userid.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382295911864" ignored="false" />
     <file path="/authform.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383254862093" ignored="false" />
+    <file path="/Dummy.txt" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385325106632" ignored="false" />
+    <file path="/timer.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380346217259" ignored="false" />
+    <file path="/userid.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1381776220386" ignored="false" />
+    <file path="/authform.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380345665072" ignored="false" />
     <file path="/*.regexp" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380820862947" ignored="false" />
     <file path="/index.html" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382733504680" ignored="false" />
     <file path="/VkAuth.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1381261228685" ignored="false" />
@@ -138,6 +143,15 @@
                 <element signature="e#2574#2590#0" expanded="true" />
                 <element signature="e#3592#3608#0" expanded="true" />
                 <element signature="e#5633#5649#0" expanded="true" />
+      <file leaf-file-name="Frontend.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="13" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1733#1749#0" expanded="false" />
+                <element signature="e#3690#3706#0" expanded="false" />
+                <element signature="e#4413#4429#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -147,6 +161,10 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="106" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+      <file leaf-file-name="Main_page.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/Main_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.9202127">
               <folding />
             </state>
           </provider>
@@ -156,6 +174,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="21" column="85" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+      <file leaf-file-name="PageGenerator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -210,6 +232,10 @@
         <entry file="file://$PROJECT_DIR$/templates/auth.tml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="53" column="20" selection-start="2189" selection-end="2220" vertical-scroll-proportion="0.0">
+      <file leaf-file-name="AccountVkService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/handlers/AccountVkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="13" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -249,6 +275,22 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$USER_HOME$/Desktop/Java/L05/src/main/java/example/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/FrontendImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/MsgGetUserId.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/Command.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/Command.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/AccountVkService.java" />
+        <option value="$PROJECT_DIR$/templates/userid.tml" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/MsgUpdateVkUserData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/MsgGetVkUserData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/MsgUpdateUserId.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/AuthVkByCodeCmd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/MessageSystem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/UserData.java" />
+        <option value="$PROJECT_DIR$/templates/profile.tml" />
+        <option value="$PROJECT_DIR$/src/main/java/handlers/Frontend.java" />
+        <option value="$PROJECT_DIR$/src/main/java/templater/PageGeneratorTest.groovy" />
+        <option value="$PROJECT_DIR$/templates/Main_page.html" />
       </list>
     </option>
   </component>
@@ -289,6 +331,9 @@
     <option name="y" value="-8" />
     <option name="width" value="1616" />
     <option name="height" value="876" />
+    <option name="y" value="24" />
+    <option name="width" value="1366" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -342,6 +387,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+      <pane id="Scope">
+        <subPane subId="Production">
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GeoPrj" />
@@ -410,6 +457,7 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="src/main">
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -478,6 +526,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GeoPrj" />
@@ -556,6 +618,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/L03-1" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Лекции/L05" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -656,6 +719,13 @@
       <patterns />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -815,6 +885,8 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
+    <frame x="0" y="24" width="1366" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -825,19 +897,22 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25612473" sideWeight="0.5421558" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41225627" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34261838" sideWeight="0.46905017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1804009" sideWeight="0.49359658" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2289221" sideWeight="0.111358576" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.856546" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2001287" sideWeight="0.7172702" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2827298" sideWeight="0.4578442" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21136364" sideWeight="0.656" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27076924" sideWeight="0.4578442" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2925" y="109" width="571" height="881" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3363029" sideWeight="0.48826042" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.344" sideWeight="0.46905017" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -934,6 +1009,33 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#581#591#0" expanded="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1004,6 +1106,75 @@
     <entry file="file://$USER_HOME$/Desktop/Java/L05/src/main/java/example/Frontend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="154" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0475382">
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGeneratorTest.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="0" selection-start="5027" selection-end="5027" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="61" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/MessageSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/UserData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="31" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/VkAuth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="3" selection-start="4310" selection-end="4637" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/authform.tml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="19" selection-start="82" selection-end="82" vertical-scroll-proportion="0.13535032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGeneratorTest.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templater/PageGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1011,6 +1182,9 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="106" selection-start="367" selection-end="367" vertical-scroll-proportion="0.0">
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/AccountVkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1030,6 +1204,22 @@
             <element signature="e#3592#3608#0" expanded="true" />
             <element signature="e#5633#5649#0" expanded="true" />
           </folding>
+    <entry file="file://$PROJECT_DIR$/src/main/java/handlers/Frontend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1733#1749#0" expanded="false" />
+            <element signature="e#3690#3706#0" expanded="false" />
+            <element signature="e#4413#4429#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Main_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.9202127">
+          <folding />
         </state>
       </provider>
     </entry>
