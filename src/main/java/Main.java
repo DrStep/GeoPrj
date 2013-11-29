@@ -1,6 +1,5 @@
-import server.db.DBService;
+import server.dbService.DBService;
 import server.frontend.FrontendImpl;
-import server.frontend.UrlList;
 import server.msgsystem.MessageSystemImpl;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -11,11 +10,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import server.auth.AccountServiceImpl;
 import utils.Logger;
 import server.vkauth.AccountVkService;
-
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import server.resourceSystem.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,6 +60,8 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
+        //ServerData serverData = SAXP.readServerData("server.xml");
+        //System.out.println("PORT:" + serverData.getPort() + " ThreadPool:" + serverData.getThreadPool());
         DBService db = new DBService();
         try {
             //server.start();

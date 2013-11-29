@@ -1,4 +1,4 @@
-package server.db.tables;
+package server.dbService.tables;
 
 import java.io.Serializable;
 import java.util.Date;

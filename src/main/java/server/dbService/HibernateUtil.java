@@ -1,10 +1,12 @@
-package server.db;
+package server.dbService;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import server.db.tables.*;
+import server.dbService.example.Stock;
+import server.dbService.example.StockDailyRecord;
+import server.dbService.tables.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,8 +27,8 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Dialog.class);
             configuration.addAnnotatedClass(Messanger.class);
 
-            configuration.addAnnotatedClass(Test.class);
-            configuration.addAnnotatedClass(Test1.class);
+            configuration.addAnnotatedClass(Stock.class);
+            configuration.addAnnotatedClass(StockDailyRecord.class);
 
             SessionFactory sessionFactory = createSessionFactory(configuration);
             return sessionFactory;
@@ -47,8 +49,8 @@ public class HibernateUtil {
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
         configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/geo");
-        configuration.setProperty("hibernate.connection.username", "test");
-        configuration.setProperty("hibernate.connection.password", "test123");
+        configuration.setProperty("hibernate.connection.username", "root");
+        configuration.setProperty("hibernate.connection.password", "");
         configuration.setProperty("hibernate.show_sql", "true");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 

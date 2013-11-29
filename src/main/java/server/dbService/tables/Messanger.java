@@ -1,12 +1,11 @@
-package server.db.tables;
+package server.dbService.tables;
 
 import java.util.Date;
 
 import com.sun.istack.internal.NotNull;
-import com.thoughtworks.selenium.condition.Not;
-import org.hibernate.annotations.ForeignKey;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,15 +21,16 @@ import java.io.Serializable;
 @Table(name = "messanger")
 public class Messanger implements Serializable {
     @Id
-    @GeneratedValue(generator="id")
-    @GenericGenerator(name="id", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "msg_id", unique = true, nullable = false)
     private Long id;
 
     //@ManyToOne(targetEntity = Dialog.class)
     //@JoinColumn(name="id", insertable = false, updatable = false, nullable = false)
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
-    private Long dialogId;
+    @JoinColumn(name = "dialog_id", insertable = false, updatable = false)
+    private Dialog dialogId;
 
     @NotNull
     @Column(name = "msg")
@@ -51,11 +51,11 @@ public class Messanger implements Serializable {
         this.id = id;
     }
 
-    public Long getDialogId() {
+    public Dialog getDialog() {
         return dialogId;
     }
 
-    public void setDialogId(Long dialogId) {
+    public void setDialog(Dialog dialog) {
         this.dialogId = dialogId;
     }
 
