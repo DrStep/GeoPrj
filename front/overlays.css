@@ -1,0 +1,84 @@
+#drop-down{
+    position:absolute;
+    background:#fff;
+    border-radius: 0px 5px 40px 20px;
+    margin-left:12px;
+}
+#drop-down:before { 
+    content:"";
+    position:absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 12px solid #33b5e4; 
+    border-left: 12px solid transparent; 
+    margin: 0 0 0 -12px;
+}
+
+
+#avatar {
+  position:absolute;
+  width: 730px;
+  height: 133px;
+  line-height: 0px;
+  color: transparent;
+  font-size: 15px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 4;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+#avatar:hover {
+  line-height: 13px;
+  color: #000;
+}
+
+#avatar img{
+  float: left;
+  margin: 0 15px;
+}
+
+img.image:hover {
+-webkit-transition: all 0.3s ease-in;
+-moz-transition: all 0.3s ease-in;
+-o-transition: all 0.3s ease-in;
+-ms-transition: all 0.3s ease-in;
+transition: all 0.3s ease-in;
+width: 300px;
+margin: -40px;
+box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+z-index: 200;
+}
+
+#id_topic {
+font: bold 24px Comic Sans MS;
+color: #33b5e4;
+padding: 0px 0 0px 40px;
+}
+
+.add_window{
+  position:absolute;
+   border: 4px solid #4682B4; /* Параметры границы */
+   border-radius: 20px 20px 20px 20px;
+   margin:0 0 10 10%;
+   display:none;
+   overflow:auto;
+   width:535px;
+   height:340px;
+   z-index:5;
+   background-color: #fff; /* Цвет фона */
+   padding: 10px; /* Поля вокруг текста */
+     -moz-opacity: 1.0; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 1.0;
+}
+
+
+.ava_round {
+    border-radius: 100%; /* Радиус скругления */
+    width: 70px;
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+   }
