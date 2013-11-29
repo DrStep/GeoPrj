@@ -2,7 +2,7 @@
 <html>
   <head>
 <meta charset="utf-8" />
-    <title>Remove Markers</title>
+    <title>Geo</title>
     <style>
       html, body, #map-canvas {
         height: 100%;
@@ -376,6 +376,44 @@ input[type='checkbox'], input[type='radio'] { display: none; }
     margin: 0 0 0 -12px;
 }
 
+
+#avatar {
+  position:absolute;
+  width: 730px;
+  height: 133px;
+  line-height: 0px;
+  color: transparent;
+  font-size: 15px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 4;
+  text-transform: uppercase;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+#avatar:hover {
+  line-height: 13px;
+  color: #000;
+}
+
+#avatar img{
+  float: left;
+  margin: 0 15px;
+}
+
+img.image:hover {
+-webkit-transition: all 0.3s ease-in;
+-moz-transition: all 0.3s ease-in;
+-o-transition: all 0.3s ease-in;
+-ms-transition: all 0.3s ease-in;
+transition: all 0.3s ease-in;
+width: 300px;
+margin: -40px;
+box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+z-index: 200;
+}
+
 #id_topic {
 font: bold 24px Comic Sans MS;
 color: #33b5e4;
@@ -409,6 +447,13 @@ padding: 0px 0 0px 40px;
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
+
+.ava_round {
+    border-radius: 100%; /* Радиус скругления */
+    width: 70px;
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+   }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script type="text/javascript" src="markerclusterer.js"></script>
@@ -471,7 +516,9 @@ var _f_first=1;
 var overlay;
 var map;
 var coordinates;
+var markerCluster
 USGSOverlay.prototype = new google.maps.OverlayView();
+Picture.prototype = new google.maps.OverlayView();
 
 function initialize() {
   var haightAshbury = new google.maps.LatLng(55.756136,37.616265);
@@ -516,7 +563,9 @@ function initialize() {
 
   google.maps.event.addListener(map,'drag', function(event) {
        //здесь я плучаю некторые данные, в теории тут будет ajax выхов функции, пока не делаю, ибо она все равно ничего не получит, пока просто получаем захордкоженный массив с json координатами объектов.
-         clearMarkers();
+       overlay.setMap(null);
+       clearMarkers();
+       //markerCluster.clearMarkers(); 
          for (var i = 0; i < 100; i++) {
           var dataPhoto = data.photos[i];
           var latLng = new google.maps.LatLng(dataPhoto.latitude,
@@ -547,6 +596,85 @@ function initialize() {
     infowindow.open(map,marker);
   });
 }
+
+//###############################################################################################
+function Picture(location, image,map) {
+ // alert(location);
+  // Now initialize all properties.
+  coordinates = location;
+  this.bounds_ = location;
+  this.image_ = image;
+  this.map_ = map;
+  this.div_ = null;
+  this.setMap(map);
+}
+
+Picture.prototype.onAdd = function(location) {
+  //alert(coordinates);
+  var div = document.createElement('div');
+  div.setAttribute('id', 'avatar');
+  //alert("<img src=" + this.image_ + " class = ava_round>")
+  //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
+    div.innerHTML="<img src=" + this.image_ + " class = ava_round><p>Party in my House</p>";
+  this.div_ = div;
+
+  var panes = this.getPanes();
+  panes.overlayImage.appendChild(this.div_);
+};
+
+ Picture.prototype.draw = function(location) {
+  var overlayProjection = this.getProjection();
+  var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_);
+  var div = this.div_;
+  div.style.left = (sw.x-35) + 'px';
+  div.style.top = (sw.y-35) + 'px';
+  div.style.width = 120 + 'px';
+  div.style.height = 50 + 'px';
+ //div.style.class = "ava_round";
+  //alert(div.innerHTML);
+}; 
+
+Picture.prototype.onRemove = function() {
+  this.div_.parentNode.removeChild(this.div_);
+};
+
+
+Picture.prototype.hide = function() {
+  if (this.div_) {
+    this.div_.style.visibility = 'hidden';
+  }
+};
+
+Picture.prototype.getPosition = function() {
+  return this.bounds_;
+};
+
+Picture.prototype.show = function() {
+  if (this.div_) {
+    this.div_.style.visibility = 'visible';
+  }
+};
+
+Picture.prototype.toggle = function() {
+  if (this.div_) {
+    if (this.div_.style.visibility == 'hidden') {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+};
+
+Picture.prototype.toggleDOM = function() {
+  if (this.getMap()) {
+    this.setMap(null);
+  }
+};
+
+
+//################################################################################################
+
+
 
 function USGSOverlay(location, image,map) {
   // Now initialize all properties.
@@ -609,6 +737,7 @@ USGSOverlay.prototype.toggle = function() {
   }
 };
 
+
 USGSOverlay.prototype.toggleDOM = function() {
   if (this.getMap()) {
     this.setMap(null);
@@ -616,7 +745,9 @@ USGSOverlay.prototype.toggleDOM = function() {
 };
 
 function redraw() {
-    var markerCluster = new MarkerClusterer(map, markers);
+    markerCluster.clearMarkers();
+    markerCluster.redraw()
+    markerCluster = new MarkerClusterer(map, markers);
 }
 /*var markerImage = new google.maps.MarkerImage(
             'bg-num.png',
@@ -627,7 +758,9 @@ function redraw() {
         );*/
 
 function addMarker(location) {
-  var markerImage = new google.maps.MarkerImage(
+  srcImage = "img/ava_1.png";
+  picture = new Picture(location, srcImage, map);
+  /*var markerImage = new google.maps.MarkerImage(
             'img/ava_1.png',
             //  '/home/philipp/bg-num.png',
             new google.maps.Size(50,50),
@@ -645,14 +778,16 @@ function addMarker(location) {
     map: map,
     shape: markerShape
   });
-  //redraw();
-  //markers.push(marker);
+  //redraw();*/
+ // alert(markers);
+  markers.push(picture);
+
 }
 
 function setAllMap(map) {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
-  } 
+  }  
 }
 
 function clearMarkers() {
