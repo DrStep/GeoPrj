@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <server>
-        <port>8090</port>
-        <thread_pool>100</thread_pool>
-    </server>
+    <class type="server.resourceSystem.ServerData"><port>8090</port><threadPool>100</threadPool></class>

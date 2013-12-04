@@ -12,16 +12,12 @@ import org.xml.sax.helpers.DefaultHandler;
  * To change this template use File | Settings | File Templates.
  */
 public class ServerHandler extends DefaultHandler {
-    private static String PORT = "port";
-    private static String THREAD_POOL = "thread_pool";
-
-    private boolean mPort = false;
-    private boolean mThreadPoll = false;
-
-    private ServerData server;
+    private static String CLASSNAME = "class";
+    private String element;
+    private Object object;
 
     public void startDocument() throws SAXException {
-        server = new ServerData();
+        object = ReflectionHelper.createIntance("server.resourceSystem.ServerData");
         System.out.println("Start document");
     }
 
@@ -31,28 +27,25 @@ public class ServerHandler extends DefaultHandler {
 
     public void startElement(String uri, String localName,String qName,
                              Attributes attributes) throws SAXException {
-        if (qName.equalsIgnoreCase(PORT)) {
-            mPort = true;
+        if(qName != CLASSNAME){
+            element = qName;
         }
-
-        if (qName.equalsIgnoreCase(THREAD_POOL)) {
-            mThreadPoll = true;
+        else{
+            String className = attributes.getValue(0);
+            System.out.println("Class name: " + className);
+            object = ReflectionHelper.createIntance(className);
         }
     }
 
     public void characters(char ch[], int start, int length) throws SAXException {
-        if (mPort) {
-            server.setPort(Integer.parseInt(new String(ch, start, length)));
-            mPort = false;
-        }
-
-        if (mThreadPoll) {
-            server.setThreadPool(Integer.parseInt(new String(ch, start, length)));
-            mThreadPoll = false;
+        if(element != null){
+            String value = new String(ch, start, length);
+            System.out.println(element + " = " + value);
+            ReflectionHelper.setFieldValue(object, element, value);
         }
     }
 
-    public ServerData getServer() {
-        return server;
+    public Object getObject() {
+        return object;
     }
 }

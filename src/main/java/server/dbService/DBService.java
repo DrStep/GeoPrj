@@ -1,12 +1,13 @@
 package server.dbService;
 
 import org.hibernate.Session;
-import java.util.Date;
-import server.dbService.example.Stock;
-import server.dbService.example.StockDailyRecord;
-import server.dbService.tables.Dialog;
-import server.dbService.tables.Messanger;
-import server.dbService.tables.Users;
+
+import java.util.*;
+
+import server.dbService.tables.*;
+import server.dbService.tables.Access;
+
+import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,16 +22,7 @@ public class DBService {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        /*Users u = new Users();
-        u.setName("Anton");
-        u.setPassword("Hash+Solt");
-        u.setGender(1);
-        u.setToken("dsdsd");
-        u.setExpires(0);
-        u.setExist(true);
-        session.save(u);*/
-
-        Dialog d = new Dialog();
+        /*Dialog d = new Dialog();
         d.setTitle("Hello");
         session.save(d);
 
@@ -39,28 +31,172 @@ public class DBService {
         m.setMsg("Hello World!");
         m.setDateTime(new Date());
         m.setRead(false);
-        session.save(m);
+        session.save(m);*/
+/*
+        User user1 = new User();
+        user1.setName("Alex");
+        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
+        user1.setGender(18);
+        user1.setToken("vk");
+        user1.setExist(true);
+        user1.setExpires(System.currentTimeMillis() / 1000L);
+        user1.setPhoto("abc.png");
 
-       /*System.out.println("Hibernate one to many (Annotation)");
+        Location loc1 = new Location();
+        loc1.setLatitude(100F);
+        loc1.setLongitude(100F);
+        loc1.setTime(new Date());
+
+        Location loc2 = new Location();
+        loc2.setLatitude(100F);
+        loc2.setLongitude(100F);
+        loc2.setTime(new Date());
+
+        List<Location> locationList = new ArrayList<Location>();
+        locationList.add(loc1);
+        locationList.add(loc2);
+
+        user1.setLocations(locationList);*/
+
+        /*Meet meet = new Meet();
+        meet.setTitle("Meet1");
+        meet.setDescription("Go to cinema");
+        meet.setPhoto("abc.png");
+        meet.setDateTime(new Date());
+        meet.setAccess(Access.PUBLIC);
+        meet.setStatus("Status");
+        meet.setLastUpdate(new Date());
+        meet.setWhatChange("Wall");
+        meet.setType(1);
+
+        Location loc1 = new Location();
+        loc1.setLatitude(100F);
+        loc1.setLongitude(100F);
+        loc1.setTime(new Date());
 
 
-        Stock stock = new Stock();
-        stock.setStockCode("7052");
-        stock.setStockName("PADINI");
-        session.save(stock);
 
-        StockDailyRecord stockDailyRecords = new StockDailyRecord();
-        stockDailyRecords.setPriceOpen(new Float("1.2"));
-        stockDailyRecords.setPriceClose(new Float("1.1"));
-        stockDailyRecords.setPriceChange(new Float("10.0"));
-        stockDailyRecords.setVolume(3000000L);
-        stockDailyRecords.setDate(new Date());
+        meet.setLocation(loc1);
+        meet.setWall(wall);
+        session.save(meet);*/
 
-        stockDailyRecords.setStock(stock);
-        stock.getStockDailyRecords().add(stockDailyRecords);
+        /*User user1 = new User();
+        user1.setName("Alex");
+        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
+        user1.setGender(18);
+        user1.setToken("vk");
+        user1.setExist(true);
+        user1.setExpires(System.currentTimeMillis() / 1000L);
+        user1.setPhoto("abc.png");
 
-        session.save(stockDailyRecords);*/
+        Location loc1 = new Location();
+        loc1.setLatitude(100F);
+        loc1.setLongitude(100F);
+        loc1.setTime(new Date());
 
+
+
+        Place place = new Place();
+        place.setLocation(loc1);
+        place.setWall(wall);
+        place.setUser(user1);
+        place.setTitle("Title1");
+        place.setDescription("Desc1");
+        place.setStatus("Status1");
+        place.setImage("top.png");
+
+        session.save(place);*/
+
+/*
+        Location loc1 = new Location();
+        loc1.setLatitude(100F);
+        loc1.setLongitude(100F);
+        loc1.setTime(new Date());
+
+        Wall wall = new Wall();
+        wall.setMsg("Wall msg");
+        wall.setDateTime(new Date());
+
+        Inviters inviters = new Inviters();
+
+        Meet meet = new Meet();
+        meet.setLocation(loc1);
+        meet.setWall(wall);
+        meet.setTitle("Meet1");
+        meet.setDescription("Go to cinema");
+        meet.setPhoto("abc.png");
+        meet.setDateTime(new Date());
+        meet.setAccess(Access.PUBLIC);
+        meet.setStatus("Status");
+        meet.setLastUpdate(new Date());
+        meet.setWhatChange("Wall");
+        meet.setType(1);
+*/
+
+
+        User user1 = new User();
+        user1.setName("Alex");
+        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
+        user1.setGender(18);
+        user1.setToken("vk");
+        user1.setExist(true);
+        user1.setExpires(System.currentTimeMillis() / 1000L);
+        user1.setPhoto("abc.png");
+
+        User user2 = new User();
+        user2.setName("Alex1");
+        user2.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd1");
+        user2.setGender(18);
+        user2.setToken("vk");
+        user2.setExist(true);
+        user2.setExpires(System.currentTimeMillis() / 1000L);
+        user2.setPhoto("abc2.png");
+
+        Friends frd1 = new Friends();
+        frd1.setUser1(user1);
+        frd1.setUser1(user2);
+
+        //session.save(frd1);
+
+        List<Friends> arr = new ArrayList<Friends>();
+        arr.add(frd1);
+
+        user2.setFriendsList1(arr);
+
+        session.save(user2);
+
+/*        inviters.setUserTo(user1);
+        inviters.setUserFrom(user2);
+        inviters.setMeet(meet);
+
+        inviters.setTime(new Date());
+        inviters.setAdmin(false);
+        inviters.setInvite(true);
+        inviters.setChange(false);*/
+
+
+
+        /*Dialog dialog1 = new Dialog();
+        dialog1.setTitle("Hello");
+
+        Dialog dialog2 = new Dialog();
+        dialog2.setTitle("Hello1");
+
+        Set<Dialog> dialogSet = new HashSet<Dialog>();
+        dialogSet.add(dialog1);
+        dialogSet.add(dialog2);
+
+
+
+        user1.setDialogs(dialogSet);*/
+
+
+        /*Set<User> userSet = new HashSet<User>();
+        userSet.add(user1);
+        userSet.add(user2);
+
+        dialog.setUsers(userSet);
+        */
 
         session.getTransaction().commit();
         System.out.println("Done. Add User.");

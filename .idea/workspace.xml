@@ -2,28 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/UserLocation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server.xml" />
-      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\Test.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\Test1.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\DBService.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\HibernateUtil.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\Dialog.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\DialogUser.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/DialogUser.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\Messanger.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java" />
-      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\GeoPrj\src\main\java\server\db\tables\Users.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Users.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Access.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/AccessFriends.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Friends.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Inviters.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/LikeMeet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/LikePlace.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_15.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Meet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Place.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ReflectionHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Wall.java" />
+      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\Geo\geo\src\main\java\server\dbService\example\Stock.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Антон\IdeaProjects\Geo\geo\src\main\java\server\dbService\example\StockDailyRecord.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Антон\IdeaProjects\Geo\geo\src\main\java\server\dbService\tables\Users.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/tables/DialogUser.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/DialogUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeoPrj.iml" afterPath="$PROJECT_DIR$/GeoPrj.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_orbit_javax_servlet_3_0_0_v201112011016.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_orbit_javax_servlet_3_0_0_v201112011016.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/tables/UserLocation.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/tables/UserLocation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.xml" afterPath="$PROJECT_DIR$/server.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GeoPrj.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385750846248" ignored="false" />
+    <file path="/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386159111147" ignored="false" />
     <file path="/JettyServer.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380306652525" ignored="false" />
     <file path="/PageGenerator.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380308775417" ignored="false" />
     <file path="/timer" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380309535942" ignored="false" />
@@ -33,7 +44,7 @@
     <file path="$PROJECT_DIR$/../MavenGeo/src/main/java/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380310937248" ignored="false" />
     <file path="/HelloServer.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380312099172" ignored="false" />
     <file path="/userid" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1380312385381" ignored="false" />
-    <file path="/Dummy.txt" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385752814582" ignored="false" />
+    <file path="/Dummy.txt" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386048707204" ignored="false" />
     <file path="/timer.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382726082478" ignored="false" />
     <file path="/userid.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1382295911864" ignored="false" />
     <file path="/authform.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383254862093" ignored="false" />
@@ -86,32 +97,37 @@
     <file path="/VFS.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385142695203" ignored="false" />
     <file path="/VFSImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385142750185" ignored="false" />
     <file path="/hibernate.cfg.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385153031906" ignored="false" />
-    <file path="/Users.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385369127731" ignored="false" />
-    <file path="/DBService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385755391022" ignored="false" />
-    <file path="/HibernateUtil.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385752999796" ignored="false" />
+    <file path="/Users.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386161076979" ignored="false" />
+    <file path="/DBService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386179915018" ignored="false" />
+    <file path="/HibernateUtil.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386179705333" ignored="false" />
     <file path="/Test.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385397928956" ignored="false" />
-    <file path="/Dialog.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385396983550" ignored="false" />
-    <file path="/Messanger.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385753324724" ignored="false" />
-    <file path="/DialogUser.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385397584043" ignored="false" />
+    <file path="/Dialog.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386165618881" ignored="false" />
+    <file path="/Messanger.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386161221478" ignored="false" />
+    <file path="/DialogUser.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386162659395" ignored="false" />
     <file path="/Test1.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385397786058" ignored="false" />
     <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/main/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747647285" ignored="false" />
     <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/main/SerializationObject.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747481940" ignored="false" />
     <file path="/SerializationObject.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747481235" ignored="false" />
     <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/main/ObjectFactory.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747597998" ignored="false" />
-    <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/reflection/ReflectionHelper.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747609576" ignored="false" />
-    <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/sax/ReadXMLFileSAX.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747616300" ignored="false" />
     <file path="/ReadXMLFileSAX.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747616730" ignored="false" />
     <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/sax/SaxEmptyHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747625981" ignored="false" />
     <file path="/SaxEmptyHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747625255" ignored="false" />
-    <file path="$USER_HOME$/Desktop/Java/L07/L07/src/main/java/sax/SaxHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747635240" ignored="false" />
     <file path="/SaxHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385747635240" ignored="false" />
-    <file path="/server.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385748632685" ignored="false" />
+    <file path="/server.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385796484470" ignored="false" />
     <file path="/Server.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385750789817" ignored="false" />
-    <file path="/ServerHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385750536238" ignored="false" />
+    <file path="/ServerHandler.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385796273140" ignored="false" />
     <file path="/SAXParcer.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385750572878" ignored="false" />
     <file path="/ServerData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385750780812" ignored="false" />
-    <file path="/UserLocation.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385751781930" ignored="false" />
-    <file path="/Location.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385751773159" ignored="false" />
+    <file path="/UserLocation.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386164057948" ignored="false" />
+    <file path="/Location.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386172547428" ignored="false" />
+    <file path="/SAXP.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385796126532" ignored="false" />
+    <file path="/Wall.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386167814804" ignored="false" />
+    <file path="/Meet.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386174328998" ignored="false" />
+    <file path="/Place.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386175507365" ignored="false" />
+    <file path="/User.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386179407653" ignored="false" />
+    <file path="/AccessFriends.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386174184724" ignored="false" />
+    <file path="/Inviters.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386175273523" ignored="false" />
+    <file path="/Friends.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386179320197" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +142,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -162,7 +179,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
@@ -172,7 +188,99 @@
     <favorites_list name="GeoPrj" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Messanger.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="578" selection-end="671" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="151" column="88" selection-start="4174" selection-end="4174" vertical-scroll-proportion="4.653992">
+              <folding>
+                <element signature="e#4383#4392#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HibernateUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="51" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Friends.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Friends.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="54" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Inviters.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Inviters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="566" selection-end="664" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="61" selection-start="1440" selection-end="1440" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1486#1494#0" expanded="true" />
+                <element signature="e#1885#1895#0" expanded="true" />
+                <element signature="e#2013#2022#0" expanded="true" />
+                <element signature="e#2140#2149#0" expanded="true" />
+                <element signature="e#2255#2261#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dialog.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="0" selection-start="844" selection-end="969" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#955#966#0" expanded="true" />
+                <element signature="e#1074#1080#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Location.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="770" selection-end="884" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#875#881#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -190,22 +298,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXParcer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/DialogUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/UserLocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/example/Stock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/example/StockDailyRecord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Access.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Wall.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/AccessFriends.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Meet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Place.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Inviters.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Friends.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
       </list>
     </option>
   </component>
@@ -291,8 +399,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,7 +413,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemId" value="geo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,7 +423,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -335,7 +473,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemId" value="geo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -351,8 +489,156 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resourceSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dbService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GeoPrj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dbService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,19 +651,20 @@
     <property name="options.lastSelected" value="copyright" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Java/L07/L07" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -486,6 +773,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -512,19 +812,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -628,28 +915,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35523385" sideWeight="0.48772678" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344098" sideWeight="0.5773746" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24164811" sideWeight="0.15368196" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44428968" sideWeight="0.5772201" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38530067" sideWeight="0.15421557" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41225627" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33741647" sideWeight="0.4674493" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3363029" sideWeight="0.4669157" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1643454" sideWeight="0.49359658" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21611527" sideWeight="0.20155902" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17449306" sideWeight="0.33853006" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.856546" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21611527" sideWeight="0.55567926" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24164811" sideWeight="0.846318" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19690502" sideWeight="0.6146993" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38530067" sideWeight="0.8457844" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2925" y="109" width="571" height="881" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.48826042" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -726,86 +1013,90 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Users.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/DialogUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="49" selection-start="572" selection-end="572" vertical-scroll-proportion="0.6500956">
+        <state line="28" column="32" selection-start="659" selection-end="659" vertical-scroll-proportion="0.37832698">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/UserLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="39" selection-start="682" selection-end="682" vertical-scroll-proportion="0.51520914">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Wall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="62" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/AccessFriends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="28" selection-start="633" selection-end="633" vertical-scroll-proportion="0.72577995">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Meet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="4" selection-start="714" selection-end="784" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1806#1812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Place.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="244" selection-end="274" vertical-scroll-proportion="0.2777778">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Access.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="1" selection-start="250" selection-end="250" vertical-scroll-proportion="0.3246528">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Location.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="52" selection-start="439" selection-end="439" vertical-scroll-proportion="0.3824092">
+        <state line="34" column="0" selection-start="770" selection-end="884" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Java/orm/main/CreatedBy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="71" selection-start="220" selection-end="220" vertical-scroll-proportion="0.29254302" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Java/orm/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.39005736" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/HibernateExample/src/test/java/com/mkyong/common/AppTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="40" selection-start="204" selection-end="204" vertical-scroll-proportion="0.26003823" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/example/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="8" selection-start="8" selection-end="33" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="58" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/example/StockDailyRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="28" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Java/orm/dao/UserDataSetDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="50" selection-start="215" selection-end="215" vertical-scroll-proportion="0.16390042">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Java/orm/dataSets/UserDataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="57" selection-start="427" selection-end="427" vertical-scroll-proportion="0.6348548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="23" selection-start="889" selection-end="889" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#875#881#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Messanger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="51" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
+        <state line="24" column="0" selection-start="578" selection-end="671" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Inviters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="566" selection-end="664" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -814,24 +1105,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Dialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="64" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.7145038">
+        <state line="33" column="0" selection-start="844" selection-end="969" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#955#966#0" expanded="true" />
+            <element signature="e#1074#1080#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="51" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Friends.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.610687">
-          <folding />
+        <state line="22" column="54" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore.txt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="57" column="61" selection-start="1440" selection-end="1440" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1486#1494#0" expanded="true" />
+            <element signature="e#1885#1895#0" expanded="true" />
+            <element signature="e#2013#2022#0" expanded="true" />
+            <element signature="e#2140#2149#0" expanded="true" />
+            <element signature="e#2255#2261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="88" selection-start="4174" selection-end="4174" vertical-scroll-proportion="4.653992">
+          <folding>
+            <element signature="e#4383#4392#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

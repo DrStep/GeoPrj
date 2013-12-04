@@ -4,7 +4,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
@@ -22,13 +26,16 @@ public class Dialog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
-    private Long dialogId;
+    private Integer dialogId = -1;
 
     @Column(name = "title", nullable = false, length = 30)
     private String title;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "dialogId")
-    private List<Messanger> msgList;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "dialog")
+    private List<Messanger> msgList = new ArrayList<Messanger>();
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "dialogs")
+    private Set<User> users = new HashSet<User>();
 
     public String getTitle() {
         return title;
@@ -38,12 +45,12 @@ public class Dialog implements Serializable {
         this.title = title;
     }
 
-    public Long getId() {
+    public Integer getDialogId() {
         return dialogId;
     }
 
-    public void setId(Long id) {
-        this.dialogId = id;
+    public void setDialogId(Integer dialogId) {
+        this.dialogId = dialogId;
     }
 
     public List<Messanger> getMsgList() {
@@ -52,5 +59,13 @@ public class Dialog implements Serializable {
 
     public void setMsgList(List<Messanger> msgList) {
         this.msgList = msgList;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

@@ -3,9 +3,7 @@ package server.dbService.tables;
 import java.util.Date;
 
 import com.sun.istack.internal.NotNull;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
-import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,14 +21,11 @@ public class Messanger implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "msg_id", unique = true, nullable = false)
-    private Long id;
-
-    //@ManyToOne(targetEntity = Dialog.class)
-    //@JoinColumn(name="id", insertable = false, updatable = false, nullable = false)
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dialog_id", insertable = false, updatable = false)
-    private Dialog dialogId;
+    @JoinColumn(name = "dialog_id", nullable = false)
+    private Dialog dialog;
 
     @NotNull
     @Column(name = "msg")
@@ -43,20 +38,20 @@ public class Messanger implements Serializable {
     @Column(name = "is_read")
     private Boolean isRead;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     public Dialog getDialog() {
-        return dialogId;
+        return dialog;
     }
 
     public void setDialog(Dialog dialog) {
-        this.dialogId = dialogId;
+        this.dialog = dialog;
     }
 
     public String getMsg() {

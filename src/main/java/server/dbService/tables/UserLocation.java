@@ -18,13 +18,37 @@ import java.util.Date;
 @Table(name = "user_location")
 public class UserLocation implements Serializable {
     @Id
-    @GeneratedValue(generator="loc_id")
-    @GenericGenerator(name="loc_id", strategy = "increment")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "loc_id", unique = true, nullable = false)
+    private Integer id;
 
     @Column(name="user_id")
-    private Long userId;
+    private User userId;
 
     @Column(name="loc_id_extra")
-    private Long userLocId;
+    private UserLocation userLocId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    public UserLocation getUserLocId() {
+        return userLocId;
+    }
+
+    public void setUserLocId(UserLocation userLocId) {
+        this.userLocId = userLocId;
+    }
 }

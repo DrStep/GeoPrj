@@ -4,8 +4,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import server.dbService.example.Stock;
-import server.dbService.example.StockDailyRecord;
 import server.dbService.tables.*;
 
 /**
@@ -23,12 +21,26 @@ public class HibernateUtil {
 
         try {
             Configuration configuration = new Configuration();
-            configuration.addAnnotatedClass(Users.class);
+
+            configuration.addAnnotatedClass(User.class);
             configuration.addAnnotatedClass(Dialog.class);
+            configuration.addAnnotatedClass(DialogUser.class);
             configuration.addAnnotatedClass(Messanger.class);
 
-            configuration.addAnnotatedClass(Stock.class);
-            configuration.addAnnotatedClass(StockDailyRecord.class);
+            configuration.addAnnotatedClass(Location.class);
+            configuration.addAnnotatedClass(UserLocation.class);
+
+            configuration.addAnnotatedClass(Meet.class);
+            configuration.addAnnotatedClass(Wall.class);
+
+            configuration.addAnnotatedClass(AccessFriends.class);
+            configuration.addAnnotatedClass(Inviters.class);
+            configuration.addAnnotatedClass(Place.class);
+
+            configuration.addAnnotatedClass(Friends.class);
+
+
+
 
             SessionFactory sessionFactory = createSessionFactory(configuration);
             return sessionFactory;
@@ -48,7 +60,7 @@ public class HibernateUtil {
         //"jdbc:mysql://localhost:3306/geo", "test", "test123"
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-        configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/geo");
+        configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/geoV1");
         configuration.setProperty("hibernate.connection.username", "root");
         configuration.setProperty("hibernate.connection.password", "");
         configuration.setProperty("hibernate.show_sql", "true");

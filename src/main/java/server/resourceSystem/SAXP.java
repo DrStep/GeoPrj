@@ -12,14 +12,14 @@ import javax.xml.parsers.SAXParserFactory;
  */
 public class SAXP {
 
-    public static ServerData readServerData(String xmlFile) {
+    public static Object readServerData(String xmlFile) {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
 
             ServerHandler serverHandler = new ServerHandler();
             saxParser.parse(xmlFile, serverHandler);
-            return serverHandler.getServer();
+            return serverHandler.getObject();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -60,8 +60,6 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
-        //ServerData serverData = SAXP.readServerData("server.xml");
-        //System.out.println("PORT:" + serverData.getPort() + " ThreadPool:" + serverData.getThreadPool());
         DBService db = new DBService();
         try {
             //server.start();
