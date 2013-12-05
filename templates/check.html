@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta charset="utf-8" />
+    <title>Remove Markers</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 3;
+
+        padding: 5px;в div'е в строку
+      }
+
+/*СТЕПА*/
+#menu{
+   float:left;
+   position: absolute;
+   margin:0px 0 0 10px; /*было 70px*/
+   width:170px;
+   height: 610px;
+   border-bottom-right-radius:95%;
+   border:3px solid #4682B4;
+   background-color:#33b5e4;
+   -moz-opacity: 0.9; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 0.9; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 0.9;
+   z-index:1
+}
+
+#menu #m1,#m2,#m3,#m4,#m5,#m6 {
+   display:block;
+   margin:0 0 0 -40px;
+   border-bottom:1px solid #0099cc;
+}
+#menu #m1{
+   width:111%;
+}
+#menu #m2{
+   width:105%;
+}
+#menu #m3{
+   width:97%;
+}
+#menu #m4{
+   width:87%;
+}
+#menu #m5{
+   width:72%;
+}
+#menu #m6{
+   width:54%;
+}
+
+#menu a{
+   display:block;
+   padding:15px 0 15px 12px;
+   font: bold 21px Times New Roman;
+   color:#555;
+   text-align:center;
+   text-decoration:none;
+}
+
+#menu #m1 a{
+   font:bold 24px Comic Sans MS;
+   color:#ffffff;
+   padding:200px 0 20px 0;
+}
+
+
+#menu a:hover{
+	color: #AFEEEE;
+}
+
+#on-button {     /* Круглая менюшка */
+   overflow:hidden;
+   position:absolute;
+   top:2px;
+   left:102px;
+    max-width: 100%;
+    height: auto;
+   z-index:2;
+   width: 200px;
+   height: 200px;
+   -moz-opacity: 1.0; 
+   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 1.0;
+   border:6px solid #4682B4;
+   color:#fff;
+   background: #d5d2d2; 
+   -moz-border-radius: 100%; 
+   -webkit-border-radius: 100%; 
+   border-radius: 100%;
+   -webkit-transition: all .2s ease-in-out;
+   -moz-transition: all .2s ease-in-out;
+   -ms-transition: all .2s ease-in-out;
+   -o-transition: all .2s ease-in-out;
+   transition: all .2s ease-in-out;
+	 text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	 box-shadow: inset 0 -125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2);
+	}
+	/* При наведении курсора мыши */
+#on-button:hover {
+	 box-shadow: inset 0 125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2);
+	}
+	/* При нажатии кнопки мыши*/
+#on-button:active {
+	 box-shadow: inset 0 125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2),
+	 inset 0 0 30px rgba(0,0,0,0.3);
+	}
+	/* Элемент spans внутри кнопки будет вращаться */
+#on-button > span {
+	 -webkit-backface-visibility: hidden;
+	 -moz-backface-visibility: hidden;
+	 -ms-backface-visibility: hidden;
+	 -o-backface-visibility: hidden;
+	 -webkit-transition: -webkit-transform 0.2s linear;
+	 -moz-transition: -moz-transform 0.2s linear;
+	 -ms-transition: -moz-transform 0.2s linear;
+	 -o-transition: -moz-transform 0.2s linear;
+	 transition: -moz-transform 0.2s linear;
+	 display: block;
+	 width: 100%;
+	 height: 100%;
+	 background: #d5d2d2;
+	 border-radius: 120px;
+	 pointer-events: auto;
+	 position: absolute;
+	 z-index: 3;
+	 top: 0;
+	 left: 0;
+	 box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	 box-shadow: inset 0 -112px 100px -100px rgba(0, 0, 0, 0.5);
+	}
+	/* Изменение тени при наведении курсора мыши, что бы она соответствовала тени контейнера */
+#on-button:hover > span {
+	 box-shadow: inset 0 112px 100px -100px rgba(0, 0, 0, 0.5);
+	}
+	/* Вращение последнего элемента span, чтобы он был перевернутым */
+#on-button > span:last-of-type {
+	 -webkit-transform: rotateY(180deg);
+	 -moz-transform: rotateY(180deg);
+	 -o-transform: rotateY(180deg);
+	 -ms-transform: rotateY(180deg);
+	 transform: rotateY(180deg);
+	}
+	/* Добавляем псевдо элемент с белым фоном, который будет создавать
+	 иллюзию, что есть дырка */
+#on-button:after {
+	 position: absolute;
+	 content: " ";
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 border-radius: 120px;
+	 background: #fff;
+	 z-index: 2;
+	}
+/* Когда элемент ввода отмечен, поворачиваем элементы span вокруг на 180 градусов */
+	#on-check:checked + #on-button > span:first-of-type {
+	 -webkit-transform: rotateY(180deg);
+	 -moz-transform: rotateY(180deg);
+	 -o-transform: rotateY(180deg);
+	 -ms-transform: rotateY(180deg);
+	 transform: rotateY(180deg);
+	}
+	#on-check:checked + #on-button > span:last-of-type {
+	 -webkit-transform: rotateY(0deg);
+	 -moz-transform: rotateY(0deg);
+	 -ms-transform: rotateY(0deg);
+	 -o-transform: rotateY(0deg);
+	 transform: rotateY(0deg);
+	}
+input[type='checkbox'], input[type='radio'] { display: none; }
+
+.brd {
+   position:absolute;
+   border: 4px solid #4682B4; /* Параметры границы */
+   border-radius: 20px 0px 80px 40px;
+   margin:0px 0 0 220px;   /* Было 280 */
+   display:none;
+   overflow:auto;
+   width:1060px;
+   height:630px;
+   z-index:4;
+   background-color: #fff; /* Цвет фона */
+   padding: 10px; /* Поля вокруг текста */
+
+}
+#circle_mini{
+   float:left;
+   display:inline-block;
+   margin:15px 0 0px 40px;
+   width: 120px;
+   height: 120px;
+   border:3px solid #4682B4;
+   background: #d5d2d2; 
+   -moz-border-radius: 100%; 
+   -webkit-border-radius: 100%; 
+   border-radius: 100%;
+}
+#one_friend,#one_event{
+
+  display:block;
+  width:100%;
+  height:160px;
+  border-bottom:2px solid #4682B4;
+}
+#friend_block{
+   float:left;
+   display:inline;
+   margin:20px 0 0 30px;
+}
+.button_friend{
+  -moz-border-radius: 1px;
+  -moz-box-shadow: #6E7849 0px 0px 10px;
+  -webkit-border-radius: 25px;
+  -webkit-box-shadow: #6E7849 0 0 10px;
+  background-color: #15a0f4;
+  border-radius: 1px;
+  border: 2px solid #4682B4;
+  box-shadow: #6E7849 0px 0px 10px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top:10px;
+  padding: 6px;
+  text-decoration: none;
+  text-shadow: #000000 5px 5px 15px;
+}
+.button_friend:hover {
+  background-color: #5dc1fe;
+}
+#friend_font{
+   font:bold 24px Comic Sans MS;
+   color:#33b5e4;
+   padding:0px 0 0px 40px;
+}
+.button_event{
+  -moz-border-radius: 1px;
+  -moz-box-shadow: #6E7849 0px 0px 10px;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-border-radius: 25px;
+  -webkit-box-shadow: #6E7849 0 0 10px;
+  -webkit-transition: all 0.5s ease-out;
+  background-color:#696969;
+  border-radius: 1px;
+  border: 2px solid #4682B4;
+  box-shadow: #6E7849 0px 0px 10px;
+  color:#fff;
+  display: inline-block;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top:10px;
+  padding: 6px;
+  text-decoration: none;
+  text-shadow: #000000 5px 5px 15px;
+  transition: all 0.5s ease-out;
+}
+.button_friend:hover {
+  background-color: #000;
+}
+#event_font{
+   font:bold 24px Comic Sans MS;
+   color:#696969;
+   padding:0px 0 0px 40px;
+}
+#event_square{
+   float:left;
+   display:inline-block;
+   margin:15px 0 0px 40px;
+   width: 120px;
+   height: 120px;
+   border:3px solid #696969;
+   background: #d5d2d2; 
+}
+
+.chat{
+  position:absolute;
+   border: 4px solid #4682B4; /* Параметры границы */
+   border-radius: 20px 20px 20px 20px;
+   margin:0 0 0 83%;
+   display:none;
+   overflow:auto;
+   width:200px;
+   height:230px;
+   z-index:5;
+   background-color: #fff; /* Цвет фона */
+   padding: 10px; /* Поля вокруг текста */
+     -moz-opacity: 1.0; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 1.0;
+}
+.chat #income{
+   width:100%;
+   height:75%;
+   display:block;
+   border-bottom:2px solid #888;
+}
+.chat #yourtext{
+   display:block;
+   margin-top:5px;
+   width:100%;
+}
+
+.label_rightclick {
+    background: #33b5e4; /* Цвет фона */
+    color: #fff; /* Цвет шрифта */
+    text-align: center; /* Надпись на кнопке по центру */ 
+    cursor: pointer; /* Изменение вида курсора при наведении*/
+}
+.label_rightclick a{
+    font: bold 20px Times New Roman;
+    display:block;
+    border-top:1px solid #4682B4;
+}
+.label_rightclick a:first-child{
+    border-top:0px solid #4682B4;
+}
+.label_rightclick a:hover {
+    background: #3366FF; /* Цвет фона */
+    font-weight: bold; /* Насыщенность шрифта */
+    color: #fff; /* Цвет шрифта */
+    text-align: center; /* Надпись на кнопке по центру */ 
+    cursor: pointer;
+}
+
+#drop-down{
+    position:absolute;
+    background:#fff;
+    border-radius: 0px 5px 40px 20px;
+    margin-left:12px;
+}
+#drop-down:before { 
+    content:"";
+    position:absolute;
+    width: 0; 
+    height: 0; 
+    border-top: 12px solid #33b5e4; 
+    border-left: 12px solid transparent; 
+    margin: 0 0 0 -12px;
+}
+
+#inner-menu { 
+	padding:0; 
+	margin:0 auto; 
+	list-style:none; 
+	position:relative; 
+	width:270px; 
+	height:270px; 
+	background:#FFF; 
+}
+#inner-menu ul { 
+	padding:0; 
+	margin:0; 
+	list-style:none; 
+	position:absolute; 
+	left:-9999px; 
+	width:140px; 
+	height:140px; 
+	background:transparent; 
+}
+#inner-menu li a { display:block; width:70px; height:70px; text-decoration:none; color:#000; }
+#inner-menu li { display:block; width:70px; height:70px; position:absolute; text-decoration:none; color:#000; }
+#inner-menu li.v1 { background:url('home.gif'); left:65px; top:-5px; }
+#inner-menu li.v2 { background:url('home.gif'); left:115px; top:17px; }
+#inner-menu li.v3 { background:url('home.gif'); left:137px; top:63px; }
+#inner-menu li.v4 { background:url('home.gif'); left:115px; top:109px; }
+#inner-menu li.v5 { background:url('home.gif'); left:65px; top:133px; }
+#inner-menu li.v6 { background:url('home.gif'); left:16px; top:17px; }
+#inner-menu li.v7 { background:url('home.gif'); left:20px; top:109px; }
+#inner-menu li.v8 { background:url('home.gif'); left:0px; top:63px; }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="markerclusterer.js"></script>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+ <script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+ <script type="text/javascript" src="data.json"></script>
+<script type="text/javascript">
+var chatCheck=false;
+var startWidth=true;
+
+$(document).ready(init); 
+function init(){ 
+	$(".chat").draggable({containment:'window'}); 
+}
+
+function openDiv (id) {
+	$(".brd").css({display:'none'});
+	$('#'+id).fadeIn(200);
+	$('#on-button').fadeOut(50);
+};
+
+function closeDiv(){
+	$(".brd").fadeOut(200);
+	$('#on-button').fadeIn(200);};
+
+function startChat(){
+	if (chatCheck==false){
+		$('#delete').animate({width:'-=40px'},200);
+		$('#delete').text('Удалить..');
+		$('.brd').delay(50).animate({width:'-=180px'},100);
+		$('.chat').delay(50).fadeIn(100);
+		chatCheck=true;
+	}
+	else{
+		$('.chat').fadeOut(10);
+		$('.brd').animate({width:'+=180px'},200);
+		$('#delete').animate({width:'+=40px'},200);
+		$("#delete").queue(function(){
+			$('#delete').text('Удалить из друзей');
+			$(this).dequeue();
+		});
+		chatCheck=false;
+	}
+};
+
+function messageCheck(){
+	$(".brd").fadeOut(200);
+	$('#on-button').fadeIn(200);
+	$('.chat').fadeIn(0);
+	$('.chat').animate({height:'0px'},0);
+	$('.chat').animate({height:'+=200px'},150);
+	chatCheck=true;
+}
+
+</script>
+    <script>
+// In the following example, markers appear when the user clicks on the map.
+// The markers are stored in an array.
+// The user can then click an option to hide, show or delete the markers.
+//var map;
+var markers = [];
+var _f_first=1;
+var overlay;
+var map;
+var coordinates;
+USGSOverlay.prototype = new google.maps.OverlayView();
+
+function initialize() {
+  var haightAshbury = new google.maps.LatLng(55.756136,37.616265);
+  var mapOptions = {
+    zoom: 10,
+    center: haightAshbury,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
+    zoomControl: false,
+
+    panControl: false,
+    rotateControl: false,
+    overviewMapControl: false
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  var srcImage = 'https://developers.google.com/maps/documentation/javascript/';
+  srcImage += 'examples/full/images/talkeetna.png';
+  google.maps.event.addListener(map, 'click', function(event) {
+      overlay.setMap(null); 
+  });
+  google.maps.event.addListener(map, 'rightclick', function(event) {
+    //addMarker(event.latLng);
+    if (map) {
+     if (_f_first)
+     {
+        overlay = new USGSOverlay(event.latLng, srcImage, map);
+        _f_first=0;
+     } else {
+        overlay.setMap(null); 
+        overlay = new USGSOverlay(event.latLng, srcImage, map);
+   }
+ }
+  });
+
+  google.maps.event.addListener(map, 'zoom_changed', function(event) {
+     redraw();
+  });
+ 
+ //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  google.maps.event.addListener(map,'drag', function(event) {
+       //здесь я плучаю некторые данные, в теории тут будет ajax выхов функции, пока не делаю, ибо она все равно ничего не получит, пока просто получаем захордкоженный массив с json координатами объектов.
+         clearMarkers();
+         for (var i = 0; i < 100; i++) {
+          var dataPhoto = data.photos[i];
+          var latLng = new google.maps.LatLng(dataPhoto.latitude,
+              dataPhoto.longitude)
+          addMarker(latLng);
+         }
+         redraw();
+         //markerclusterer
+
+  });
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  var contentString = '<div id="content">'+
+      'aaaaaaaaaaaaaa' + 
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Uluru (Ayers Rock)',
+      content: "ololo"
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+function USGSOverlay(location, image,map) {
+  // Now initialize all properties.
+  coordinates = location;
+  this.bounds_ = location;
+  this.image_ = image;
+  this.map_ = map;
+
+  this.div_ = null;
+
+  this.setMap(map);
+}
+
+USGSOverlay.prototype.onAdd = function(location) {
+  //alert(coordinates);
+  var div = document.createElement('div');
+  div.setAttribute('id', 'drop-down');
+  //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
+  div.innerHTML="<div class='label_rightclick'><a onclick='addMarker(coordinates)'> add meeting </a>"+"<a onclick='addMarker(coordinates)'>check</a></div>";
+  this.div_ = div;
+
+  // Add the element to the "overlayImage" pane.
+  var panes = this.getPanes();
+  panes.overlayImage.appendChild(this.div_);
+};
+
+ USGSOverlay.prototype.draw = function() {
+  // We use the south-west and north-east
+  // coordinates of the overlay to peg it to the correct position and size.
+  // To do this, we need to retrieve the projection from the overlay.
+  
+  // Retrieve the south-west and north-east coordinates of this overlay
+  // in LatLngs and convert them to pixel coordinates.
+  // We'll use these coordinates to resize the div.
+ /*  var tileCoordinate = new GPoint();
+   var tilePoint = new GPoint();
+    var currentProjection = G_NORMAL_MAP.getProjection();
+    tilePoint = currentProjection.fromLatLngToPixel(latlng, map.getZoom());
+
+   tileCoordinate.x = Math.floor(tilePoint.x / 256);
+   tileCoordinate.y = Math.floor(tilePoint.y / 256)
+   alert(latlng);*/
+  // Resize the image's div to fit the indicated dimensions.
+  var overlayProjection = this.getProjection();
+
+  // Retrieve the south-west and north-east coordinates of this overlay
+  // in LatLngs and convert them to pixel coordinates.
+  // We'll use these coordinates to resize the div.
+  //alert(this.bounds_.getNorthEast())
+  var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_);
+  //var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.);
+  var div = this.div_;
+  div.style.left = sw.x + 'px';
+  div.style.top = sw.y + 'px';
+  div.style.width = 120 + 'px';
+  div.style.height = 250 + 'px';
+}; 
+
+USGSOverlay.prototype.onRemove = function() {
+  this.div_.parentNode.removeChild(this.div_);
+};
+
+// [START region_hideshow]
+// Set the visibility to 'hidden' or 'visible'.
+USGSOverlay.prototype.hide = function() {
+  if (this.div_) {
+    // The visibility property must be a string enclosed in quotes.
+    this.div_.style.visibility = 'hidden';
+  }
+};
+
+USGSOverlay.prototype.show = function() {
+  if (this.div_) {
+    this.div_.style.visibility = 'visible';
+  }
+};
+
+USGSOverlay.prototype.toggle = function() {
+  if (this.div_) {
+    if (this.div_.style.visibility == 'hidden') {
+      this.show();
+    } else {
+      this.hide();
+    }
+  }
+};
+
+// Detach the map from the DOM via toggleDOM().
+// Note that if we later reattach the map, it will be visible again,
+// because the containing <div> is recreated in the overlay's onAdd() method.
+USGSOverlay.prototype.toggleDOM = function() {
+  if (this.getMap()) {
+    // Note: setMap(null) calls OverlayView.onRemove()
+    this.setMap(null);
+  }
+};
+
+
+
+
+function redraw() {
+    var markerCluster = new MarkerClusterer(map, markers);
+}
+var markerImage = new google.maps.MarkerImage(
+            'bg-num.png',
+            //  '/home/philipp/bg-num.png',
+            new google.maps.Size(33,33),
+            new google.maps.Point(0,0),
+            new google.maps.Point(0,33)
+        );
+// Add a marker to the map and push to the array.
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    icon: markerImage,
+    position: location,
+    map: map
+  });
+  //redraw();
+  markers.push(marker);
+}
+
+
+// Sets the map on all markers in the array.
+function setAllMap(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  } 
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setAllMap(null);
+  markers = [];
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setAllMap(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="panel">
+      <input onclick="clearMarkers();" type=button value="Hide Markers">
+      <input onclick="showMarkers();" type=button value="Show All Markers">
+      <input onclick="deleteMarkers();" type=button value="Delete Markers">
+    </div>
+<div>
+<input type="checkbox" id="on-check" name="on-check" />
+	 <label id="on-button" for="on-check">
+	 <span><span class="ss-plus"><img src="2.jpg"></span></span>
+	 <span><span class="ss-hyphen"><ul id="inner-menu">
+			<li class="v1">
+				<a href="#check"></a>
+			</li>
+			<li class="v2">
+				<a href="#check"></a>
+			</li>
+			<li class="v3">
+				<a href="#check"></a>
+			</li>
+			<li class="v4">
+				<a href="#check"></a>
+			</li>
+			<li class="v5">
+				<a href="#check"></a>
+			</li>
+			<li class="v6">
+				<a href="#check"></a>
+			</li>
+			<li class="v7">
+				<a href="#check"></a>
+			</li>
+			<li class="v8">
+				<a href="#check"></a>
+			</li>
+
+
+	</ul>
+</span></span>
+	 </label>
+</div> 
+<div class="faux-shadow"> </div>
+
+<div class="chat">
+	<div id="income">
+	</div>
+	<textarea id="yourtext">
+	</textarea>
+</div>
+
+<ul id="menu">
+   <li id="m1"><a href="#">Семиохин&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Степан </a></li>
+   <li id="m2"><a href="#" onclick="closeDiv()">Карта</a></li>
+   <li id="m3"><a href="#friends" onClick="openDiv('friends')">Друзья</a></li>
+   <li id="m4"><a href="#events" onClick="openDiv('events')">События</a></li>
+   <li id="m5"><a href="#meetings" onClick="openDiv('meetings')">Встречи</a></li>
+   <li id="m6"><a href='#' onClick="messageCheck()">Выход</a></li>
+</ul>
+
+<div class="brd" id="friends">
+   <div id="one_friend">
+     <div id="circle_mini"></div> 
+     <div id="friend_block">   
+     <div>
+        <span id="friend_font">Дмитрий Петров</span>
+        <button class="button_friend" onclick="startChat()">Начать чат</button>
+     </div>  
+     <div >
+        <button class="button_friend">Пригласить...</button>
+        <button class="button_friend">Порекомендовать мероприятие/место</button>
+        <button class="button_friend" id="delete">Удалить из друзей</button>
+     </div>   
+</div>
+</div>  
+
+</div>
+
+<div class="brd" id="events">
+   <div id="one_event">
+     <div id="event_square"></div> 
+     <div id="friend_block">   
+     <div>
+        <span id="event_font">Концерт группы Metallica</span>
+        <button class="button_event" style="float:right">Присоединиться</button>
+     </div>  
+     <div >
+        <button class="button_event">Поставить напоминание о мероприятии</button>
+        <button class="button_event">Не интересует</button>
+     </div>   
+</div>
+</div>  
+
+</div>
+
+<div class="brd" id="meetings">
+    <h3>Заголовок3</h3>
+</div>
+    <div id="map-canvas"></div>
+  </body>
+</html>

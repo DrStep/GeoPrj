@@ -6,13 +6,13 @@
       Geo
     </title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script type="text/javascript" src="markerclusterer.js"></script>
-    <script type="text/javascript" src="jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="../static/js/markerclusterer.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-ui-1.10.3.custom.min.js"></script>
     <script type="text/javascript" src="data.json"></script>
     <script type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="menu.css">
-    <link rel="stylesheet" type="text/css" href="overlays.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main_page.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/overlays.css">
     <script type="text/javascript" src="menu.js"></script>
     <script type="text/javascript" src="overlays.js"></script>
   </head>
@@ -37,7 +37,12 @@
   </textarea>
   <input  id="add_button_marker" type="button" class="button_friend" value="добавить метку">
 </div>
-
+<ul id="avatar_menu">
+   <li id="li1"><a href="#"><img src="../static/img/1.png"></a></li>
+   <li id="li2"><a href="#"><img src="../static/img/1.png"></a></li>
+   <li id="li3"><a href="#friends"><img src="../static/img/1.png"></a></li>
+   <li id="li4"><a href="#events"><img src="../static/img/1.png"></a></li>
+</ul>
 <ul id="menu">
    <li id="m1"><a href="#">Семиохин&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Степан </a></li>
    <li id="m2"><a href="#" onclick="closeDiv()">Карта</a></li>
@@ -71,7 +76,7 @@
      <div id="friend_block">   
      <div>
         <span id="event_font">Концерт группы Metallica</span>
-        <button class="button_event" style="float:right">Присоединиться</button>
+        <button class="button_event">Присоединиться</button>
      </div>  
      <div >
         <button class="button_event">Поставить напоминание о мероприятии</button>
