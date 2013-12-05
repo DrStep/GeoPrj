@@ -74,6 +74,12 @@ public class User implements Serializable {
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
     private Set<Meet> meets = new HashSet<Meet>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Messanger> msgList = new ArrayList<Messanger>();
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "participants")
+    private List<Meet> participants = new ArrayList<Meet>();
+
     public Integer getId() {
         return id;
     }
@@ -184,5 +190,13 @@ public class User implements Serializable {
 
     public void setFriendsList2(List<Friends> friendsList2) {
         this.friendsList2 = friendsList2;
+    }
+
+    public List<Messanger> getMsgList() {
+        return msgList;
+    }
+
+    public void setMsgList(List<Messanger> msgList) {
+        this.msgList = msgList;
     }
 }

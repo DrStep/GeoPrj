@@ -64,6 +64,7 @@ public class HibernateUtil {
         configuration.setProperty("hibernate.connection.username", "root");
         configuration.setProperty("hibernate.connection.password", "");
         configuration.setProperty("hibernate.show_sql", "true");
+        configuration.setProperty("hibernate.connection.characterEncoding", "utf8");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 
         ServiceRegistryBuilder builder = new ServiceRegistryBuilder();

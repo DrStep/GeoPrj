@@ -12,6 +12,8 @@ import utils.Logger;
 import server.vkauth.AccountVkService;
 import server.resourceSystem.*;
 
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Антон
@@ -60,7 +62,12 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
-        DBService db = new DBService();
+        //DBService db = new DBService();
+        Random random = new Random();
+        for (int i = 0; i < 100; i++) {
+            System.out.println((random.nextFloat() * 100) % 180);
+        }
+
         try {
             //server.start();
            // server.join();

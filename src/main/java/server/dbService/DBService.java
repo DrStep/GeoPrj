@@ -18,6 +18,7 @@ import java.util.*;
  */
 public class DBService {
 
+
     public DBService() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

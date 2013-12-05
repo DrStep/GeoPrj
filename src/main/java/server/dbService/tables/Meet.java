@@ -34,6 +34,10 @@ public class Meet implements Serializable {
     @JoinColumn(name = "wall_id")
     private Wall wall;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User admin;
+
     @Column(name = "title")
     private String title;
 
@@ -71,6 +75,13 @@ public class Meet implements Serializable {
                     nullable = false, updatable = false) })
     private List<User> users= new ArrayList<User>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "participants", joinColumns = {
+            @JoinColumn(name = "meet_id", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "user_id",
+                    nullable = false, updatable = false) })
+    private List<User> participants = new ArrayList<User>();
+
     public Integer getId() {
         return id;
     }
@@ -93,6 +104,14 @@ public class Meet implements Serializable {
 
     public void setWall(Wall wall) {
         this.wall = wall;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
     }
 
     public String getTitle() {
@@ -173,5 +192,13 @@ public class Meet implements Serializable {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<User> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<User> participants) {
+        this.participants = participants;
     }
 }

@@ -38,6 +38,10 @@ public class Messanger implements Serializable {
     @Column(name = "is_read")
     private Boolean isRead;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public Integer getId() {
         return id;
     }
@@ -76,5 +80,13 @@ public class Messanger implements Serializable {
 
     public void setRead(Boolean read) {
         isRead = read;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -26,7 +26,7 @@ public class UserLocation implements Serializable {
     private User userId;
 
     @Column(name="loc_id_extra")
-    private UserLocation userLocId;
+    private Location userLocId;
 
     public Integer getId() {
         return id;
@@ -44,11 +44,11 @@ public class UserLocation implements Serializable {
         this.userId = userId;
     }
 
-    public UserLocation getUserLocId() {
+    public Location getUserLocId() {
         return userLocId;
     }
 
-    public void setUserLocId(UserLocation userLocId) {
+    public void setUserLocId(Location userLocId) {
         this.userLocId = userLocId;
     }
 }
