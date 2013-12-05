@@ -100,9 +100,10 @@ Picture.prototype.onAdd = function(location) {
   //alert(coordinates);
   var div = document.createElement('div');
   div.setAttribute('id', 'avatar');
+  //div.innerHTML="   <div class='check1'></div> <div class='check2'></div> <div class='check3'></div>"
   //alert("<img src=" + this.image_ + " class = ava_round>")
   //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
-   div.innerHTML="<img src=" + this.image_ + " class = ava_round onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p>";
+   div.innerHTML="<img src=" + this.image_ + " class = ava_round onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p><div class='check1' onclick=openDialogs()></div> <div class='check2' onclick=getMoreInformation('sd')></div> <div class='check3' onclick=openDiv('friends')>друзья</div>";
   this.div_ = div;
 
   var panes = this.getPanes();
@@ -317,3 +318,20 @@ function add_meeting(location){
     chatCheck=false;
   }
 };
+
+function getMoreInformation(img) {
+  $.ajax({
+  type: "GET",
+  url: "http://vk.com",
+  dataType: "JSON",
+  beforeSend: function() {
+    alert('preload');
+  },
+  succes: function() {
+    alert('success');
+  },
+  error: function() {
+    alert('smth went wrong');
+  }
+});
+}
