@@ -1,13 +1,13 @@
 package server.dbService;
 
+
+import org.hibernate.Query;
 import org.hibernate.Session;
+import server.dbService.tables.Location;
+import server.dbService.tables.User;
 
 import java.util.*;
 
-import server.dbService.tables.*;
-import server.dbService.tables.Access;
-
-import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,6 +21,36 @@ public class DBService {
     public DBService() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
+
+        Location loc1 = new Location();
+        loc1.setLatitude(100F);
+        loc1.setLongitude(100F);
+        loc1.setTime(new Date());
+
+        User user1 = new User();
+        user1.setName("Alex");
+        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
+        user1.setGender(18);
+        user1.setToken("vk");
+        user1.setExist(true);
+        user1.setExpires(System.currentTimeMillis() / 1000L);
+        user1.setPhoto("abc.png");
+
+        List<Location> loc = new ArrayList<Location>();
+        loc.add(loc1);
+        user1.setLocations(loc);
+
+        session.save(user1);
+
+        Query query = session.createQuery("from User user where user.id = 5013");
+        List<User> list = query.list();
+        User user = list.get(0);
+        System.out.println(user.getId() + " : " + user.getLocations());
+
+        session.getTransaction().commit();
+        System.out.println("Done. Add User.");
+
+
 
         /*Dialog d = new Dialog();
         d.setTitle("Hello");
@@ -134,7 +164,7 @@ public class DBService {
 */
 
 
-        User user1 = new User();
+  /*      User user1 = new User();
         user1.setName("Alex");
         user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
         user1.setGender(18);
@@ -163,7 +193,7 @@ public class DBService {
 
         user2.setFriendsList1(arr);
 
-        session.save(user2);
+        session.save(user2);*/
 
 /*        inviters.setUserTo(user1);
         inviters.setUserFrom(user2);
@@ -198,7 +228,5 @@ public class DBService {
         dialog.setUsers(userSet);
         */
 
-        session.getTransaction().commit();
-        System.out.println("Done. Add User.");
     }
 }
