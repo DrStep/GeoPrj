@@ -6,7 +6,10 @@ var locationOpen = false;
 
 $(document).ready(init); 
 function init(){ 
-	$(".chat").draggable({containment:'window'}); 
+	$(".chat").draggable({containment:'window'});
+  $('#podlogka').click(function() {
+  alert("Handler for .click() called.");
+});
 }
 
 function openDiv (id) {
@@ -276,3 +279,13 @@ function messageCheck(){
 	$('.chat').animate({height:'+=200px'},150);
 	chatCheck=true;
 }
+
+
+function closeAll() {
+    $('.place_window').fadeOut(10);
+    chatCheck=false;
+     $('.meet_window').fadeOut(10);
+    chatCheck=false;
+    $('#podlogka').css({display:'none'});
+}
+

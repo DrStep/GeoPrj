@@ -52,7 +52,7 @@ $( window ).resize(function(){
 </script>
   </head>
   <body>
-<div id='podlogka'></div>
+<div id='podlogka' onclick=closeAll()></div>
 <div>
 <input type="checkbox" id="on-check" name="on-check" />
 	 <label id="on-button" for="on-check">
@@ -80,6 +80,30 @@ $( window ).resize(function(){
     </label>
   <input  id="add_button_marker" type="button" class="button_friend" value="добавить метку">
 </div>
+<div class="add_window_place">  
+  <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
+  </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
+  <input  id="add_button_marker_place" type="button" class="button_friend" value="добавить метку">
+</div>
+<div class="add_window_self">  
+  <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
+  </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
+  <input  id="add_button_marker_self" type="button" class="button_friend" value="добавить метку">
+</div>
 <div class="meet_window">  
   <div class="page_meet">
   <div class = "inline">
@@ -97,6 +121,29 @@ $( window ).resize(function(){
         <div class = "del_comment">X</div>
         <br>
         <span>Comment</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+</div>
+
+<div class="meet_window">  
+  <div class="page_met">
+  <div class = "inline">
+  <label class = "Title">Поход в парк</label>
+  <div class="description">открытая, мирная, доступная каждому, проводимая в форме собрания, митинга, демонстрации, шествия или пикетирования либо в различных сочетаниях этих форм акция, осуществляемая по инициативе граждан Российской Федерации, политических партий, других общественных объединений и религиозных объединений. Целью публичного мероприятия является свободное выражение и формирование мнений, а также выдвижение требований по различным вопросам политической, экономической, социальной и культурной жизни страны и вопросам внешней политики.</div>
+    <img class="meet_img" src="../static/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Збс мероприятие. Давно ждал его. Хочу сходить.</span> <br>
      </div>     
       </div>
     </div></div>
@@ -124,9 +171,6 @@ $( window ).resize(function(){
       </div>
     </div></div>
       </div > 
-
-
-
 </div>
 
 <ul id="avatar_menu">
