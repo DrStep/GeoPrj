@@ -12,13 +12,51 @@
 <script type="text/javascript" src="../static/js/overlays.js"></script>
 <link rel="stylesheet" type="text/css" href="../static/css/overlays.css">
 <link rel="stylesheet" type="text/css" href="../static/css/main_page.css">
+<script type="text/javascript">
+/*  $(function(){
+    var wrapper = $( ".file_upload" ),
+        inp = wrapper.find( "input" ),
+        btn = wrapper.find( ".button" ),
+        lbl = wrapper.find( "mark" );
+
+    // Crutches for the :focus style:
+    inp.focus(function(){
+        wrapper.addClass( "focus" );
+    }).blur(function(){
+        wrapper.removeClass( "focus" );
+    });
+
+    var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
+
+    inp.change(function(){
+        var file_name;
+        if( file_api && inp[ 0 ].files[ 0 ] )
+            file_name = inp[ 0 ].files[ 0 ].name;
+        else
+            file_name = inp.val().replace( "C:\\fakepath\\", '' );
+
+        if( ! file_name.length )
+            return;
+
+        if( lbl.is( ":visible" ) ){
+            lbl.text( file_name );
+            btn.text( "Выбрать" );
+        }else
+            btn.text( file_name );
+    }).change();
+
+});
+$( window ).resize(function(){
+    $( ".file_upload input" ).triggerHandler( "change" );
+});*/
+</script>
   </head>
   <body>
 <div>
 <input type="checkbox" id="on-check" name="on-check" />
 	 <label id="on-button" for="on-check">
-	 <span><span class="ss-plus"><img src="2.jpg"></span></span>
-	 <span><span class="ss-hyphen"><img src="2.jpg"></span></span>
+	 <span><span class="ss-plus"><img src="../static/img/2.jpg"></span></span>
+	 <span><span class="ss-hyphen"><img src="../static/img/2.jpg"></span></span>
 	 </label>
 </div> 
 <div class="faux-shadow"> </div>
@@ -31,10 +69,63 @@
 </div>
 <div class="add_window">  
   <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
-  <p><label for="id_content">Content:</label> 
-  <textarea class="area_input" cols="400" id="id_content" name="content" rows="10">
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
   </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
   <input  id="add_button_marker" type="button" class="button_friend" value="добавить метку">
+</div>
+<div class="meet_window">  
+  <div class="page_meet">
+  <div class = "inline">
+  <label class = "Title">Place</label>
+  <div class="description">Description</div>
+    <img class="meet_img" src="../static/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Comment</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+</div>
+
+<div class="place_window">  
+  <div class="page_place">
+  <div class = "inline">
+  <label class = "Title">Поход в парк</label>
+  <div class="description">открытая, мирная, доступная каждому, проводимая в форме собрания, митинга, демонстрации, шествия или пикетирования либо в различных сочетаниях этих форм акция, осуществляемая по инициативе граждан Российской Федерации, политических партий, других общественных объединений и религиозных объединений. Целью публичного мероприятия является свободное выражение и формирование мнений, а также выдвижение требований по различным вопросам политической, экономической, социальной и культурной жизни страны и вопросам внешней политики.</div>
+    <img class="meet_img" src="../static/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Збс мероприятие. Давно ждал его. Хочу сходить.</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+
+
+
 </div>
 
 <ul id="avatar_menu">
@@ -58,7 +149,7 @@
   <div class="upPanel">
     <div id='blockArticle'>ВАШИ ДРУЗЬЯ</div>
     <button id="sortButton" onclick="sort()">Отсортировать</button>
-    <select id="chooseSort">
+    <select id="chooseSort"
       <option>Без сортировки</option>
     </select>
   </div>
@@ -192,7 +283,8 @@
 <div id="triangle"></div>
 
 <div id="up-triangle"></div>
-
-    <div id="map-canvas"></div>
+    <div class = "block">
+      <div id="map-canvas"></div>
+    </div> 
   </body>
 </html>

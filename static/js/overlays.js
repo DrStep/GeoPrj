@@ -3,9 +3,12 @@ var _f_first=1;
 var overlay;
 var map;
 var coordinates;
-var markerCluster
+var markerCluster;
+var i=0;
 USGSOverlay.prototype = new google.maps.OverlayView();
 Picture.prototype = new google.maps.OverlayView();
+
+
 
 function initialize() {
   var haightAshbury = new google.maps.LatLng(55.756136,37.616265);
@@ -28,6 +31,8 @@ function initialize() {
   google.maps.event.addListener(map, 'click', function(event) {
       overlay.setMap(null); 
   });
+
+
   google.maps.event.addListener(map, 'rightclick', function(event) {
     //addMarker(event.latLng);
     if (map) {
@@ -41,7 +46,6 @@ function initialize() {
    }
  }
   });
-
   google.maps.event.addListener(map, 'zoom_changed', function(event) {
      redraw();
   });
@@ -50,15 +54,18 @@ function initialize() {
 
   google.maps.event.addListener(map,'drag', function(event) {
        //здесь я плучаю некторые данные, в теории тут будет ajax выхов функции, пока не делаю, ибо она все равно ничего не получит, пока просто получаем захордкоженный массив с json координатами объектов.
-       overlay.setMap(null);
-       clearMarkers();
+       //overlay.setMap(null);
+       //clearMarkers();
        //markerCluster.clearMarkers(); 
-         for (var i = 0; i < 100; i++) {
+       /*  for (var i = 0; i < 100; i++) {
           var dataPhoto = data.photos[i];
           var latLng = new google.maps.LatLng(dataPhoto.latitude,
               dataPhoto.longitude)
           addMarker(latLng);
          }
+         */
+         markerCluster.clearMarkers();
+         markers = null;
          redraw();
          //markerclusterer
 
@@ -85,7 +92,7 @@ function initialize() {
 }
 
 //###############################################################################################
-function Picture(location, image,map) {
+function Picture(location, image,map,type) {
  // alert(location);
   // Now initialize all properties.
   coordinates = location;
@@ -93,6 +100,7 @@ function Picture(location, image,map) {
   this.image_ = image;
   this.map_ = map;
   this.div_ = null;
+  this.type_= type;
   this.setMap(map);
 }
 
@@ -100,10 +108,20 @@ Picture.prototype.onAdd = function(location) {
   //alert(coordinates);
   var div = document.createElement('div');
   div.setAttribute('id', 'avatar');
+  switch (this.type_) {
+   case 'meet':
+      div.innerHTML="<div class = 'ava_round met'><img src=" + this.image_ + " class = 'ax'  onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p></div><div class='check1' onclick=openDialogs()></div> <div class='check2' onclick=window_meeting('sd')></div> <div class='check3' onclick=openDiv('friends')>друзья</div>";
+      break;
+   case 'place':
+      div.innerHTML="<div class = 'ava_round place'><img src=" + this.image_ + " class = 'ax'  onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p></div><div class='check1' onclick=openDialogs()></div> <div class='check2' onclick=window_place('sd')></div> <div class='check3' onclick=openDiv('friends')>друзья</div>";
+      break;
+   case 'self':
+      div.innerHTML="<div class = 'ava_round self'><img src=" + this.image_ + " class = 'ax' onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p></div><div class='check1' onclick=openDialogs()></div> <div class='check2' onclick=window_manpage('sd')></div> <div class='check3' onclick=openDiv('friends')>друзья</div>";
+} 
   //div.innerHTML="   <div class='check1'></div> <div class='check2'></div> <div class='check3'></div>"
   //alert("<img src=" + this.image_ + " class = ava_round>")
   //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
-   div.innerHTML="<img src=" + this.image_ + " class = ava_round onclick=getMoreInformation('" + this.image_ + "')><p>Party in my House</p><div class='check1' onclick=openDialogs()></div> <div class='check2' onclick=getMoreInformation('sd')></div> <div class='check3' onclick=openDiv('friends')>друзья</div>";
+   
   this.div_ = div;
 
   var panes = this.getPanes();
@@ -181,7 +199,7 @@ USGSOverlay.prototype.onAdd = function(location) {
   var div = document.createElement('div');
   div.setAttribute('id', 'drop-down');
   //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
-  div.innerHTML="<div class='label_rightclick'><a onclick='add_meeting(coordinates)'> add meeting </a>"+"<a onclick='addMarker(coordinates)'>check</a></div>";
+  div.innerHTML="<div class='label_rightclick'><a onclick=add_meeting(coordinates,'meet')> add meeting </a>"+"<a onclick=addMarker(coordinates,'place')>add place</a>" + "<a onclick=addMarker(coordinates,'self')>check-in</a></div>";
   this.div_ = div;
 
   var panes = this.getPanes();
@@ -195,7 +213,7 @@ USGSOverlay.prototype.onAdd = function(location) {
   div.style.left = sw.x + 'px';
   div.style.top = sw.y + 'px';
   div.style.width = 120 + 'px';
-  div.style.height = 250 + 'px';
+  div.style.height = 100 + 'px';
 }; 
 
 USGSOverlay.prototype.onRemove = function() {
@@ -233,8 +251,8 @@ USGSOverlay.prototype.toggleDOM = function() {
 };
 
 function redraw() {
-    markerCluster.clearMarkers();
-    markerCluster.redraw()
+    //markerCluster.clearMarkers();
+   // markerCluster.redraw()
     markerCluster = new MarkerClusterer(map, markers);
 }
 /*var markerImage = new google.maps.MarkerImage(
@@ -245,9 +263,9 @@ function redraw() {
             new google.maps.Point(0,33)
         );*/
 
-function addMarker(location) {
+function addMarker(location, type) {
   srcImage = "../static/img/ava_1.png";
-  picture = new Picture(location, srcImage, map);
+  picture = new Picture(location, srcImage, map, type);
   /*var markerImage = new google.maps.MarkerImage(
             'img/ava_1.png',
             //  '/home/philipp/bg-num.png',
@@ -319,6 +337,51 @@ function add_meeting(location){
   }
 };
 
+function window_meeting(location){
+  if (chatCheck==false){
+    $('.meet_window').delay(50).fadeIn(100);
+    chatCheck=true;
+    alert('true')
+  }
+  else{
+    alert('false');
+    $('.meet_window').fadeOut(10);
+    chatCheck=false;
+  }
+};
+
+function window_place(location){
+  if (chatCheck==false){
+    $('.place_window').delay(50).fadeIn(100);
+    chatCheck=true;
+    alert('true')
+  }
+  else{
+    alert('false');
+    $('.place_window').fadeOut(10);
+    chatCheck=false;
+  }
+  //alert('place');
+};
+
+function window_manpage(location){
+ /* if (chatCheck==false){
+    $('.meet_window').delay(50).fadeIn(100);
+    chatCheck=true;
+    alert('true')
+  }
+  else{
+    alert('false');
+    $('.meet_window').fadeOut(10);
+    chatCheck=false;
+  }*/ alert('man');
+};
+
+
+function close_window_meeting() {
+
+};
+
 function getMoreInformation(img) {
   $.ajax({
   type: "GET",
@@ -335,3 +398,5 @@ function getMoreInformation(img) {
   }
 });
 }
+
+
