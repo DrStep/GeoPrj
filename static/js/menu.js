@@ -154,16 +154,16 @@ function openDialogs() {
   if (openCheck) {
   switch(prevId){
     case 'friends':
-      $('#m3 a').css({color:'#555'});
+      $('.changePoint1').css({background:'transparent'});
       break;
     case 'events':
-      $('#m4 a').css({color:'#555'});
+      $('.changePoint2').css({background:'transparent'});
       break;
     case 'dialogs':
       $('#m7 a').css({color:'#555'});
       break;
     case 'meetings':
-      $('#m5 a').css({color:'#555'});
+      $('.changePoint3').css({background:'transparent'});
       break;
   }    
     $('#friend_block').fadeOut(100);
@@ -217,6 +217,9 @@ function openLocations() {
 }
 
 function closeDiv(){
+  $('.changePoint1').css({background:'transparent'});
+  $('.changePoint2').css({background:'transparent'});
+  $('.changePoint3').css({background:'transparent'});
   $('#podlogka').css({display:'none'});
   $('#triangle').fadeOut(0);
   $('.dialogWindow').fadeOut(0);
