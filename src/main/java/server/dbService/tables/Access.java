@@ -8,5 +8,5 @@ package server.dbService.tables;
  * To change this template use File | Settings | File Templates.
  */
 public enum Access {
-    FRIENDS, PUBLIC, PRIVATE, ALL_FRIENDS
+    DEFAULT, FRIENDS, PUBLIC, PRIVATE, ALL_FRIENDS
 }

@@ -8,10 +8,7 @@ import org.junit.Test;
 import server.dbService.HibernateUtil;
 import server.dbService.tables.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -31,7 +28,6 @@ public class DBServiceTest {
     // DB
     private Session session;
 
-
     @org.junit.Before
     public void setUp() throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -41,24 +37,25 @@ public class DBServiceTest {
 
     @Test
     public void createUsers() {
-        Location loc1 = getRandomLocation();
 
-        List<Location> locations = new ArrayList<Location>();
-        locations.add(loc1);
+        for (int i = 0; i < 1000; i++) {
+            Location loc = getRandomLocation();
 
-        User user1 = new User();
-        String [] arr = random.nextInt(2) == 0 ? girls: boys;
-        String name = arr[random.nextInt(arr.length - 1)];
-        user1.setName(name);
-        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
-        user1.setGender(random.nextInt(20) + 5);
-        user1.setToken("vk");
-        user1.setExist(true);
-        user1.setExpires(System.currentTimeMillis() / 1000L);
-        user1.setPhoto("abc.png");
-        user1.setLocations(locations);
+            User user = new User();
+            String [] arr = random.nextInt(2) == 0 ? girls: boys;
+            String name = arr[random.nextInt(arr.length - 1)];
+            user.setName(name);
+            user.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
+            user.setGender(random.nextInt(20) + 5);
+            user.setToken("vk");
+            user.setExist(true);
+            user.setExpires(System.currentTimeMillis() / 1000L);
+            user.setPhoto("abc.png");
+            user.getLocations().add(loc);
 
-        session.save(user1);
+            session.save(user);
+        }
+
         session.getTransaction().commit();
     }
 
@@ -72,87 +69,89 @@ public class DBServiceTest {
     }
 
     @Test
-    public void createMessanger() {
-        User rUser = getRandomUser();
+    public void createDialog() {
+        for (int i = 0; i < 1000; i++) {
+            User user1 = getRandomUser();
+            User user2 = getRandomUser();
 
-        Integer maxDialog = (Integer) session.createQuery("select max(dialog.dialogId) from Dialog dialog").list().get(0);
-        Query query2 = session.createQuery("from Dialog dialog where dialog.dialogId = :maxDialog");
-        query2.setParameter("maxDialog", random.nextInt(maxDialog));
-        Dialog rDialog = (Dialog) query2.list().get(0);
+            String [] arr = random.nextInt(2) == 0 ? girls: boys;
+            String title = arr[random.nextInt(arr.length - 1)];
 
-        Messanger messanger = new Messanger();
-        messanger.setDialog(rDialog);
-        messanger.setUser(rUser);
-        messanger.setMsg("Hello World!");
-        messanger.setDateTime(new Date());
-        messanger.setRead(false);
-        session.save(messanger);
+            Dialog dialog = new Dialog();
+            dialog.setTitle(title);
+
+            user1.getDialogs().add(dialog);
+            user2.getDialogs().add(dialog);
+
+            session.update(user1);
+            session.update(user2);
+        }
         session.getTransaction().commit();
     }
 
     @Test
-    public void createDialog() {
-        User user1 = getRandomUser();
-        User user2 = getRandomUser();
+    public void createMessanger() {
+        for (int i = 0; i < 1000; i++) {
+            User rUser = getRandomUser();
+            Dialog rDialog = getRandomDialog();
 
-        String [] arr = random.nextInt(2) == 0 ? girls: boys;
-        String title = arr[random.nextInt(arr.length - 1)];
-
-        Dialog dialog = new Dialog();
-        dialog.setTitle(title);
-
-        user1.getDialogs().add(dialog);
-        user2.getDialogs().add(dialog);
-
-        session.update(user1);
-        session.update(user2);
-
+            Messanger messanger = new Messanger();
+            messanger.setDialog(rDialog);
+            messanger.setUser(rUser);
+            messanger.setMsg("Hello World!");
+            messanger.setDateTime(new Date());
+            messanger.setRead(false);
+            session.save(messanger);
+        }
         session.getTransaction().commit();
     }
 
     @Test
     public void createNewUserLocation() {
-        User user1 = getRandomUser();
+        for (int i = 0; i < 1000; i++) {
+            User user1 = getRandomUser();
 
-        Location loc = new Location();
-        loc.setLatitude((random.nextFloat() * 100) % 180);
-        loc.setLongitude((random.nextFloat() * 100) % 180);
-        loc.setTime(new Date());
+            Location loc = new Location();
+            loc.setLatitude((random.nextFloat() * 100) % 180);
+            loc.setLongitude((random.nextFloat() * 100) % 180);
+            loc.setTime(new Date());
 
-        user1.getLocations().add(loc);
-        session.update(user1);
-
+            user1.getLocations().add(loc);
+            session.update(user1);
+        }
         session.getTransaction().commit();
     }
 
     @Test
     public void createMeet() {
-        User user = getRandomUser();
+        for (int i = 0; i < 1000; i++) {
+            User user = getRandomUser();
 
-        Location loc = new Location();
-        loc.setLatitude((random.nextFloat() * 100) % 180);
-        loc.setLongitude((random.nextFloat() * 100) % 180);
-        loc.setTime(new Date());
+            Location loc = new Location();
+            loc.setLatitude((random.nextFloat() * 100) % 180);
+            loc.setLongitude((random.nextFloat() * 100) % 180);
+            loc.setTime(new Date());
 
-        Wall wall = new Wall();
-        wall.setMsg("Wall msg");
-        wall.setDateTime(new Date());
+            Wall wall = new Wall();
+            wall.setMsg("Wall msg");
+            wall.setDateTime(new Date());
 
-        Meet meet = new Meet();
-        meet.setAdmin(user);
-        meet.setTitle("Meet1");
-        meet.setDescription("Go to cinema");
-        meet.setPhoto("abc.png");
-        meet.setDateTime(new Date());
-        meet.setAccess(Access.PUBLIC);
-        meet.setStatus("Status");
-        meet.setLastUpdate(new Date());
-        meet.setWhatChange("Wall");
-        meet.setType(1);
-        meet.setWall(wall);
-        meet.setLocation(loc);
+            Meet meet = new Meet();
+            meet.setAdmin(user);
+            meet.setTitle("Meet1");
+            meet.setDescription("Go to cinema");
+            meet.setPhoto("abc.png");
+            meet.setDateTime(new Date());
+            meet.setAccess(Access.PUBLIC);
+            meet.setStatus("Status");
+            meet.setLastUpdate(new Date());
+            meet.setWhatChange("Wall");
+            meet.setType(1);
+            meet.setWall(wall);
+            meet.setLocation(loc);
 
-        session.save(meet);
+            session.save(meet);
+        }
         session.getTransaction().commit();
     }
 
@@ -172,7 +171,16 @@ public class DBServiceTest {
 
     @Test
     public void createFriends() {
+        User user1 = getRandomUser();
+        User user2 = getRandomUser();
 
+        Friends frd = new Friends();
+
+        frd.setUser1(user1);
+        frd.setUser2(user2);
+
+        session.save(frd);
+        session.getTransaction().commit();
     }
 
     @Test
@@ -197,18 +205,82 @@ public class DBServiceTest {
         session.getTransaction().commit();
     }
 
+    @Test
+    public void createMeetNotification() {
+        Notification notif = new Notification();
+
+        Meet meet = getRandomMeet();
+        User user = getRandomUser();
+
+        notif.setType(NotificationType.MEET.ordinal());
+        notif.setTypeId(meet.getId());
+        notif.setUserId(user.getId());
+
+        session.save(notif);
+        session.getTransaction().commit();
+    }
+
+    @Test
+    public void createInviters() {
+        Meet meet = getRandomMeet();
+        User user1 = getRandomUser();
+        User user2 = getRandomUser();
+
+
+        Inviters inviters = new Inviters();
+        inviters.setMeet(meet);
+    }
+
+    @Test
+    public void getPlaces() {
+        Meet meet = getRandomMeet();
+        System.out.println(getRandomMeet().getAccess());
+    }
+
+
+
     private User getRandomUser() {
         Integer userId1 = random.nextInt((Integer) session.createQuery("select max(user.id) from User user").list().get(0));
-        User user = (User) session.createQuery("from User user where user.id = :user_id")
-                .setParameter("user_id", userId1).list().get(0);
+        User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", 8022).list().get(0);
         return user;
+    }
+
+    @Test
+    public void getRan() {
+        /*Integer userId1 = random.nextInt((Integer) session.createQuery("select max(user.id) from User user").list().get(0));
+        User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", 8021).list().get(0);
+        List<Location> loc = user.getLocations();
+
+        System.out.println("Size: " + loc.size());*/
+        List list = session.createQuery("select name,gender,photo from User user where user.id = 103213").list();
+        System.out.println(list.size());
+    }
+
+
+    private void getUserLocationById(int userId) {
+        List t = session.createQuery("select user.id from User user where user.id = :userId order by ").setParameter("userId", userId).list();
+    }
+
+    private Dialog getRandomDialog() {
+        Integer maxDialog = (Integer) session.createQuery("select max(dialog.dialogId) from Dialog dialog").list().get(0);
+        Dialog dialog = (Dialog) session.createQuery("from Dialog dialog where dialog.dialogId = :maxDialog")
+                            .setParameter("maxDialog", random.nextInt(maxDialog));
+        return dialog;
     }
 
     private Meet getRandomMeet() {
         Integer meetId = random.nextInt((Integer) session.createQuery("select max(meet.id) from Meet meet").list().get(0));
+        System.out.println("MeetId: " + meetId);
         Meet meet = (Meet) session.createQuery("from Meet meet where meet.id = :meet_id")
-                .setParameter("meet_id", meetId).list().get(0);
+                .setParameter("meet_id", 4008).list().get(0);
         return meet;
+    }
+
+    private Place getRandomPlaces() {
+        Integer placeId = random.nextInt((Integer) session.createQuery("select max(place.id) from Place place").list().get(0));
+        Place place = (Place) session.createQuery("from Place place where place.id = :place_id")
+                .setParameter("place_id", 3004).list().get(0);
+        return place;
     }
 
     private Location getRandomLocation() {

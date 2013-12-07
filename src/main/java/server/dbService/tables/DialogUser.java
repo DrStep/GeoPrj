@@ -21,8 +21,10 @@ public class DialogUser implements Serializable {
     @Column(name = "dialog_user_id", unique = true, nullable = false)
     private Integer dialogUserId;
 
+    @Column(name = "dialog_id")
     private Dialog dialogId;
 
+    @Column(name = "user_id")
     private User userId;
 
     public Integer getDialogUserId() {

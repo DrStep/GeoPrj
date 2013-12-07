@@ -18,40 +18,38 @@ import java.util.*;
  */
 public class DBService {
 
+    private Session session;
 
     public DBService() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        session = HibernateUtil.getSessionFactory().openSession();
+        /*session.beginTransaction();
+        session.getTransaction().commit();*/
+    }
 
-        Location loc1 = new Location();
-        loc1.setLatitude(100F);
-        loc1.setLongitude(100F);
-        loc1.setTime(new Date());
+    public List getUsers(List<Integer> usersId, List<String> fieldsList) {
+        StringBuffer req = new StringBuffer();
+        ((LinkedList<String>)fieldsList).addFirst("id");
 
-        User user1 = new User();
-        user1.setName("Alex");
-        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
-        user1.setGender(18);
-        user1.setToken("vk");
-        user1.setExist(true);
-        user1.setExpires(System.currentTimeMillis() / 1000L);
-        user1.setPhoto("abc.png");
+        String field = separateListSymbol(fieldsList, ",");
 
-        List<Location> loc = new ArrayList<Location>();
-        loc.add(loc1);
-        user1.setLocations(loc);
+        for (int i = 0; i < usersId.size(); i++) {
+            req.append(String.format("select %s from User user where user.id = %d", field, usersId.get(i)));
+            if (i != (usersId.size() - 1)) req.append(" union ");
+        }
 
-        session.save(user1);
+        String [] arr = session.createQuery(req.toString()).getNamedParameters();
+        String q = session.createQuery(req.toString()).getQueryString();
+        System.out.println(arr[0] + "  " + q);
+        return null;
+    }
 
-        Query query = session.createQuery("from User user where user.id = 5013");
-        List<User> list = query.list();
-        User user = list.get(0);
-        System.out.println(user.getId() + " : " + user.getLocations());
-
-        session.getTransaction().commit();
-        System.out.println("Done. Add User.");
-
-
+    private String separateListSymbol(List<String> list, String separator) {
+        String separateStr = "";
+        for (String item : list) {
+            separateStr += (item + separator);
+        }
+        return separateStr.substring(0, separateStr.length() - 1);
+    }
 
         /*Dialog d = new Dialog();
         d.setTitle("Hello");
@@ -228,6 +226,4 @@ public class DBService {
 
         dialog.setUsers(userSet);
         */
-
-    }
 }

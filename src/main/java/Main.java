@@ -1,3 +1,4 @@
+import json.JSONArray;
 import server.dbService.DBService;
 import server.frontend.FrontendImpl;
 import server.msgsystem.MessageSystemImpl;
@@ -12,6 +13,8 @@ import utils.Logger;
 import server.vkauth.AccountVkService;
 import server.resourceSystem.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -31,7 +34,7 @@ public class Main {
     }
 
     public static void main(String []args) {
-        if (args.length != 1) {
+        /*if (args.length != 1) {
             System.out.append("Use port as the first argument");
             System.exit(1);
         }
@@ -39,10 +42,11 @@ public class Main {
         String portString = args[0];
         int port = Integer.valueOf(portString);
         System.out.append("Starting at port: ").append(portString).append('\n');
-
+         */
         MessageSystemImpl ms = new MessageSystemImpl();
+        DBService dbService = new DBService();
 
-        FrontendImpl frontendImpl = new FrontendImpl(ms);
+        FrontendImpl frontendImpl = new FrontendImpl(ms, dbService);
         AccountVkService vkService = new AccountVkService(ms);
         AccountServiceImpl service = new AccountServiceImpl(ms);
 
@@ -50,7 +54,7 @@ public class Main {
         new Thread(vkService).start();
         new Thread(service).start();
 
-        Server server = new Server(port);
+        Server server = new Server(PORT);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.addServlet(new ServletHolder(frontendImpl), "/*");
 
@@ -63,14 +67,9 @@ public class Main {
         server.setHandler(handlers);
 
         //DBService db = new DBService();
-        Random random = new Random();
-        for (int i = 0; i < 100; i++) {
-            System.out.println((random.nextFloat() * 100) % 180);
-        }
-
         try {
-            //server.start();
-           // server.join();
+           server.start();
+           server.join();
         } catch (Exception e) {
             Logger.server(e.getMessage());
         }

@@ -2,29 +2,20 @@ package server.frontend;
 
 import base.Frontend;
 import base.MessageSystem;
-import server.msgsystem.Address;
-import server.msgsystem.MessageSystemImpl;
+import json.JSONArray;
 import server.UserData;
-import server.auth.MsgGetUserData;
-import server.vkauth.MsgGetVkUserData;
+import server.dbService.DBService;
+import server.msgsystem.Address;
 import server.vkauth.VkUserData;
 import templater.PageGenerator;
 import utils.Logger;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,16 +31,18 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
     private MessageSystem messageSystem;
     private Address address;
     private ObtainRequest obtainRequest;
+    private DBService dbService;
 
     // Contain Session_id and userData
     private Map<String, VkUserData> vkSessionIdToUserData;
     private Map<String, UserData> sessionIdToUserData;
     private Map<String, UserData> sessionIdToInvalidUserData;
 
-    public FrontendImpl(MessageSystem messageSystem) {
+    public FrontendImpl(MessageSystem messageSystem, DBService dbService) {
         super();
 
         this.messageSystem = messageSystem;
+        this.dbService = dbService;
         address = new Address();
         messageSystem.addService(this);
 
@@ -79,8 +72,10 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
+        String path =  request.getPathInfo();
+        System.out.println(path);
 
-        switch (UrlList.getUrlListByPath(request.getPathInfo())) {
+        switch (UrlList.getUrlListByPath(path)) {
             case VKAUTH:
                 obtainRequest.vkAuthRequest(request, response);
                 break;
@@ -95,6 +90,8 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                 break;
             case ADMIN:
                 obtainRequest.adminRequest(request, response);
+            case AJAX:
+                response.getWriter().println(PageGenerator.getPage("ajax.tml", new HashMap()));
                 break;
             default:
                 break;
@@ -106,7 +103,28 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                        HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
-        if (request.getPathInfo().equals("/checkuser")) {
+
+        String path =  request.getPathInfo();
+        String apiTemplate = "/" + UrlList.API + "/";
+
+        if (path.contains(apiTemplate)) {
+           String re = path.replace(apiTemplate, "");
+           switch(APIFUNC.getApiFuncByMethod(re)) {
+                case GET_USERS:
+                    List<Integer> usersId =  getListByJSON(request.getParameter("users_id"));
+                    List<String> fields =  getListByJSON(request.getParameter("fields"));
+                    List res = dbService.getUsers(usersId, fields);
+                     System.out.println(res.size() + "");
+                    break;
+               case GET_USERS_DIALOGS:
+
+                   break;
+           }
+        }
+        return;
+    }
+
+            /*if (request.getPathInfo().equals("/checkuser")) {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
             String sessionId = request.getSession().getId();
@@ -115,8 +133,21 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                 messageSystem.sendMessage(new MsgGetUserData(getAddress(), messageSystem.getAccountService().getAccountService(), sessionId, new UserData(name, password)));
             }
             response.getWriter().println(PageGenerator.getPage("checkuser.tml", null));
+        }*/
+
+/*    private String getJSONByList(List list) {
+        for (int i = 0; i < list.)
+        Object[] arr = (Object[]) ;
+
+    }*/
+
+    private <T> List<T> getListByJSON(String json) {
+        List<T> list = new LinkedList<T>();
+        JSONArray arr = new JSONArray(json);
+        for (int i = 0; i < arr.length(); i++) {
+            list.add((T) arr.get(i));
         }
-        return;
+        return list;
     }
 
     public Map<String, VkUserData> getVkSessionIdToUserData() {

@@ -1,4 +1,4 @@
-package server.dbService.tables;
+package server.dbService.notables;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,5 +7,5 @@ package server.dbService.tables;
  * Time: 17:47
  * To change this template use File | Settings | File Templates.
  */
-public class LikePlace {
+public class LikeMeet {
 }

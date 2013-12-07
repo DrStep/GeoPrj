@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import server.dbService.notables.AccessFriends;
 import server.dbService.tables.*;
 
 /**
@@ -63,7 +64,7 @@ public class HibernateUtil {
         configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/geoV1");
         configuration.setProperty("hibernate.connection.username", "root");
         configuration.setProperty("hibernate.connection.password", "");
-        configuration.setProperty("hibernate.show_sql", "true");
+        configuration.setProperty("hibernate.show_sql", "false");
         configuration.setProperty("hibernate.connection.characterEncoding", "utf8");
         configuration.setProperty("hibernate.hbm2ddl.auto", "update");
 

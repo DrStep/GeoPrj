@@ -54,9 +54,9 @@ public class Meet implements Serializable {
     @Column(name = "status")
     private String status;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "access")
-    private Access access;
+    @Enumerated(EnumType.ORDINAL)
+    public Access access;
 
     @Column(name = "last_update")
     @Type(type="timestamp")

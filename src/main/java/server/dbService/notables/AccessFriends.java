@@ -1,4 +1,4 @@
-package server.dbService.tables;
+package server.dbService.notables;
 
 import javax.persistence.*;
 import java.io.Serializable;
