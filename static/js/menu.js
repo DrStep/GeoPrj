@@ -27,31 +27,32 @@ function openDiv (id) {
 			//$('#m3').css({width:'+=20px'});
 			//$('#m3').css({borderBottom:'1px transparent'});
 			//$('#m3').css({background:'white'});
-      $('#m3 a').css({color:'white'});
+      //$('#m3 a').css({color:'white'});
+      $('.changePoint1').css({background:'white'});
       break;
     case 'events':
-      $('#m4 a').css({color:'white'});
+      $('.changePoint2').css({background:'white'});
       break;
     case 'dialogs':
       $('#m7 a').css({color:'white'});
       break;
     case 'meetings':
-      $('#m5 a').css({color:'white'});
+      $('.changePoint3').css({background:'white'});
       break;
 	}
 	if (openCheck) {
   switch(prevId){
     case 'friends':
-      $('#m3 a').css({color:'#555'});
+      $('.changePoint1').css({background:'transparent'});
       break;
     case 'events':
-      $('#m4 a').css({color:'#555'});
+      $('.changePoint2').css({background:'transparent'});
       break;
     case 'dialogs':
       $('#m7 a').css({color:'#555'});
       break;
     case 'meetings':
-      $('#m5 a').css({color:'#555'});
+      $('.changePoint3').css({background:'transparent'});
       break;
   }    
 		$('#friend_block').fadeOut(0);
@@ -219,7 +220,7 @@ function closeDiv(){
   $('#m2 a').css({color:'white'});
 	$('#friend_block').fadeOut(100);
 	$('#event_block').fadeOut(100);
-  $('#event_block').fadeOut(100);
+  $('#meeting_block').fadeOut(100);
   if (prevId=='dialogs'){
     $("#dialogs").animate({left:'+=300px'},300);
     $("#dialogs").queue(function(){
