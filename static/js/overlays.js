@@ -199,7 +199,7 @@ USGSOverlay.prototype.onAdd = function(location) {
   var div = document.createElement('div');
   div.setAttribute('id', 'drop-down');
   //div.innerHTML="<input type='button' class='button_rightclick' value='add meeting' onclick=addMarker(coordinates)>"
-  div.innerHTML="<div class='label_rightclick'><a onclick=add_meeting(coordinates,'meet')> add meeting </a>"+"<a onclick=addMarker(coordinates,'place')>add place</a>" + "<a onclick=addMarker(coordinates,'self')>check-in</a></div>";
+  div.innerHTML="<div class='label_rightclick'><a onclick=add_meeting(coordinates,'meet')> add meeting </a>"+"<a onclick=add_place(coordinates,'place')>add place</a>" + "<a onclick=add_self(coordinates,'self')>check-in</a></div>";
   this.div_ = div;
 
   var panes = this.getPanes();
@@ -326,13 +326,43 @@ function add_meeting(location){
     $('.add_window').delay(50).fadeIn(100);
     $('#add_button_marker').click(function() { 
       $('.add_window').fadeOut(10);
-      addMarker(location);
+      addMarker(location, 'meet');
       chatCheck=false;
     });
     chatCheck=true;
   }
   else{
     $('.add_window').fadeOut(10);
+    chatCheck=false;
+  }
+};
+function add_place(location){
+  if (chatCheck==false){
+    $('.add_window_place').delay(50).fadeIn(100);
+    $('#add_button_marker_place').click(function() { 
+      $('.add_window_place').fadeOut(10);
+      addMarker(location, 'place');
+      chatCheck=false;
+    });
+    chatCheck=true;
+  }
+  else{
+    $('.add_window_place').fadeOut(10);
+    chatCheck=false;
+  }
+};
+function add_self(location){
+  if (chatCheck==false){
+    $('.add_window_self').delay(50).fadeIn(100);
+    $('#add_button_marker_self').click(function() { 
+      $('.add_window_self').fadeOut(10);
+      addMarker(location, 'self');
+      chatCheck=false;
+    });
+    chatCheck=true;
+  }
+  else{
+    $('.add_window_self').fadeOut(10);
     chatCheck=false;
   }
 };

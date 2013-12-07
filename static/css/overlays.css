@@ -75,6 +75,38 @@ padding: 0px 0 0px 40px;
    -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
    opacity: 1.0;
 }
+.add_window_place {
+  position:absolute;
+   border: 4px solid #4682B4; /* Параметры границы */
+   border-radius: 20px 20px 20px 20px;
+   margin:0 0 10 10%;
+   display:none;
+   overflow:auto;
+   width:535px;
+   height:340px;
+   z-index:5;
+   background-color: #fff; /* Цвет фона */
+   padding: 10px; /* Поля вокруг текста */
+     -moz-opacity: 1.0; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 1.0;
+}
+.add_window_self {
+  position:absolute;
+   border: 4px solid #4682B4; /* Параметры границы */
+   border-radius: 20px 20px 20px 20px;
+   margin:0 0 10 10%;
+   display:none;
+   overflow:auto;
+   width:535px;
+   height:340px;
+   z-index:5;
+   background-color: #fff; /* Цвет фона */
+   padding: 10px; /* Поля вокруг текста */
+     -moz-opacity: 1.0; /* Mozilla 1.6 и ниже */
+   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
+   opacity: 1.0;
+}
 
 .page_meet{
   display:block;
