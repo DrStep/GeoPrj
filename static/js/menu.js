@@ -10,6 +10,7 @@ function init(){
 }
 
 function openDiv (id) {
+  $('#podlogka').css({display:'block'});
   if (locationOpen ==true){
     $('#up-triangle').fadeOut(0);
     $('.locationWindow').animate({height:'-=590px'},120);
@@ -130,6 +131,7 @@ function openDiv (id) {
 };
 
 function openDialogs() {
+  $('#podlogka').css({display:'block'});
   console.log(prevId);
   if (locationOpen ==true){
     $('#up-triangle').fadeOut(0);
@@ -183,6 +185,7 @@ function openDialogs() {
 }
 
 function oneDialog(number){
+  $('#podlogka').css({display:'block'});
   widthDial = screen.width - 1045;
   console.log(widthDial);
   $('.dialogWindow').css({marginLeft:widthDial+'px'});
@@ -195,6 +198,7 @@ function oneDialog(number){
 }
 
 function openLocations() {
+  $('#podlogka').css({display:'block'});
   if (openCheck) {
     $('#dialogs').animate({left:'+=327px'},200);
   }
@@ -209,6 +213,7 @@ function openLocations() {
 }
 
 function closeDiv(){
+  $('#podlogka').css({display:'none'});
   $('#triangle').fadeOut(0);
   $('.dialogWindow').fadeOut(0);
   $('#m2 a').css({color:'white'});
