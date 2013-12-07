@@ -338,7 +338,9 @@ function add_meeting(location){
 };
 
 function window_meeting(location){
+
   if (chatCheck==false){
+    $('#podlogka').css({display:'block'});
     $('.meet_window').delay(50).fadeIn(100);
     chatCheck=true;
     alert('true')
@@ -352,6 +354,7 @@ function window_meeting(location){
 
 function window_place(location){
   if (chatCheck==false){
+    $('#podlogka').css({display:'block'});
     $('.place_window').delay(50).fadeIn(100);
     chatCheck=true;
     alert('true')
@@ -398,5 +401,3 @@ function getMoreInformation(img) {
   }
 });
 }
-
-
