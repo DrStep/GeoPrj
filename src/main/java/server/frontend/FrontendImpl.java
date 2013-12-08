@@ -3,8 +3,10 @@ package server.frontend;
 import base.Frontend;
 import base.MessageSystem;
 import json.JSONArray;
+import json.JSONObject;
 import server.UserData;
 import server.dbService.DBService;
+import server.dbService.LocationRange;
 import server.msgsystem.Address;
 import server.vkauth.VkUserData;
 import templater.PageGenerator;
@@ -109,37 +111,77 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
 
         if (path.contains(apiTemplate)) {
            String re = path.replace(apiTemplate, "");
+
+           List<String> fields;
+           LocationRange locationRange;
+           List<Map<Object, Object>> res = null;
            switch(APIFUNC.getApiFuncByMethod(re)) {
                 case GET_USERS:
                     List<Integer> usersId =  getListByJSON(request.getParameter("users_id"));
-                    List<String> fields =  getListByJSON(request.getParameter("fields"));
-                    List res = dbService.getUsers(usersId, fields);
-                     System.out.println(res.size() + "");
+                    fields =  getListByJSON(request.getParameter("fields"));
+                    res = dbService.getUsers(usersId, fields);
                     break;
-               case GET_USERS_DIALOGS:
-
+               case GET_USERS_LOCATION:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   locationRange = getListLocationByJSON(request.getParameter("loc_range"));
+                   res = dbService.getAllUsersInCoordinates(locationRange, fields);
+                   break;
+               case GET_PLACE_LOCATION:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   locationRange = getListLocationByJSON(request.getParameter("loc_range"));
+                   res = dbService.getAllPlacesInCoordinates(locationRange, fields);
+                   break;
+               case GET_MEET_LOCATION:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   locationRange = getListLocationByJSON(request.getParameter("loc_range"));
+                   res = dbService.getAllMeetsInCoordinates(locationRange, fields);
+                   break;
+               case GET_DIALOGS:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   int userId =  Integer.parseInt(request.getParameter("user_id"));
+                   res = dbService.getAllDialogsByUserId(userId, fields);
+                   break;
+               case GET_MESSANGER:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   int dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
+                   res = dbService.getAllMessageByDialogId(dialogId, fields);
+                   break;
+               case GET_MEETS_FOR_USERID:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   userId =  Integer.parseInt(request.getParameter("user_id"));
+                   res = dbService.getAllMeetsByUserId(userId, fields);
+                   break;
+               case GET_MEET:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   int meetId =  Integer.parseInt(request.getParameter("meet_id"));
+                   res = dbService.getMeetById(meetId, fields);
                    break;
            }
+            response.getWriter().println(getJSONByList(res));
         }
         return;
     }
 
-            /*if (request.getPathInfo().equals("/checkuser")) {
-            String name = request.getParameter("name");
-            String password = request.getParameter("password");
-            String sessionId = request.getSession().getId();
+    private static String getJSONByList(List<Map<Object, Object>> list) {
+        JSONArray arr = new JSONArray();
 
-            if (name != null && password != null) {
-                messageSystem.sendMessage(new MsgGetUserData(getAddress(), messageSystem.getAccountService().getAccountService(), sessionId, new UserData(name, password)));
+        for (Map<Object, Object> map : list) {
+            JSONObject obj = new JSONObject();
+            for (Map.Entry<Object, Object> e : map.entrySet()) {
+                String key = e.getKey().toString();
+                String value = e.getValue().toString();
+                obj.put(key, value);
             }
-            response.getWriter().println(PageGenerator.getPage("checkuser.tml", null));
-        }*/
+            arr.put(obj);
+        }
+        return arr.toString();
+    }
 
-/*    private String getJSONByList(List list) {
-        for (int i = 0; i < list.)
-        Object[] arr = (Object[]) ;
-
-    }*/
+    private LocationRange getListLocationByJSON(String json) {
+        JSONObject obj = new JSONObject(json);
+        return new LocationRange(obj.getDouble("latL"), obj.getDouble("latR"),
+                                        obj.getDouble("lngL"), obj.getDouble("lngR"));
+    }
 
     private <T> List<T> getListByJSON(String json) {
         List<T> list = new LinkedList<T>();
@@ -149,6 +191,17 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         }
         return list;
     }
+
+                /*if (request.getPathInfo().equals("/checkuser")) {
+            String name = request.getParameter("name");
+            String password = request.getParameter("password");
+            String sessionId = request.getSession().getId();
+
+            if (name != null && password != null) {
+                messageSystem.sendMessage(new MsgGetUserData(getAddress(), messageSystem.getAccountService().getAccountService(), sessionId, new UserData(name, password)));
+            }
+            response.getWriter().println(PageGenerator.getPage("checkuser.tml", null));
+        }*/
 
     public Map<String, VkUserData> getVkSessionIdToUserData() {
         return vkSessionIdToUserData;

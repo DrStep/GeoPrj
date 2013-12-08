@@ -1,5 +1,6 @@
 package test;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.Before;
@@ -157,16 +158,14 @@ public class DBServiceTest {
 
     @Test
     public void addParticipants() {
-        User user = getRandomUser();
-        Meet meet = getRandomMeet();
-
-        Participants participant = new Participants();
-        participant.setMeet(meet);
-        participant.setUser(user);
-        participant.setLastUpdate(new Date());
-
-        session.save(participant);
+        for (int i = 0; i < 100; i++) {
+            User user = getRandomUser();
+            Meet meet = getRandomMeet();
+            meet.getParticipants().add(user);
+            session.update(meet);
+        }
         session.getTransaction().commit();
+
     }
 
     @Test
@@ -238,10 +237,61 @@ public class DBServiceTest {
     }
 
 
+/*    @Test
+    public void getAllPlacesInCoordinatesCall()
+    {
+        Double leftLatitude =  0.0;
+        Double leftLongitude = -25.0;
+        Double rightlLatitude = 25.0;
+        Double rightlLongitude = 0.0;
+
+        List <Map> list = getAllPlacesInCoordinates(leftLatitude, leftLongitude, rightlLatitude, rightlLongitude);
+
+        list.clear();
+
+        list = getAllMeetsInCoordinates(leftLatitude, leftLongitude, rightlLatitude, rightlLongitude);
+        list.clear();
+
+        list = getAllUsersInCoordinates(leftLatitude, leftLongitude, rightlLatitude, rightlLongitude);
+        list.clear();
+        //getLocationId(leftLatitude, leftLongitude, rightlLatitude, rightlLongitude);
+    }*/
+
+/*    public List<Map> getAllPlacesInCoordinates(Double leftLatitude, Double leftLongitude, Double rightlLatitude, Double rightlLongitude, List<Integer> usersId, List<String> fieldsList)
+    {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH,"select place.title as title, location.latitude as latitude, location.longitude as longitude, place_id from place"
+                            + " inner join location on  place.loc_id = location.loc_id"
+                                + " where (location.latitude between %.5f and %.5f) and (location.longitude between %.5f and %.5f);"
+                                    , leftLatitude, rightlLatitude, leftLongitude, rightlLongitude);
+        return  session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }*/
+
+    public List<Map> getAllMeetsInCoordinates(Double leftLatitude, Double leftLongitude, Double rightlLatitude, Double rightlLongitude)
+    {
+        String sql = String.format(Locale.ENGLISH,"select meet.title as title, location.latitude as latitude, location.longitude as longitude, meet_id from meet" +
+                                " inner join location on  meet.loc_id = location.loc_id" +
+                                    " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f);"
+                                        , leftLatitude, rightlLatitude, leftLongitude, rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List<Map>  getAllUsersInCoordinates(Double leftLatitude, Double leftLongitude, Double rightlLatitude, Double rightlLongitude)
+    {
+        String sql = String.format(Locale.ENGLISH,"select user.name as name, location.latitude as latitude, location.longitude as longitude, user_id from user " +
+                            "inner  join user_location on user_location.user_id = user.id inner join  location" +
+                                "on location.loc_id = user_location.loc_id_extra " +
+                                    " where (location.latitude between %.5f and %.5f )  and (location.longitude between %.5f and %.5f);"
+                                        , leftLatitude, rightlLatitude, leftLongitude, rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
 
     private User getRandomUser() {
-        Integer userId1 = random.nextInt((Integer) session.createQuery("select max(user.id) from User user").list().get(0));
-        User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", 8022).list().get(0);
+        Integer userId1 = random.nextInt((Integer) session.createQuery("select max(user.id) from User user").list().get(0)) ;
+        if (userId1 == 0)
+            userId1 = 10;
+        User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", userId1).list().get(0);
         return user;
     }
 
@@ -270,14 +320,17 @@ public class DBServiceTest {
 
     private Meet getRandomMeet() {
         Integer meetId = random.nextInt((Integer) session.createQuery("select max(meet.id) from Meet meet").list().get(0));
-        System.out.println("MeetId: " + meetId);
+        if (meetId == 0)
+            meetId = 10;
         Meet meet = (Meet) session.createQuery("from Meet meet where meet.id = :meet_id")
-                .setParameter("meet_id", 4008).list().get(0);
+                .setParameter("meet_id", meetId).list().get(0);
         return meet;
     }
 
     private Place getRandomPlaces() {
         Integer placeId = random.nextInt((Integer) session.createQuery("select max(place.id) from Place place").list().get(0));
+        if (placeId == 0)
+            placeId = 100;
         Place place = (Place) session.createQuery("from Place place where place.id = :place_id")
                 .setParameter("place_id", 3004).list().get(0);
         return place;

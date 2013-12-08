@@ -1,5 +1,7 @@
 package server.dbService.tables;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -26,6 +28,7 @@ public class Participants implements Serializable {
     private User user;
 
     @Column(name = "last_update")
+    @Type(type="timestamp")
     private Date lastUpdate;
 
     public Integer getId() {

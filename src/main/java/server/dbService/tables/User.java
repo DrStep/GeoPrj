@@ -56,7 +56,7 @@ public class User implements Serializable {
             @JoinColumn(name = "user_id", nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "dialog_id",
                     nullable = false, updatable = false) })
-    private Set<Dialog> dialogs = new HashSet<Dialog>();
+    private List<Dialog> dialogs = new ArrayList<Dialog>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "user_location", joinColumns = {
@@ -152,11 +152,11 @@ public class User implements Serializable {
         this.photo = photo;
     }
 
-    public Set<Dialog> getDialogs() {
+    public List<Dialog> getDialogs() {
         return dialogs;
     }
 
-    public void setDialogs(Set<Dialog> dialogs) {
+    public void setDialogs(List<Dialog> dialogs) {
         this.dialogs = dialogs;
     }
 
@@ -198,5 +198,13 @@ public class User implements Serializable {
 
     public void setMsgList(List<Messanger> msgList) {
         this.msgList = msgList;
+    }
+
+    public List<Meet> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Meet> participants) {
+        this.participants = participants;
     }
 }

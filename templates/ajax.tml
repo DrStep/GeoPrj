@@ -5,15 +5,17 @@
             <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
             <script type="text/javascript">
             $(document).ready(function() {
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8090/api/users.get",
-                data: "users_id=" + "[8019, 8020, 8021]" + "&" + "fields=" + "['name', 'gender', 'photo']",
-            	success: function(response) {
-                alert(response + "");
-           	}
-
-                });
+	            $.ajax({
+	                type: "POST",
+	                url: "http://localhost:8090/api/meet.get",
+	                data: "meet_id=" + "581" + "&" + "fields=" + "['title', 'loc_id', 'description']",
+	            	success: function(response) {
+	            		obj = JSON.parse(response);
+	                	for (var i = 0; i < obj.length;i++) {
+	                		console.log(obj[i].name);
+	                	}
+	           		}
+	        	});
             });
             </script>
         </head>

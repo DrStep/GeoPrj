@@ -1,8 +1,10 @@
 package server.dbService;
 
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import server.dbService.tables.Dialog;
 import server.dbService.tables.Location;
 import server.dbService.tables.User;
 
@@ -22,208 +24,108 @@ public class DBService {
 
     public DBService() {
         session = HibernateUtil.getSessionFactory().openSession();
-        /*session.beginTransaction();
-        session.getTransaction().commit();*/
     }
 
     public List getUsers(List<Integer> usersId, List<String> fieldsList) {
         StringBuffer req = new StringBuffer();
         ((LinkedList<String>)fieldsList).addFirst("id");
 
-        String field = separateListSymbol(fieldsList, ",");
+        String field = separateListSymbolFields(fieldsList, ",");
+        String users = separateListSymbol(usersId, ",");
 
-        for (int i = 0; i < usersId.size(); i++) {
-            req.append(String.format("select %s from User user where user.id = %d", field, usersId.get(i)));
-            if (i != (usersId.size() - 1)) req.append(" union ");
-        }
-
-        String [] arr = session.createQuery(req.toString()).getNamedParameters();
-        String q = session.createQuery(req.toString()).getQueryString();
-        System.out.println(arr[0] + "  " + q);
-        return null;
+        req.append(String.format("select %s from User user where user.id in (%s)", field, users));
+        return session.createQuery(req.toString()).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
-    private String separateListSymbol(List<String> list, String separator) {
+    public List getAllPlacesInCoordinates(LocationRange locRange, List<String> fieldsList)
+    {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH,"select %s from place"
+                    + " inner join location on  place.loc_id = location.loc_id"
+                        + " where (location.latitude between %.5f and %.5f) and (location.longitude between %.5f and %.5f);"
+                            , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return  session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getAllMeetsInCoordinates(LocationRange locRange, List<String> fieldsList)
+    {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet"
+                + " inner join location on  meet.loc_id = location.loc_id"
+                    + " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f);"
+                        , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List  getAllUsersInCoordinates(LocationRange locRange, List<String> fieldsList)
+    {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH,"select %s from user"
+                + " inner  join user_location on user_location.user_id = user.id inner join  location"
+                    + " on location.loc_id = user_location.loc_id_extra "
+                        + " where (location.latitude between %.5f and %.5f )  and (location.longitude between %.5f and %.5f);"
+                            , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getAllDialogsByUserId(int userId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH,"select %s from user " +
+                            "inner join dialog_user " +
+                                "inner join dialog on user.id=dialog_user.user_id and dialog_user.dialog_id=dialog.id and user_id=%d;"
+                                    , field, userId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getAllMessageByDialogId(int dialogId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH,"select %s from dialog inner join messanger on dialog_id= %d and dialog.id=messanger.dialog_id"
+                            , field, dialogId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getAllMeetsByUserId(int userId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from user inner join participants" +
+                " inner join meet on user.id=participants.user_id and meet.meet_id=participants.meet_id and user.id=%d"
+                    , field, userId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getMeetById(int meetId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet where meet_id=%d", field, meetId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    private static List<Map<String, Object>> getMapBySQLList(List list, List<String> fieldsList) {
+        List<Map<String, Object>> objList = new ArrayList<Map<String, Object>>();
+
+        for (int i = 0; i < list.size(); i++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            Object[] obj = (Object[]) list.get(i);
+            for (int j = 0; j < obj.length; j++) {
+                map.put(fieldsList.get(j), obj[j]);
+            }
+            objList.add(map);
+        }
+        return objList;
+    }
+
+    private static <T> String separateListSymbolFields(List<T> list, String separator) {
         String separateStr = "";
-        for (String item : list) {
-            separateStr += (item + separator);
+        for (T item : list) {
+            String it = item.toString();
+            separateStr += ( new StringBuffer(it).append(" as ").append(it).append(separator));
         }
         return separateStr.substring(0, separateStr.length() - 1);
     }
 
-        /*Dialog d = new Dialog();
-        d.setTitle("Hello");
-        session.save(d);
-
-        Messanger m = new Messanger();
-        m.setDialog(d);
-        m.setMsg("Hello World!");
-        m.setDateTime(new Date());
-        m.setRead(false);
-        session.save(m);*/
-/*
-        User user1 = new User();
-        user1.setName("Alex");
-        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
-        user1.setGender(18);
-        user1.setToken("vk");
-        user1.setExist(true);
-        user1.setExpires(System.currentTimeMillis() / 1000L);
-        user1.setPhoto("abc.png");
-
-        Location loc1 = new Location();
-        loc1.setLatitude(100F);
-        loc1.setLongitude(100F);
-        loc1.setTime(new Date());
-
-        Location loc2 = new Location();
-        loc2.setLatitude(100F);
-        loc2.setLongitude(100F);
-        loc2.setTime(new Date());
-
-        List<Location> locationList = new ArrayList<Location>();
-        locationList.add(loc1);
-        locationList.add(loc2);
-
-        user1.setLocations(locationList);*/
-
-        /*Meet meet = new Meet();
-        meet.setTitle("Meet1");
-        meet.setDescription("Go to cinema");
-        meet.setPhoto("abc.png");
-        meet.setDateTime(new Date());
-        meet.setAccess(Access.PUBLIC);
-        meet.setStatus("Status");
-        meet.setLastUpdate(new Date());
-        meet.setWhatChange("Wall");
-        meet.setType(1);
-
-        Location loc1 = new Location();
-        loc1.setLatitude(100F);
-        loc1.setLongitude(100F);
-        loc1.setTime(new Date());
-
-
-
-        meet.setLocation(loc1);
-        meet.setWall(wall);
-        session.save(meet);*/
-
-        /*User user1 = new User();
-        user1.setName("Alex");
-        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
-        user1.setGender(18);
-        user1.setToken("vk");
-        user1.setExist(true);
-        user1.setExpires(System.currentTimeMillis() / 1000L);
-        user1.setPhoto("abc.png");
-
-        Location loc1 = new Location();
-        loc1.setLatitude(100F);
-        loc1.setLongitude(100F);
-        loc1.setTime(new Date());
-
-
-
-        Place place = new Place();
-        place.setLocation(loc1);
-        place.setWall(wall);
-        place.setUser(user1);
-        place.setTitle("Title1");
-        place.setDescription("Desc1");
-        place.setStatus("Status1");
-        place.setImage("top.png");
-
-        session.save(place);*/
-
-/*
-        Location loc1 = new Location();
-        loc1.setLatitude(100F);
-        loc1.setLongitude(100F);
-        loc1.setTime(new Date());
-
-        Wall wall = new Wall();
-        wall.setMsg("Wall msg");
-        wall.setDateTime(new Date());
-
-        Inviters inviters = new Inviters();
-
-        Meet meet = new Meet();
-        meet.setLocation(loc1);
-        meet.setWall(wall);
-        meet.setTitle("Meet1");
-        meet.setDescription("Go to cinema");
-        meet.setPhoto("abc.png");
-        meet.setDateTime(new Date());
-        meet.setAccess(Access.PUBLIC);
-        meet.setStatus("Status");
-        meet.setLastUpdate(new Date());
-        meet.setWhatChange("Wall");
-        meet.setType(1);
-*/
-
-
-  /*      User user1 = new User();
-        user1.setName("Alex");
-        user1.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd");
-        user1.setGender(18);
-        user1.setToken("vk");
-        user1.setExist(true);
-        user1.setExpires(System.currentTimeMillis() / 1000L);
-        user1.setPhoto("abc.png");
-
-        User user2 = new User();
-        user2.setName("Alex1");
-        user2.setPassword("dzrwqmsadDJNKnd2ie2d3Ddsd1");
-        user2.setGender(18);
-        user2.setToken("vk");
-        user2.setExist(true);
-        user2.setExpires(System.currentTimeMillis() / 1000L);
-        user2.setPhoto("abc2.png");
-
-        Friends frd1 = new Friends();
-        frd1.setUser1(user1);
-        frd1.setUser1(user2);
-
-        //session.save(frd1);
-
-        List<Friends> arr = new ArrayList<Friends>();
-        arr.add(frd1);
-
-        user2.setFriendsList1(arr);
-
-        session.save(user2);*/
-
-/*        inviters.setUserTo(user1);
-        inviters.setUserFrom(user2);
-        inviters.setMeet(meet);
-
-        inviters.setTime(new Date());
-        inviters.setAdmin(false);
-        inviters.setInvite(true);
-        inviters.setChange(false);*/
-
-
-
-        /*Dialog dialog1 = new Dialog();
-        dialog1.setTitle("Hello");
-
-        Dialog dialog2 = new Dialog();
-        dialog2.setTitle("Hello1");
-
-        Set<Dialog> dialogSet = new HashSet<Dialog>();
-        dialogSet.add(dialog1);
-        dialogSet.add(dialog2);
-
-
-
-        user1.setDialogs(dialogSet);*/
-
-
-        /*Set<User> userSet = new HashSet<User>();
-        userSet.add(user1);
-        userSet.add(user2);
-
-        dialog.setUsers(userSet);
-        */
+    private static <T> String separateListSymbol(List<T> list, String separator) {
+        String separateStr = "";
+        for (T item : list) {
+            separateStr += (item + separator);
+        }
+        return separateStr.substring(0, separateStr.length() - 1);
+    }
 }

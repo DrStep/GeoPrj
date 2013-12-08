@@ -39,6 +39,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Place.class);
 
             configuration.addAnnotatedClass(Friends.class);
+            configuration.addAnnotatedClass(Participants.class);
 
 
 
