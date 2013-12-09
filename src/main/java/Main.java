@@ -1,14 +1,14 @@
-import server.FrontendImpl;
-import server.MessageSystem;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import server.FrontendImpl;
+import server.MessageSystem;
 import server.innerauth.AccountService;
-import utils.Logger;
 import server.vk.AccountVkService;
+import utils.Logger;
 
 /**
  * Created with IntelliJ IDEA.
