@@ -7,8 +7,8 @@
             $(document).ready(function() {
 	            $.ajax({
 	                type: "POST",
-	                url: "http://localhost:8090/api/user.update",
-	                data: "user_id=" + "11" + "&" + "fields={name:dsad,password:rwere}",
+	                url: "http://localhost:8090/api/meet.insert",
+	                data: "user_id=" + "11" + "&" + "fields={message:Hello,title:Mapp,photo:abc.png,status:Sun, description: todads}",
 	            	success: function(response) {
 	            		obj = JSON.parse(response);
 	                	for (var i = 0; i < obj.length;i++) {

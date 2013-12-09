@@ -6,8 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ajax.tml" afterPath="$PROJECT_DIR$/templates/ajax.tml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.py" afterPath="$PROJECT_DIR$/db.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GeoPrj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +63,7 @@
     <file path="/MsgUpdateUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383253048357" ignored="false" />
     <file path="/MsgGetUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383253783320" ignored="false" />
     <file path="/checkuser.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383255127117" ignored="false" />
-    <file path="/FrontendImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386621536412" ignored="false" />
+    <file path="/FrontendImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386622672601" ignored="false" />
     <file path="/AccountServiceImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383720821705" ignored="false" />
     <file path="/UrlsList.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383935967981" ignored="false" />
     <file path="/UrlList.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386419469934" ignored="false" />
@@ -75,7 +73,7 @@
     <file path="/VFSImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385142750185" ignored="false" />
     <file path="/hibernate.cfg.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385153031906" ignored="false" />
     <file path="/Users.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386161076979" ignored="false" />
-    <file path="/DBService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386620601134" ignored="false" />
+    <file path="/DBService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386622884284" ignored="false" />
     <file path="/HibernateUtil.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386533116891" ignored="false" />
     <file path="/Test.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1385397928956" ignored="false" />
     <file path="/Dialog.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1386165618881" ignored="false" />
@@ -251,6 +249,36 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="192" class="server.frontend.FrontendImpl" package="server.frontend">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="196" class="server.frontend.FrontendImpl" package="server.frontend">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
@@ -282,39 +310,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrontendImpl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FrontendImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="64" selection-start="7870" selection-end="7870" vertical-scroll-proportion="0.88987565">
+            <state line="198" column="41" selection-start="8743" selection-end="8743" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#8500#8516#0" expanded="true" />
+                <element signature="e#8863#8879#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSONObject.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/json/JSONObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="728" column="15" selection-start="25151" selection-end="25151" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBService.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DBService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="5" selection-start="7642" selection-end="7642" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Query.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.2.7.SP1/hibernate-core-4.2.7.SP1.jar!/org/hibernate/Query.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="8" selection-start="905" selection-end="905" vertical-scroll-proportion="-7.92">
+            <state line="132" column="8" selection-start="7043" selection-end="7043" vertical-scroll-proportion="0.17085427">
               <folding />
             </state>
           </provider>
@@ -323,7 +333,7 @@
       <file leaf-file-name="DBServiceTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="0" selection-start="14329" selection-end="14329" vertical-scroll-proportion="0.0">
+            <state line="289" column="1" selection-start="18956" selection-end="19330" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -341,7 +351,7 @@
       <file leaf-file-name="APIFUNC.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="112" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
+            <state line="13" column="141" selection-start="774" selection-end="785" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -378,9 +388,9 @@
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbService/DBService.java" />
       </list>
     </option>
   </component>
@@ -1139,7 +1149,7 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.344098" sideWeight="0.7348777" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.344098" sideWeight="0.7348777" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46518105" sideWeight="0.2007722" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41225627" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1148,9 +1158,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17449306" sideWeight="0.33853006" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.856546" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16221985" sideWeight="0.655902" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16221985" sideWeight="0.6937639" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.55011135" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2516704" sideWeight="0.7985843" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3062361" sideWeight="0.7985843" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="2925" y="109" width="571" height="881" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1273,13 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="0" selection-start="14329" selection-end="14329" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/tables/Participants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="68" selection-start="749" selection-end="750" vertical-scroll-proportion="0.0">
@@ -1326,24 +1329,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="112" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="5" selection-start="7642" selection-end="7642" vertical-scroll-proportion="0.0">
+        <state line="13" column="141" selection-start="774" selection-end="785" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="64" selection-start="7870" selection-end="7870" vertical-scroll-proportion="0.88987565">
+        <state line="198" column="41" selection-start="8743" selection-end="8743" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#8500#8516#0" expanded="true" />
+            <element signature="e#8863#8879#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="289" column="1" selection-start="18956" selection-end="19330" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="8" selection-start="7043" selection-end="7043" vertical-scroll-proportion="0.17085427">
+          <folding />
         </state>
       </provider>
     </entry>

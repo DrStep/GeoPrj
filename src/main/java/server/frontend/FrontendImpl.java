@@ -187,6 +187,12 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    boolean isUpdate = dbService.updateUser(userId, map);
                    response.getWriter().println("{response:" + isUpdate + "}");
                    break;
+               case INSERT_MEET:
+                   userId = Integer.parseInt(request.getParameter("user_id"));
+                   map =  getMapByJSON(request.getParameter("fields"));
+                   boolean isInsert = dbService.insertMeet(userId, map);
+                   response.getWriter().println("{response:" + isInsert + "}");
+                   break;
            }
             response.getWriter().println(getJSONByList(res));
         }

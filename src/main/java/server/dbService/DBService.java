@@ -4,9 +4,7 @@ package server.dbService;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import server.dbService.tables.Dialog;
-import server.dbService.tables.Location;
-import server.dbService.tables.User;
+import server.dbService.tables.*;
 
 import java.util.*;
 
@@ -21,8 +19,10 @@ import java.util.*;
 public class DBService {
 
     private Session session;
+    private Random random;
 
     public DBService() {
+        random = new Random();
         session = HibernateUtil.getSessionFactory().openSession();
     }
 
@@ -127,6 +127,43 @@ public class DBService {
         String field = separateListSymbolFields(fieldsList, ",");
         String sql = String.format(Locale.ENGLISH, "select %s from meet where dialog_id=%d", field, wallId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public boolean insertMeet(int userId, Map<String, Object> map) {
+        session.beginTransaction();
+        User user = getUser(userId);
+
+        Location loc = new Location();
+        loc.setLatitude((random.nextFloat() * 100) % 180);
+        loc.setLongitude((random.nextFloat() * 100) % 180);
+        loc.setTime(new Date());
+
+        Wall wall = new Wall();
+        wall.setMsg(map.get("message").toString());
+        wall.setDateTime(new Date());
+
+        Meet meet = new Meet();
+        meet.setAdmin(user);
+        meet.setTitle(map.get("title").toString());
+        meet.setDescription(map.get("description").toString());
+        meet.setPhoto(map.get("photo").toString());
+        meet.setDateTime(new Date());
+        meet.setAccess(Access.PUBLIC);
+        meet.setStatus(map.get("status").toString());
+        meet.setLastUpdate(new Date());
+        meet.setWhatChange("Ok");
+        meet.setType(1);
+        meet.setWall(wall);
+        meet.setLocation(loc);
+
+        session.save(meet);
+        session.getTransaction().commit();
+        return true;
+    }
+
+    private User getUser(int userId) {
+        User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", userId).list().get(0);
+        return user;
     }
 
     public List getFriendsMeet(int userId) {
