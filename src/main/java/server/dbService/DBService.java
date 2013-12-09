@@ -26,14 +26,13 @@ public class DBService {
         session = HibernateUtil.getSessionFactory().openSession();
     }
 
-    public List getUsers(List<Integer> usersId, List<String> fieldsList) {
+    public List getUser(Integer userId, List<String> fieldsList) {
         StringBuffer req = new StringBuffer();
         ((LinkedList<String>)fieldsList).addFirst("id");
 
         String field = separateListSymbolFields(fieldsList, ",");
-        String users = separateListSymbol(usersId, ",");
 
-        req.append(String.format("select %s from User user where user.id in (%s)", field, users));
+        req.append(String.format("select %s from User user where user.id=%d", field, userId));
         return session.createQuery(req.toString()).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
@@ -92,13 +91,72 @@ public class DBService {
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
+    public List getInfoMeetsById(int meetId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet as m inner join user_location as ul " +
+                "inner join wall as w on m.loc_id=ul.loc_id and m.wall_id=w.wall_id and meet_id=%d"
+                    , field, meetId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getUserFriends(int userId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from friends as f inner join user as u on f.user1=u.id and f.user1=%d", field, userId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
     public List getMeetById(int meetId, List<String> fieldsList) {
         String field = separateListSymbolFields(fieldsList, ",");
         String sql = String.format(Locale.ENGLISH, "select %s from meet where meet_id=%d", field, meetId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
-    private static List<Map<String, Object>> getMapBySQLList(List list, List<String> fieldsList) {
+    public List getDialogById(int dialogId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet where dialog_id=%d", field, dialogId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getPlaceById(int placeId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet where dialog_id=%d", field, placeId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getWallById(int wallId, List<String> fieldsList) {
+        String field = separateListSymbolFields(fieldsList, ",");
+        String sql = String.format(Locale.ENGLISH, "select %s from meet where dialog_id=%d", field, wallId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getFriendsMeet(int userId) {
+        String sql = String.format(Locale.ENGLISH,"select m.title, group_concat(user2) as frds_id, group_concat(frd.name) as frds_name from " +
+                        "(select user2,name from friends as f inner join user as u on f.user2=u.id and user1=%d) as frd " +
+                            "inner join participants as p inner join meet as m " +
+                                "on frd.user2=p.user_id and m.meet_id=p.meet_id  group by p.meet_id"
+                                    , userId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public boolean updateUser(int userId, Map<String, Object> map) {
+        String field = updateRequest(map, "user");
+        String sql = String.format(Locale.ENGLISH, "update user set %s where user.id=%d", field, userId);
+        return session.createQuery(sql).executeUpdate() > 0 ? true : false;
+    }
+
+    private static String updateRequest(Map<String, Object> map, String key) {
+        String res = "";
+
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            res += key + "." + entry.getKey() + "='" + entry.getValue() + "',";
+        }
+
+        return res.substring(0, res.length() - 1);
+    }
+
+/*    private static List<Map<String, Object>> getMapBySQLList(List list, List<String> fieldsList) {
         List<Map<String, Object>> objList = new ArrayList<Map<String, Object>>();
 
         for (int i = 0; i < list.size(); i++) {
@@ -110,6 +168,26 @@ public class DBService {
             objList.add(map);
         }
         return objList;
+    }*/
+
+    private static String separateMapSymbolFields(Map<String, List<String>> map, String separator) {
+        String str = "";
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry) it.next();
+            str += separateListSymbolFields((List<String>) pairs.getValue(), separator, pairs.getKey().toString())
+                                                                                                            + separator;
+        }
+        return str.substring(0, str.length() - 1);
+    }
+
+    private static <T> String separateListSymbolFields(List<T> list, String separator, String key) {
+        String separateStr = "";
+        for (T item : list) {
+            String it = item.toString();
+            separateStr += ( new StringBuffer(key).append(".").append(it).append(" as ").append(it).append(separator));
+        }
+        return separateStr.substring(0, separateStr.length() - 1);
     }
 
     private static <T> String separateListSymbolFields(List<T> list, String separator) {

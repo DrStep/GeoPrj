@@ -358,54 +358,13 @@ def main():
 	
 	#Create Users
 	
-	m.createUsers(5 * million)
+	#m.createUsers(5 * million)
 	nUsers = m.getCountData("user")
 	print("Users {0}".format(nUsers))
 	
 	#Friends
 	m.createFriends(4 * million, nUsers)
-	
-	# Message System
-	
-	m.createDialog(3 * million)
-	nDialogs = m.getCountData("dialog")
-	print("Dialogs {0}".format(nDialogs))
-	
-	m.createMessanger(5 * million, nDialogs)
-	m.createDialogUser(3 * million, nDialogs, nUsers)
-	
-	#Locations
-	m.createLocations(5 * million)
-	nLoc = m.getCountData("location")
-	print ("Created {0} locations".format(million))
-			
-	#User Locations
-	m.createUserLocation(3 * million, nUsers, nLoc)
-	nUserLoc = m.getCountData("user_location")
-	
-	#Wall
-	m.createWall(3 * million)
-	nWall = m.getCountData("wall")
-	
-	#Meet
-	m.createMeets(4 * million, nUserLoc, nWall, nUsers)
-	nMeet = m.getCountData("meet")
-	print("Count(Wall):{0} Count(Loc):{1} Meets:{2}".format(nWall, nLoc, nMeet))
-	
-	#Inviters
-	m.createInviters(3 * million, nMeet, nUsers)
-	
-	#AccessFriends
-	m.createAccessFriends(million, nMeet, nUsers)
-	
-	#Like_Meet
-	m.createLikeMeet(million, nUsers, nMeet)
-	
-	#Like_Meet
-	m.createLikPlace(million, nUsers, nMeet)
-	
-	# Place
-	m.createPlaces(3 * million, nLoc, nUsers, nWall)
+
 	return 0
 
 if __name__ == '__main__':

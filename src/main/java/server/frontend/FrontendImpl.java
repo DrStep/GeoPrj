@@ -112,14 +112,15 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         if (path.contains(apiTemplate)) {
            String re = path.replace(apiTemplate, "");
 
-           List<String> fields;
-           LocationRange locationRange;
            List<Map<Object, Object>> res = null;
+           LocationRange locationRange;
+
            switch(APIFUNC.getApiFuncByMethod(re)) {
-                case GET_USERS:
-                    List<Integer> usersId =  getListByJSON(request.getParameter("users_id"));
+                case GET_USER:
+                    List<String> fields =  getListByJSON(request.getParameter("fields"));
+                    int userId =  Integer.parseInt(request.getParameter("user_id"));
                     fields =  getListByJSON(request.getParameter("fields"));
-                    res = dbService.getUsers(usersId, fields);
+                    res = dbService.getUser(userId, fields);
                     break;
                case GET_USERS_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
@@ -138,13 +139,18 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    break;
                case GET_DIALOGS:
                    fields =  getListByJSON(request.getParameter("fields"));
-                   int userId =  Integer.parseInt(request.getParameter("user_id"));
+                   userId =  Integer.parseInt(request.getParameter("user_id"));
                    res = dbService.getAllDialogsByUserId(userId, fields);
                    break;
                case GET_MESSANGER:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
                    res = dbService.getAllMessageByDialogId(dialogId, fields);
+                   break;
+               case GET_USERS_FRIENDS:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   userId =  Integer.parseInt(request.getParameter("user_id"));
+                   res = dbService.getUserFriends(userId, fields);
                    break;
                case GET_MEETS_FOR_USERID:
                    fields =  getListByJSON(request.getParameter("fields"));
@@ -156,10 +162,50 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    int meetId =  Integer.parseInt(request.getParameter("meet_id"));
                    res = dbService.getMeetById(meetId, fields);
                    break;
+               case GET_FRIENDS_MEET:
+                   userId = Integer.parseInt(request.getParameter("user_id"));
+                   res = dbService.getFriendsMeet(userId);
+                   break;
+               case GET_PLACE:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   int placeId =  Integer.parseInt(request.getParameter("place_id"));
+                   res = dbService.getPlaceById(placeId, fields);
+                   break;
+               case GET_DIALOG:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   dialogId =  Integer.parseInt(request.getParameter("place_id"));
+                   res = dbService.getPlaceById(dialogId, fields);
+                   break;
+               case GET_WALL:
+                   fields =  getListByJSON(request.getParameter("fields"));
+                   int wallId =  Integer.parseInt(request.getParameter("place_id"));
+                   res = dbService.getPlaceById(wallId, fields);
+                   break;
+               case UPDATE_USER:
+                   userId = Integer.parseInt(request.getParameter("user_id"));
+                   Map<String, Object> map =  getMapByJSON(request.getParameter("fields"));
+                   boolean isUpdate = dbService.updateUser(userId, map);
+                   response.getWriter().println("{response:" + isUpdate + "}");
+                   break;
            }
             response.getWriter().println(getJSONByList(res));
         }
         return;
+    }
+
+    private static Map<String, Object> getMapByJSON(String json) {
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        JSONObject obj = new JSONObject(json);
+        Set set = obj.keySet();
+        Iterator it = set.iterator();
+
+        while(it.hasNext()) {
+            String key = it.next().toString();
+            String value = obj.get(key).toString();
+            map.put(key, value);
+        }
+        return map;
     }
 
     private static String getJSONByList(List<Map<Object, Object>> list) {
