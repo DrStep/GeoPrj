@@ -206,7 +206,7 @@ function openLocations() {
   if (openCheck) {
     $('#dialogs').animate({left:'+=327px'},200);
   }
-  offset = $('#locationButton').offset();
+  offset = $('.global_button').offset();
   widthLoc = offset.left+50;
   $('#up-triangle').css({marginLeft:widthLoc});
   $('#up-triangle').css({display:'block'});
@@ -217,6 +217,14 @@ function openLocations() {
 }
 
 function closeDiv(){
+  if (chatCheck == true){
+    $('.chat').fadeOut(10);
+  }
+  if (locationOpen ==true){
+     $('#up-triangle').fadeOut(0);
+     $('.locationWindow').animate({height:'-=590px'},120);
+     $('.locationWindow').fadeOut(0);
+  }
   $('.changePoint1').css({background:'transparent'});
   $('.changePoint2').css({background:'transparent'});
   $('.changePoint3').css({background:'transparent'});
@@ -252,22 +260,25 @@ function closeDiv(){
 
 function startChat(){
 	if (chatCheck==false){
-		$('#delete').animate({width:'-=40px'},200);
-		$('#delete').text('Удалить..');
-		$('#recommend').animate({width:'-=80px'},200);
-		$('#recommend').text('Порекомендовать..');
+		$('#startChat').animate({width:'-=90px'},100);
+		$('#startChat').text('X');
+		$('#descriptionBlock').delay(200).animate({width:'-=90px'},0);
+		$('#buttonBlock').animate({marginLeft:'-=90px'},0);
+		/*$('#recommend').animate({width:'-=80px'},200);
+		$('#recommend').text('Порекомендовать..');  */
 		$('.brd').delay(50).animate({width:'-=180px'},100);
 		$('.chat').delay(50).fadeIn(100);
 		chatCheck=true;
 	}
 	else{
 		$('.chat').fadeOut(10);
-		$('.brd').animate({width:'+=180px'},200);
-		$('#delete').animate({width:'+=40px'},200);
-		$('#recommend').animate({width:'+=80px'},200);
-		$("#delete").queue(function(){
-			$('#delete').text('Удалить из друзей');
-			$('#recommend').text('Порекомендовать мероприятие/место');
+		$('.brd').animate({width:'+=180px'},100);
+		$('#buttonBlock').delay(100).animate({marginLeft:'+=90px'},0);
+        $('#descriptionBlock').delay(100).animate({width:'+=90px'},0);
+  		$('#startChat').delay(100).animate({width:'+=90px'},100);
+		chatCheck=false;
+		$("#startChat").queue(function(){
+			$('#startChat').text('Начать чат');
 			$(this).dequeue();
 		});
 		chatCheck=false;
@@ -290,5 +301,6 @@ function closeAll() {
      $('.meet_window').fadeOut(10);
     chatCheck=false;
     $('#podlogka').css({display:'none'});
+    closeDiv();
 }
 

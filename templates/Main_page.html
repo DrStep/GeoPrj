@@ -173,6 +173,8 @@ $( window ).resize(function(){
       </div > 
 </div>
 
+<input onclick="openLocations();" type=button value="Места в виде списка" class='global_button'>
+
 <ul id="avatar_menu">
    <li id="li1"><a href="#"><img src="../static/img/1.png"></a></li>
    <li id="li2"><a href="#"><img src="../static/img/1.png"></a></li>
@@ -203,7 +205,7 @@ $( window ).resize(function(){
      <div class="friend_block">   
      <div id='descriptionBlock'>
         <span id="friend_font">Дмитрий Петров</span>
-        <button class="button_friend" onclick="startChat()" style='width:130px'>Начать чат</button>
+        <button class="button_friend" id='startChat' onclick="startChat()" style='width:130px'>Начать чат</button>
         <br>
         <span>Дата рождения:</span> <br>
         <span>Интересы:</span> <br>
@@ -316,7 +318,7 @@ $( window ).resize(function(){
         <span>Описание:</span>
         <br><br>
      </div>  
-     <div id='buttonBlock' style = 'margin-left:370px'>
+     <div id='buttonBlock' style = 'margin-left:370px; height:inherit'>
         <button class="button_location">Добавить в закладки</button>
         <button class="button_location">Не интересует</button>
         <button class="button_location">Напоминание</button>

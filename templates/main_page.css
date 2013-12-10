@@ -612,6 +612,11 @@ input[type='checkbox'], input[type='radio'] { display: none; }
 }
 
 .button_location {
+  position: absolute;
+  top: 0px;
+  left: 70%;
+  margin-left: -180px;
+  z-index: 1;
   width:200px;
   background-color:#696969;
   border-radius: 1px;
@@ -620,8 +625,6 @@ input[type='checkbox'], input[type='radio'] { display: none; }
   color:#fff;
   display: block;
   font-size: 17px;
-  margin-left: 20px;
-  margin-top:10px;
   padding: 6px;
   text-decoration: none;
   text-shadow: #000000 5px 5px 15px;
