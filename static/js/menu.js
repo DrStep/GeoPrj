@@ -58,9 +58,9 @@ function openDiv (id) {
       $('.changePoint3').css({background:'transparent'});
       break;
   }    
-		$('#friend_block').fadeOut(0);
-		$('#event_block').fadeOut(0);
-    $('#meeting_block').fadeOut(0);
+		$('.friend_block').fadeOut(0);
+		$('.event_block').fadeOut(0);
+    $('.meeting_block').fadeOut(0);
 		if (id!=prevId) {
 			$('#'+id).fadeOut(0);
 		}
@@ -83,9 +83,9 @@ function openDiv (id) {
 	}
 	else{
 		$(".brd").css({width:'0px'});
-		$('#friend_block').css({display:'none'}); 
-		$('#event_block').css({display:'none'});
-    $('#meeting_block').css({display:'none'});  
+		$('.friend_block').css({display:'none'}); 
+		$('.event_block').css({display:'none'});
+    $('.meeting_block').css({display:'none'});  
 		$('#'+id).css({display:'block'});
 		$('#'+id).animate({width:'+=1260px'},500);
 	}
@@ -93,26 +93,26 @@ function openDiv (id) {
     if (prevId=='dialogs'){
       switch(id){
         case 'friends':
-          $('#friend_block').delay(400).fadeIn(100);
+          $('.friend_block').delay(400).fadeIn(100);
         break;
         case 'events':
-          $('#event_block').delay(400).fadeIn(100);
+          $('.event_block').delay(400).fadeIn(100);
         break;
         case 'meetings':
-          $('#meeting_block').delay(400).fadeIn(100);
+          $('.meeting_block').delay(400).fadeIn(100);
         break;
       }         
     }
     else {
       switch(id){
         case 'friends':
-          $('#friend_block').delay(900).fadeIn(100);
+          $('.friend_block').delay(900).fadeIn(100);
         break;
         case 'events':
-          $('#event_block').delay(900).fadeIn(100);
+          $('.event_block').delay(900).fadeIn(100);
         break;
         case 'meetings':
-          $('#meeting_block').delay(900).fadeIn(100);
+          $('.meeting_block').delay(900).fadeIn(100);
         break;
       }  
     }
@@ -120,13 +120,13 @@ function openDiv (id) {
 	else { 
       switch(id){
         case 'friends':
-          $('#friend_block').delay(400).fadeIn(100);
+          $('.friend_block').delay(400).fadeIn(100);
         break;
         case 'events':
-          $('#event_block').delay(400).fadeIn(100);
+          $('.event_block').delay(400).fadeIn(100);
         break;
         case 'meetings':
-          $('#meeting_block').delay(400).fadeIn(100);
+          $('.meeting_block').delay(400).fadeIn(100);
         break;
       }  ;
 	} 
@@ -166,9 +166,9 @@ function openDialogs() {
       $('.changePoint3').css({background:'transparent'});
       break;
   }    
-    $('#friend_block').fadeOut(100);
-    $('#event_block').fadeOut(100);
-    $('#meeting_block').fadeOut(100);
+    $('.friend_block').fadeOut(100);
+    $('.event_block').fadeOut(100);
+    $('.meeting_block').fadeOut(100);
     $('#dialogs').fadeOut(0);
     $("#"+prevId).animate({width:'-=1260px'},500);
     $('#'+prevId).fadeOut(0);
@@ -177,9 +177,9 @@ function openDialogs() {
   }
   else{
     $(".brd").css({width:'0px'});
-    $('#friend_block').css({display:'none'}); 
-    $('#event_block').css({display:'none'}); 
-    $('#meeting_block').css({display:'none'}); 
+    $('.friend_block').css({display:'none'}); 
+    $('.event_block').css({display:'none'}); 
+    $('.meeting_block').css({display:'none'}); 
     $('#dialogs').css({display:'block'}); 
     $("#dialogs").css({width:'300px'});
     $('#dialogs').animate({left:'-=327px'},300);
@@ -224,9 +224,9 @@ function closeDiv(){
   $('#triangle').fadeOut(0);
   $('.dialogWindow').fadeOut(0);
   $('#m2 a').css({color:'white'});
-	$('#friend_block').fadeOut(100);
-	$('#event_block').fadeOut(100);
-  $('#meeting_block').fadeOut(100);
+	$('.friend_block').fadeOut(100);
+	$('.event_block').fadeOut(100);
+  $('.meeting_block').fadeOut(100);
   if (prevId=='dialogs'){
     $("#dialogs").animate({left:'+=300px'},300);
     $("#dialogs").queue(function(){

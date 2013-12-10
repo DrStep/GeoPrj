@@ -313,7 +313,7 @@ input[type='checkbox'], input[type='radio'] { display: none; }
   height:75px;
   border-bottom: 1px solid #4682B4;
 }
-#friend_block, #event_block,#meeting_block,#location_block{
+.friend_block, .event_block,.meeting_block,.location_block{
    display:inline-block;
    height:inherit;
    margin:0 0 0 0px;
