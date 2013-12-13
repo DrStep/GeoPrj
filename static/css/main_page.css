@@ -42,35 +42,35 @@
   margin:0 0 0 -40px;
   width:190px;
 }
-#menu #m2{
+/*#menu #m2{
    width:184px;
-}
+} */
 #menu #m3{
-   width:170px;
+   width:180px;
 }
 #menu #m4{
-   width:136px;
+   width:146px;
 }
 #menu #m5{
-   width:112px;
+   width:122px;
 }
 #menu #m6{
-   width:73px;
+   width:82px;
 }
 #menu #m7{
-   width:155px;
+   width:165px;
 }
 
 #menu a{
    display:block;
-   padding:13px 0 13px 12px;
-   font: bold 21px Times New Roman;
+   padding:16px 0 16px 12px;
+   font: bold 23px Times New Roman;
    color:#555;
    text-decoration:none;
 }
 
 #menu #m1 a{
-   font:bold 24px Comic Sans MS;
+   font:bold 26px Comic Sans MS;
    color:#ffffff;
    padding:200px 0 20px 20px;
 }
@@ -82,7 +82,7 @@
   margin-left: 55px;
 }
 #menu #m4 a{
-  margin-left: 25px;
+  margin-left: 35px;
 }
 #menu #m5 a{
   margin-left: 17px;
@@ -131,30 +131,6 @@
   border-radius: 0 0 32px;
 }
 
-#circle { 
-   position:absolute;
-   top:2px;
-   left:102px;
-    max-width: 100%;
-    height: auto;
-   z-index:3;
-   width: 200px;
-   height: 200px;
-   -moz-opacity: 1.0; /* Mozilla 1.6 и ниже */
-   -khtml-opacity: 1.0; /* Konqueror 3.1, Safari 1.1 */
-   opacity: 1.0;
-   border:3px solid #4682B4;
-   color:#fff;
-   background: #d5d2d2; 
-   -moz-border-radius: 100%; 
-   -webkit-border-radius: 100%; 
-   border-radius: 100%;
-   -webkit-transition: all .2s ease-in-out;
-   -moz-transition: all .2s ease-in-out;
-   -ms-transition: all .2s ease-in-out;
-   -o-transition: all .2s ease-in-out;
-   transition: all .2s ease-in-out;
-}
 #on-button {
    overflow:hidden;
    position:absolute;
@@ -193,6 +169,7 @@
 	}
 	/* Элемент spans внутри кнопки будет вращаться */
 #on-button > span {
+      overflow:hidden;
 	 -webkit-backface-visibility: hidden;
 	 -moz-backface-visibility: hidden;
 	 -ms-backface-visibility: hidden;

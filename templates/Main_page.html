@@ -57,7 +57,6 @@ $( window ).resize(function(){
 <input type="checkbox" id="on-check" name="on-check" />
 	 <label id="on-button" for="on-check">
 	 <span><span class="ss-plus"><img src="../static/img/2.jpg"></span></span>
-	 <span><span class="ss-hyphen"><img src="../static/img/2.jpg"></span></span>
 	 </label>
 </div> 
 <div class="faux-shadow"> </div>
@@ -184,10 +183,9 @@ $( window ).resize(function(){
 
 <ul id="menu">
    <li id="m1"><a href="#">Семиохин&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Степан </a></li>
-   <div class='changePoint'><li id="m2"><a href="#" onclick="closeDiv()">Карта</a></li></div>
    <div class='changePoint1'><li id="m3"><a href="#friends" onClick="openDiv('friends')">Друзья</a></li></div>
    <div class='changePoint'><li id="m7"><a href="#dialogs" onClick="openDialogs()">Диалоги</a></li></div>
-   <div class='changePoint2'><li id="m4"><a href="#events" onClick="openDiv('events')">События</a></li></div>
+   <div class='changePoint2'><li id="m4"><a href="#events" onClick="openDiv('events')">Места</a></li></div>
    <div class='changePoint3'><li id="m5"><a href="#meetings" onClick="openDiv('meetings')">Встречи</a></li></div>
    <div class='changePoint'><li id="m6"><a href='#' onClick="messageCheck()">Выход</a></li></div>
 </ul>
@@ -242,7 +240,7 @@ $( window ).resize(function(){
 
 <div class="brd" id="events">
   <div class="upPanel">
-    <div id='blockArticle'>ВАШИ СОБЫТИЯ</div>
+    <div id='blockArticle'>МЕСТА</div>
     <button id="sortButton" onclick="sort()">Отсортировать</button>
     <select id="chooseSort">
       <option>Без сортировки</option>
@@ -252,13 +250,13 @@ $( window ).resize(function(){
      <div id="event_square"></div> 
      <div class="event_block">   
      <div id='descriptionBlock'>
-        <span id="event_font">Концерт группы Metallica</span> <br>
-        <span>Дата начала мероприятия:</span> <br>
-        <span>Время начала:</span> <br>
+        <span id="event_font">Театр "Бедный Йорик"</span> <br>
+        <span>Тип:</span> <br>
+        <span>Время работы:</span> <br>
         <span>Описание:</span>
      </div>  
      <div id='buttonBlock'>
-        <button class="button_event">Присоединиться</button>
+        <button class="button_event">Добавить в закладки</button>
         <button class="button_event">Не интересует</button>
         <button class="button_event">Напоминание</button>
      </div>   

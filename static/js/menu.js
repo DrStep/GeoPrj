@@ -23,6 +23,7 @@ function openDiv (id) {
   $('.dialogWindow').fadeOut(0);
   $('#m2 a').css({color:'#555'});
   if (id==prevId){
+    closeDiv();
     return;
   }
 	switch(id){
@@ -58,9 +59,9 @@ function openDiv (id) {
       $('.changePoint3').css({background:'transparent'});
       break;
   }    
-		$('.friend_block').fadeOut(0);
-		$('.event_block').fadeOut(0);
-    $('.meeting_block').fadeOut(0);
+		$('.one_friend').fadeOut(0);
+		$('.one_event').fadeOut(0);
+    $('.one_meeting').fadeOut(0);
 		if (id!=prevId) {
 			$('#'+id).fadeOut(0);
 		}
@@ -83,9 +84,9 @@ function openDiv (id) {
 	}
 	else{
 		$(".brd").css({width:'0px'});
-		$('.friend_block').css({display:'none'}); 
-		$('.event_block').css({display:'none'});
-    $('.meeting_block').css({display:'none'});  
+		$('.one_friend').css({display:'none'});
+		$('.one_event').css({display:'none'});
+    $('.one_meeting').css({display:'none'});
 		$('#'+id).css({display:'block'});
 		$('#'+id).animate({width:'+=1260px'},500);
 	}
@@ -93,26 +94,26 @@ function openDiv (id) {
     if (prevId=='dialogs'){
       switch(id){
         case 'friends':
-          $('.friend_block').delay(400).fadeIn(100);
+          $('.one_friend').delay(400).fadeIn(200);
         break;
         case 'events':
-          $('.event_block').delay(400).fadeIn(100);
+          $('.one_event').delay(400).fadeIn(200);
         break;
         case 'meetings':
-          $('.meeting_block').delay(400).fadeIn(100);
+          $('.one_meeting').delay(400).fadeIn(200);
         break;
       }         
     }
     else {
       switch(id){
         case 'friends':
-          $('.friend_block').delay(900).fadeIn(100);
+          $('.one_friend').delay(900).fadeIn(200);
         break;
         case 'events':
-          $('.event_block').delay(900).fadeIn(100);
+          $('.one_event').delay(900).fadeIn(200);
         break;
         case 'meetings':
-          $('.meeting_block').delay(900).fadeIn(100);
+          $('.one_meeting').delay(900).fadeIn(200);
         break;
       }  
     }
@@ -120,13 +121,13 @@ function openDiv (id) {
 	else { 
       switch(id){
         case 'friends':
-          $('.friend_block').delay(400).fadeIn(100);
+          $('.one_friend').delay(400).fadeIn(200);
         break;
         case 'events':
-          $('.event_block').delay(400).fadeIn(100);
+          $('.one_event').delay(400).fadeIn(200);
         break;
         case 'meetings':
-          $('.meeting_block').delay(400).fadeIn(100);
+          $('.one_meeting').delay(400).fadeIn(200);
         break;
       }  ;
 	} 
@@ -145,6 +146,7 @@ function openDialogs() {
   $('#triangle').fadeOut(0);
   $('.dialogWindow').fadeOut(0);
   if (prevId=='dialogs'){
+    closeDiv();
     return;
   }
   $('#dialogs').css({left:screen.width});
@@ -166,9 +168,9 @@ function openDialogs() {
       $('.changePoint3').css({background:'transparent'});
       break;
   }    
-    $('.friend_block').fadeOut(100);
-    $('.event_block').fadeOut(100);
-    $('.meeting_block').fadeOut(100);
+    $('.one_friend').fadeOut(100);
+    $('.one_event').fadeOut(100);
+    $('.one_meeting').fadeOut(100);
     $('#dialogs').fadeOut(0);
     $("#"+prevId).animate({width:'-=1260px'},500);
     $('#'+prevId).fadeOut(0);
@@ -177,9 +179,9 @@ function openDialogs() {
   }
   else{
     $(".brd").css({width:'0px'});
-    $('.friend_block').css({display:'none'}); 
-    $('.event_block').css({display:'none'}); 
-    $('.meeting_block').css({display:'none'}); 
+    $('.one_friend').css({display:'none'});
+    $('.one_event').css({display:'none'});
+    $('.one_meeting').css({display:'none'});
     $('#dialogs').css({display:'block'}); 
     $("#dialogs").css({width:'300px'});
     $('#dialogs').animate({left:'-=327px'},300);
@@ -232,9 +234,9 @@ function closeDiv(){
   $('#triangle').fadeOut(0);
   $('.dialogWindow').fadeOut(0);
   $('#m2 a').css({color:'white'});
-	$('.friend_block').fadeOut(100);
-	$('.event_block').fadeOut(100);
-  $('.meeting_block').fadeOut(100);
+	$('.one_friend').fadeOut(100);
+	$('.one_event').fadeOut(100);
+  $('.one_meeting').fadeOut(100);
   if (prevId=='dialogs'){
     $("#dialogs").animate({left:'+=300px'},300);
     $("#dialogs").queue(function(){
@@ -260,10 +262,10 @@ function closeDiv(){
 
 function startChat(){
 	if (chatCheck==false){
-		$('#startChat').animate({width:'-=90px'},100);
+		$('#startChat').animate({width:'-=90px'},70);
 		$('#startChat').text('X');
 		$('#descriptionBlock').delay(200).animate({width:'-=90px'},0);
-		$('#buttonBlock').animate({marginLeft:'-=90px'},0);
+		$('#buttonBlock').delay(80).animate({marginLeft:'-=90px'},10);
 		/*$('#recommend').animate({width:'-=80px'},200);
 		$('#recommend').text('Порекомендовать..');  */
 		$('.brd').delay(50).animate({width:'-=180px'},100);
@@ -274,8 +276,8 @@ function startChat(){
 		$('.chat').fadeOut(10);
 		$('.brd').animate({width:'+=180px'},100);
 		$('#buttonBlock').delay(100).animate({marginLeft:'+=90px'},0);
-        $('#descriptionBlock').delay(100).animate({width:'+=90px'},0);
-  		$('#startChat').delay(100).animate({width:'+=90px'},100);
+        $('#descriptionBlock').delay(10).animate({width:'+=90px'},0);
+  		$('#startChat').delay(70).animate({width:'+=90px'},100);
 		chatCheck=false;
 		$("#startChat").queue(function(){
 			$('#startChat').text('Начать чат');
