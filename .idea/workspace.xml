@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Main_page.html" afterPath="$PROJECT_DIR$/templates/Main_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/main_page.css" afterPath="$PROJECT_DIR$/static/css/main_page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/menu.js" afterPath="$PROJECT_DIR$/static/js/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="" />
     <ignored path="GeoPrj.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Main.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1381257887722" ignored="false" />
@@ -128,7 +123,7 @@
       <file leaf-file-name="Main_page.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Main_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="28" selection-start="8005" selection-end="8005" vertical-scroll-proportion="-3.9583333">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="105.0">
               <folding />
             </state>
           </provider>
@@ -152,10 +147,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="70" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9047619">
               <folding />
             </state>
           </provider>
@@ -170,10 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrontendImpl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FrontendImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="-2.7777777">
+            <state line="29" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -980,20 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Main_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="28" selection-start="8005" selection-end="8005" vertical-scroll-proportion="-3.9583333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="70" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="141" selection-start="469" selection-end="479" vertical-scroll-proportion="0.0">
@@ -1003,7 +984,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="-2.7777777">
+        <state line="29" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Main_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="105.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9047619">
           <folding />
         </state>
       </provider>
