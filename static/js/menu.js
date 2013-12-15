@@ -85,7 +85,7 @@ function openDiv (id) {
                                 success: function(res) {
                                     for(i=0;i<res.length;i++) {
                                          $('.check').click(function(){
-                                             $('#content').html("<div class="brd" id="dialogs">< div class="upPanel" id = 'dialogPanel'> <div id='blockArticle'>ВАШИ ДИАЛОГИ</div> <div style = 'display:block;height:40px'><select id="chooseSort"><option>Отсортировать по:</option> </select> </div> </div> <a href='#' class='one_dialog' id='check"+i+"' onclick='oneDialog(1)'> <div class="circle_dialog"></div> <div class='messageBlock'> <div style='font-size:23px;padding:2px 0 7px 15px'>Дмитрий Петров</div> <div style='padding:0 0 0px 6px'>Привет</div> </div> </a> </div>");
+                                         //    $('#content').html("<div class="brd" id="dialogs">< div class="upPanel" id = 'dialogPanel'> <div id='blockArticle'>ВАШИ ДИАЛОГИ</div> <div style = 'display:block;height:40px'><select id="chooseSort"><option>Отсортировать по:</option> </select> </div> </div> <a href='#' class='one_dialog' id='check"+i+"' onclick='oneDialog(1)'> <div class="circle_dialog"></div> <div class='messageBlock'> <div style='font-size:23px;padding:2px 0 7px 15px'>Дмитрий Петров</div> <div style='padding:0 0 0px 6px'>Привет</div> </div> </a> </div>");
                                          })
                                     };
                                  },
