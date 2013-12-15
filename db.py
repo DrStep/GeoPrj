@@ -211,7 +211,7 @@ class Meet:
 class MySql:
 
 	def __init__(self, a):
-		self.db = MySQLdb.connect(host="localhost", user="root", passwd="", db="geoV1", charset='utf8')
+		self.db = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="geov1", charset='utf8')
 		self.i = 0
 		self.cursor = self.db.cursor()
 		print ("Welcome to %s" % a)

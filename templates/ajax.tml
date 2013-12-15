@@ -7,12 +7,12 @@
             $(document).ready(function() {
 	            $.ajax({
 	                type: "POST",
-	                url: "http://localhost:8090/api/meet.insert",
-	                data: "user_id=" + "11" + "&" + "fields={message:Hello,title:Mapp,photo:abc.png,status:Sun, description: todads}",
+	                url: "http://localhost:8090/api/users.location",
+	                data: "user_id=" + "10" + "&" + "fields=['user_id', 'name', 'latitude', 'longitude']",
 	            	success: function(response) {
 	            		obj = JSON.parse(response);
 	                	for (var i = 0; i < obj.length;i++) {
-	                		console.log(obj[i].name);
+	                		console.log(obj[i].id);
 	                	}
 	           		}
 	        	});

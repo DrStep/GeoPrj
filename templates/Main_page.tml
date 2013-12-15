@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta charset="utf-8" />
+    <title>Geo Social</title>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript" src="/js/markerclusterer.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="vdata.json"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+<script type="text/javascript" src="/js/overlays.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/overlays.css">
+<link rel="stylesheet" type="text/css" href="/css/main_page.css">
+<script type="text/javascript">
+/*  $(function(){
+    var wrapper = $( ".file_upload" ),
+        inp = wrapper.find( "input" ),
+        btn = wrapper.find( ".button" ),
+        lbl = wrapper.find( "mark" );
+
+    // Crutches for the :focus style:
+    inp.focus(function(){
+        wrapper.addClass( "focus" );
+    }).blur(function(){
+        wrapper.removeClass( "focus" );
+    });
+
+    var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
+
+    inp.change(function(){
+        var file_name;
+        if( file_api && inp[ 0 ].files[ 0 ] )
+            file_name = inp[ 0 ].files[ 0 ].name;
+        else
+            file_name = inp.val().replace( "C:\\fakepath\\", '' );
+
+        if( ! file_name.length )
+            return;
+
+        if( lbl.is( ":visible" ) ){
+            lbl.text( file_name );
+            btn.text( "Выбрать" );
+        }else
+            btn.text( file_name );
+    }).change();
+
+});
+$( window ).resize(function(){
+    $( ".file_upload input" ).triggerHandler( "change" );
+});*/
+</script>
+  </head>
+  <body>
+<div id='podlogka' onclick=closeAll()></div>
+<div>
+<input type="checkbox" id="on-check" name="on-check" />
+   <label id="on-button" for="on-check">
+   <span><span class="ss-plus"><img src="/img/2.jpg"></span></span>
+   </label>
+</div> 
+<div class="faux-shadow"> </div>
+
+<div class="chat">
+  <div id="income">
+  </div>
+  <textarea id="yourtext">
+  </textarea>
+</div>
+<div class="add_window">  
+  <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
+  </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
+  <input  id="add_button_marker" type="button" class="button_friend" value="добавить метку">
+</div>
+<div class="add_window_place">  
+  <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
+  </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
+  <input  id="add_button_marker_place" type="button" class="button_friend" value="добавить метку">
+</div>
+<div class="add_window_self">  
+  <label id="id_topic" for="id_topic">Место:</label> <input id="id_topic1" maxlength="50" name="topic" type="text" /></p>
+  <p><label for="id_content">Описание:</label> 
+  <textarea class="area_input" cols="60" id="id_content" name="content" rows="10">
+  </textarea>
+      <label class="file_upload">
+        <span class="button">Выбрать</span>
+        <mark>Файл не выбран</mark>
+        <input type="file">
+    </label>
+  <input  id="add_button_marker_self" type="button" class="button_friend" value="добавить метку">
+</div>
+<div class="meet_window">  
+  <div class="page_meet">
+  <div class = "inline">
+  <label class = "Title">Place</label>
+  <div class="description">Description</div>
+    <img class="meet_img" src="/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Comment</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+</div>
+
+<div class="meet_window">  
+  <div class="page_met">
+  <div class = "inline">
+  <label class = "Title" id="meet_title">Поход в парк</label>
+  <div class="description" id="meet_desription">открытая, мирная, доступная каждому, проводимая в форме собрания, митинга, демонстрации, шествия или пикетирования либо в различных сочетаниях этих форм акция, осуществляемая по инициативе граждан Российской Федерации, политических партий, других общественных объединений и религиозных объединений. Целью публичного мероприятия является свободное выражение и формирование мнений, а также выдвижение требований по различным вопросам политической, экономической, социальной и культурной жизни страны и вопросам внешней политики.</div>
+    <img class="meet_img" id="meet_img" src="/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Отличное мероприятие. Давно ждал его. Хочу сходить.</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+</div>
+
+<div class="place_window">  
+  <div class="page_place">
+  <div class = "inline">
+  <label class = "Title" id="Place_title">Поход в парк</label>
+  <div class="description" id="Place_description">открытая, мирная, доступная каждому, проводимая в форме собрания, митинга, демонстрации, шествия или пикетирования либо в различных сочетаниях этих форм акция, осуществляемая по инициативе граждан Российской Федерации, политических партий, других общественных объединений и религиозных объединений. Целью публичного мероприятия является свободное выражение и формирование мнений, а также выдвижение требований по различным вопросам политической, экономической, социальной и культурной жизни страны и вопросам внешней политики.</div>
+    <img class="meet_img" id="Place_img" src="/img/ava_1.png">
+  <div class="line_bottom"></div>
+</div>
+  <div class = "Wall">    
+    <div class="comment">
+     <div id="comment_circle"></div> 
+     <div id="comment_friend">   
+     <div id='comment_text'>
+        <span id="friend_font">Дмитрий Петров</span>
+        <div class = "del_comment">X</div>
+        <br>
+        <span>Отличное мероприятие. Давно ждал его. Хочу сходить.</span> <br>
+     </div>     
+      </div>
+    </div></div>
+      </div > 
+</div>
+<div class="man_window">  
+  <div class="page_place">
+  <div class = "inline">
+  <label class = "Title" id="user_name"></label>
+  <img class="man_img" src="/img/ava_1.png">
+  </div>
+  <div class = "Wall">     
+     <div>Возраст: <div id="age">   </div></div>
+     <div>Послдений раз был онлайн:<div id='last_online'> </div></div>
+    </div></div>
+    </div > 
+
+<input onclick="openLocations();" type=button value="Места в виде списка" class='global_button'>
+<input onclick="changetype('place');" type=button value="Места" class='global_button_self'>
+<input onclick="changetype('user');" type=button value="Пользователи" class='global_button_meet'>
+<input onclick="changetype('meet');" type=button value="Встречи" class='global_button_place'>
+
+<ul id="avatar_menu">
+   <li id="li1"><a href="#"><img src="/img/1.png"></a></li>
+   <li id="li2"><a href="#"><img src="/img/1.png"></a></li>
+   <li id="li3"><a href="#friends"><img src="/img/1.png"></a></li>
+   <li id="li4"><a href="#events"><img src="/img/1.png"></a></li>
+</ul>
+
+<ul id="menu">
+   <li id="m1"><a href="#">Семиохин&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Степан </a></li>
+   <div class='changePoint1'><li id="m3"><a href="#friends" onClick="openDiv('friends')">Друзья</a></li></div>
+   <div class='changePoint'><li id="m7"><a href="#dialogs" onClick="openDialogs()">Диалоги</a></li></div>
+   <div class='changePoint2'><li id="m4"><a href="#events" onClick="openDiv('events')">Места</a></li></div>
+   <div class='changePoint3'><li id="m5"><a href="#meetings" onClick="openDiv('meetings')">Встречи</a></li></div>
+   <div class='changePoint'><li id="m6"><a href='#' onClick="messageCheck()">Выход</a></li></div>
+</ul>
+
+
+
+<div class='brd' id='friends'>
+    <div class='upPanel'>
+        <div id='blockArticle'>ВАШИ ДРУЗЬЯ</div>
+        <select id='chooseSort'><option>Отсортировать по:</option>
+        </select>
+    </div>
+    <div id="content" style='display:none'></div>
+</div>
+
+<div class="brd" id="dialogs">
+    <div class="upPanel" id = 'dialogPanel'>
+        <div id='blockArticle'>ВАШИ ДИАЛОГИ</div>
+        <div style = 'display:block;height:40px'>
+            <select id="chooseSort">
+                <option>Отсортировать по:</option>
+            </select>
+        </div>
+    </div>
+    <div id='content2' style='display:none'></div>
+</div>
+
+<div class="brd" id="events">
+    <div class="upPanel">
+        <div id='blockArticle'>МЕСТА</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
+    <div id="content3" style='display:none'></div>
+</div>
+
+<div class="brd" id="meetings">
+    <div class="upPanel">
+        <div id='blockArticle'>ВАШИ ВСТРЕЧИ</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
+    <div id="content4" style='display:none'>  </div>
+</div>
+
+<div class="dialogWindow">
+  <div id='incomeBig'>
+  </div>
+  <textarea id='yourtextBig'>
+  </textarea>
+</div>
+
+<div class="dialogWindow">
+  <div id='incomeBig'>
+  </div>
+  <textarea id='yourtextBig'>
+  </textarea>
+</div>
+
+<div class='locationWindow'>
+    <div class="upPanel">
+        <div id='blockArticle'>МЕСТА</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
+    <div class="one_location">
+     <div id="location_square"></div> 
+     <div class="location_block">   
+     <div id='descriptionBlock' style = 'width:350px'>
+        <span id="location_font">Кинотеатр "Check-фильм"</span> <br>
+        <span>Тип:</span> <br>
+        <span>Время работы:</span> <br>
+        <span>Описание:</span>
+        <br><br>
+     </div>  
+     <div id='buttonBlock' style = 'margin-left:370px; height:inherit'>
+        <button class="button_location">Добавить в закладки</button>
+        <button class="button_location">Не интересует</button>
+        <button class="button_location">Напоминание</button>
+     </div>   
+    </div>
+  </div> 
+</div>
+
+<div id="triangle"></div>
+
+<div id="up-triangle"></div>
+    <div class = "block">
+      <div id="map-canvas"></div>
+    </div> 
+  </body>
+</html>

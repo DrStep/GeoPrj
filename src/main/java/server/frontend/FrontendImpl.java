@@ -95,6 +95,9 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             case AJAX:
                 response.getWriter().println(PageGenerator.getPage("ajax.tml", new HashMap()));
                 break;
+            case MAIN:
+                response.getWriter().println(PageGenerator.getPage("Main_page.tml", new HashMap()));
+                break;
             default:
                 break;
         }
@@ -108,7 +111,7 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
 
         String path =  request.getPathInfo();
         String apiTemplate = "/" + UrlList.API + "/";
-
+        boolean isInsert;
         if (path.contains(apiTemplate)) {
            String re = path.replace(apiTemplate, "");
 
@@ -121,65 +124,78 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                     int userId =  Integer.parseInt(request.getParameter("user_id"));
                     fields =  getListByJSON(request.getParameter("fields"));
                     res = dbService.getUser(userId, fields);
+                    response.getWriter().println(getJSONByList(res));
                     break;
                case GET_USERS_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
                    res = dbService.getAllUsersInCoordinates(locationRange, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_PLACE_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
                    res = dbService.getAllPlacesInCoordinates(locationRange, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_MEET_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
                    res = dbService.getAllMeetsInCoordinates(locationRange, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_DIALOGS:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
                    res = dbService.getAllDialogsByUserId(userId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_MESSANGER:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
                    res = dbService.getAllMessageByDialogId(dialogId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_USERS_FRIENDS:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
                    res = dbService.getUserFriends(userId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_MEETS_FOR_USERID:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
                    res = dbService.getAllMeetsByUserId(userId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_MEET:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int meetId =  Integer.parseInt(request.getParameter("meet_id"));
                    res = dbService.getMeetById(meetId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_FRIENDS_MEET:
                    userId = Integer.parseInt(request.getParameter("user_id"));
                    res = dbService.getFriendsMeet(userId);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_PLACE:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int placeId =  Integer.parseInt(request.getParameter("place_id"));
                    res = dbService.getPlaceById(placeId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_DIALOG:
                    fields =  getListByJSON(request.getParameter("fields"));
                    dialogId =  Integer.parseInt(request.getParameter("place_id"));
                    res = dbService.getPlaceById(dialogId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case GET_WALL:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int wallId =  Integer.parseInt(request.getParameter("place_id"));
                    res = dbService.getPlaceById(wallId, fields);
+                   response.getWriter().println(getJSONByList(res));
                    break;
                case UPDATE_USER:
                    userId = Integer.parseInt(request.getParameter("user_id"));
@@ -190,11 +206,17 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                case INSERT_MEET:
                    userId = Integer.parseInt(request.getParameter("user_id"));
                    map =  getMapByJSON(request.getParameter("fields"));
-                   boolean isInsert = dbService.insertMeet(userId, map);
+                   isInsert = dbService.insertMeet(userId, map);
+                   response.getWriter().println("{response:" + isInsert + "}");
+                   break;
+               case MAKE_FRIENDS:
+                   userId = Integer.parseInt(request.getParameter("user_id"));
+                   int userId2 = Integer.parseInt(request.getParameter("user_id_to"));
+                   isInsert = dbService.AddFriend(userId, userId2);
                    response.getWriter().println("{response:" + isInsert + "}");
                    break;
            }
-            response.getWriter().println(getJSONByList(res));
+           //
         }
         return;
     }
@@ -221,7 +243,12 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             JSONObject obj = new JSONObject();
             for (Map.Entry<Object, Object> e : map.entrySet()) {
                 String key = e.getKey().toString();
-                String value = e.getValue().toString();
+                String value = "";
+                if ( e.getValue() instanceof byte[]) {
+                    value = new String((byte[])e.getValue());
+                } else {
+                    value = e.getValue().toString();
+                }
                 obj.put(key, value);
             }
             arr.put(obj);

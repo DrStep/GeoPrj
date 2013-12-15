@@ -51,7 +51,7 @@ public class DBService {
         String field = separateListSymbolFields(fieldsList, ",");
         String sql = String.format(Locale.ENGLISH, "select %s from meet"
                 + " inner join location on  meet.loc_id = location.loc_id"
-                    + " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f);"
+                    + " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f) limit 100;"
                         , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
@@ -157,6 +157,24 @@ public class DBService {
         meet.setLocation(loc);
 
         session.save(meet);
+        session.getTransaction().commit();
+        return true;
+    }
+
+    public boolean AddFriend(int userId, int UserId2) {
+        System.out.println("ADDDDDDDDDDDDDDDDDDDDDDD");
+        session.beginTransaction();
+        User user = getUser(userId);
+        User user2 = getUser(UserId2);
+
+        Friends friends = new Friends();
+        friends.setUser1(user);
+        friends.setUser2(user2);
+        session.save(friends);
+        Friends friends2 = new Friends();
+        friends2.setUser1(user2);
+        friends2.setUser2(user);
+        session.save(friends2);
         session.getTransaction().commit();
         return true;
     }

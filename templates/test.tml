@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title></title>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+            <script type="text/javascript">
+$.ajax({
+              type: "POST",
+              url: "http://localhost:8090/api/users.location",
+              dataType: "json",
+              data: "fields=['name','latitude','longitude','user_id']" + "&" + "loc_range=" + "{latL:" + 0 + "," + "latR:" + 180 +"," + "lngL:" + 0 + ",lngR:" + 180 + "}",
+              beforeSend: function() {
+              },
+              success: function(res) {
+                document.getElementById('m2').innerHTML=res.length;
+                  for(i=0;i<res.length;i++) {
+                        //alert('add user');
+                        var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                        addMarker(location,'self',res[i].user.id);
+                  };
+            //alert(res.length);
+              redraw();
+               },
+              error: function() {
+
+              }
+        });
+            </script>
+        </head>
+        <body>
+            <h1>AJAX TML</h1>
+        </body>
+    </html>
