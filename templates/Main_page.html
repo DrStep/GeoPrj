@@ -190,42 +190,14 @@ $( window ).resize(function(){
    <div class='changePoint'><li id="m6"><a href='#' onClick="messageCheck()">Выход</a></li></div>
 </ul>
 
-<div class="brd" id="friends">
-  <div class="upPanel">
-    <div id='blockArticle'>ВАШИ ДРУЗЬЯ</div>
-    <button id="sortButton" onclick="sort()">Отсортировать</button>
-    <select id="chooseSort">
-      <option>Без сортировки</option>
-    </select>
-  </div>
-   <div class="one_friend">
-     <div id="circle_mini"></div> 
-     <div class="friend_block">   
-     <div id='descriptionBlock'>
-        <span id="friend_font">Дмитрий Петров</span>
-        <button class="button_friend" id='startChat' onclick="startChat()" style='width:130px'>Начать чат</button>
-        <br>
-        <span>Дата рождения:</span> <br>
-        <span>Интересы:</span> <br>
-        <span>О себе:</span>
-        <br><br>
-     </div>  
-     <div id='buttonBlock'>
-        <button class="button_friend">Пригласить...</button>
-        <button class="button_friend" id="recommend">Порекомендовать...</button>
-        <button class="button_friend" id="delete">Удалить из друзей</button>
-      </div>   
-      </div>
-    </div>  
-</div>
+<div class="brd" id="content"></div>
 
 <div class="brd" id="dialogs">
   <div class="upPanel" id = 'dialogPanel'>
     <div id='blockArticle'>ВАШИ ДИАЛОГИ</div> 
     <div style = 'display:block;height:40px'>
-    <button id="sortButton" onclick="sort()">Отсортировать</button>
     <select id="chooseSort">
-      <option>Без сортировки</option>
+      <option>Отсортировать по:</option>
     </select>
   </div>
   </div>  
@@ -239,13 +211,12 @@ $( window ).resize(function(){
 </div>
 
 <div class="brd" id="events">
-  <div class="upPanel">
-    <div id='blockArticle'>МЕСТА</div>
-    <button id="sortButton" onclick="sort()">Отсортировать</button>
-    <select id="chooseSort">
-      <option>Без сортировки</option>
-    </select>
-  </div>
+    <div class="upPanel">
+        <div id='blockArticle'>МЕСТА</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
    <div class="one_event">
      <div id="event_square"></div> 
      <div class="event_block">   
@@ -265,13 +236,12 @@ $( window ).resize(function(){
 </div>
 
 <div class="brd" id="meetings">
-  <div class="upPanel">
-    <div id='blockArticle'>ВАШИ ВСТРЕЧИ</div>
-    <button id="sortButton" onclick="sort()">Отсортировать</button>
-    <select id="chooseSort">
-      <option>Без сортировки</option>
-    </select>
-  </div>
+    <div class="upPanel">
+        <div id='blockArticle'>ВАШИ ВСТРЕЧИ</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
    <div class="one_meeting">
      <div id="meeting_square"></div> 
      <div class="meeting_block">   
@@ -299,13 +269,12 @@ $( window ).resize(function(){
 </div>
 
 <div class='locationWindow'>
-   <div class="upPanel">
-    <div id='blockArticle' style='margin:4px 15px 2px 0'>ВАШИ ДИАЛОГИ</div> 
-    <button id="sortButton" onclick="sort()">Отсортировать</button>
-    <select id="chooseSort">
-      <option>Без сортировки</option>
-    </select>
-  </div> 
+    <div class="upPanel">
+        <div id='blockArticle'>МЕСТА</div>
+        <select id="chooseSort">
+            <option>Отсортировать по:</option>
+        </select>
+    </div>
     <div class="one_location">
      <div id="location_square"></div> 
      <div class="location_block">   

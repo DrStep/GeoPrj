@@ -33,15 +33,89 @@ function openDiv (id) {
 			//$('#m3').css({background:'white'});
       //$('#m3 a').css({color:'white'});
       $('.changePoint1').css({background:'white'});
+      $.ajax({
+                    type: "POST",
+                    url: "http://localhost:8090/api/users.friends",
+                    dataType: "json",
+                    data: "fields=['name','last_name','age','photo']",
+                    beforeSend: function() {
+                    },
+                    success: function(res) {
+                        for(i=0;i<res.length;i++) {
+                             $('.check').click(function(){
+                                 $('#content').html("<div class='brd' id='friends'><div class='upPanel'><div id='blockArticle'>ВАШИ ДРУЗЬЯ</div><select id='chooseSort'><option>Отсортировать по:</option></select></div><div class='one_friend'><div id='circle_mini'> <img src='"+res[i].photo+"'></div> <div class='friend_block'> <div id='descriptionBlock'><span id='friend_font'>"+res[i].name+res[i].last_name+"</span><button class='button_friend' id='startChat' style='width:130px'>Начать чат</button> <br><span>Последний раз был в сети:"+res[i].last_online+"</span><br><span>Возраст:"+res[i].age+"</span> <br><span>Интересы:</span><br><br></div><div id='buttonBlock'> <button class='button_friend'>Пригласить...</button> <button class='button_friend' id='recommend'>Порекомендовать...</button>  <button class='button_friend' id='delete'>Удалить из друзей</button> </div> </div> </div> </div>");
+                             })
+                        };
+                     },
+                    error: function() {
+
+                    }
+      });
       break;
-    case 'events':
+    case 'events':                   //места!!!!
       $('.changePoint2').css({background:'white'});
+            $.ajax({
+                          type: "POST",
+                          url: "http://localhost:8090/api/users.user",      //??????????????
+                          dataType: "json",
+                          data: "fields=['title','description','status','img']",
+                          beforeSend: function() {
+                          },
+                          success: function(res) {
+                              for(i=0;i<res.length;i++) {
+                                   $('.check').click(function(){
+                                       $('#content').html("<div class='brd' id='events'> <div class='upPanel'> <div id='blockArticle'>МЕСТА</div> <select id='chooseSort'> <option>Отсортировать по:</option> </select> </div> <div class='one_event'> <div id='event_square'><img src='"+res[i].img+"'></div> <div class='event_block'> <div id='descriptionBlock'> <span id='event_font''>"+res[i].title+"</span> <br>  <span>Статус:"+res[i].status+"</span> <br> <span>Описание:"+res[i].description+"</span> </div> <div id='buttonBlock'> <button class='button_event'>Добавить в закладки</button> <button class='button_event'>Не интересует</button>  <button class='button_event'>Напоминание</button> </div>  </div> </div>  </div>");
+                                   })
+                              };
+                           },
+                          error: function() {
+
+                          }
+            });
       break;
     case 'dialogs':
       $('#m7 a').css({color:'white'});
+            $.ajax({
+                         type: "POST",
+                         url: "http://localhost:8090/api/users.dialogs",
+                                dataType: "json",
+                                data: "fields=['name','latitude','longitude']",
+                                beforeSend: function() {
+                                },
+                                success: function(res) {
+                                    for(i=0;i<res.length;i++) {
+                                         $('.check').click(function(){
+                                             $('#content').html("<div class="brd" id="dialogs">< div class="upPanel" id = 'dialogPanel'> <div id='blockArticle'>ВАШИ ДИАЛОГИ</div> <div style = 'display:block;height:40px'><select id="chooseSort"><option>Отсортировать по:</option> </select> </div> </div> <a href='#' class='one_dialog' id='check"+i+"' onclick='oneDialog(1)'> <div class="circle_dialog"></div> <div class='messageBlock'> <div style='font-size:23px;padding:2px 0 7px 15px'>Дмитрий Петров</div> <div style='padding:0 0 0px 6px'>Привет</div> </div> </a> </div>");
+                                         })
+                                    };
+                                 },
+                                error: function() {
+
+                                }
+             });
       break;
     case 'meetings':
       $('.changePoint3').css({background:'white'});
+            $.ajax({
+                          type: "POST",
+                          url: "http://localhost:8090/api/users.meet",
+                          dataType: "json",
+                          data: "fields=['name','latitude','longitude']",
+                          beforeSend: function() {
+                          },
+                          success: function(res) {
+                              for(i=0;i<res.length;i++) {
+                                   $('.check').click(function(){
+                                       $('#content').html("<div class='brd' id='friends'><div class='upPanel'><div id='blockArticle'>ВАШИ ДРУЗЬЯ</div><select id='chooseSort'><option>Отсортировать по:</option></select></div><div class='one_friend'><div id='circle_mini'></div> <div class='friend_block'> <div id='descriptionBlock'><span id='friend_font'>Дмитрий Петров</span><button class='button_friend' id='startChat' style='width:130px'>Начать чат</button> <br><span>Дата рождения:</span> <br><span>Интересы:</span> <br><span>О себе:</span><br><br></div><div id='buttonBlock'>        <button class='button_friend'>Пригласить...</button> <button class='button_friend' id='recommend'>Порекомендовать...</button>        <button class='button_friend' id='delete'>Удалить из друзей</button>  </div>    </div> </div> </div>");
+                                   })
+                              };
+                        //alert(res.length);
+                          //redraw();
+                           },
+                          error: function() {
+
+                          }
+            });
       break;
 	}
 	if (openCheck) {
