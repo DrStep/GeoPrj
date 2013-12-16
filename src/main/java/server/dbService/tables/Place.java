@@ -20,7 +20,7 @@ public class Place implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "loc_id")
-    private Location location;
+    private Location location = null;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "wall_id")

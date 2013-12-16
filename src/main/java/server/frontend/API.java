@@ -1,7 +1,6 @@
 package server.frontend;
 
-import json.JSONObject;
-import server.dbService.DBService;
+import server.dbService.DAO;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,10 +11,10 @@ import server.dbService.DBService;
  */
 // API use to connect HTTP REQUEST and DB SERVICE
 public class API {
-    private DBService dbService;
+    private DAO dbService;
 
     public API() {
-        dbService = new DBService();
+        dbService = new DAO();
     }
 
     // {users.get} http://localhost/users.get

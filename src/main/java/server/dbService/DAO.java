@@ -16,12 +16,12 @@ import java.util.*;
  * Time: 22:39
  * To change this template use File | Settings | File Templates.
  */
-public class DBService {
+public class DAO {
 
     private Session session;
     private Random random;
 
-    public DBService() {
+    public DAO() {
         random = new Random();
         session = HibernateUtil.getSessionFactory().openSession();
     }
@@ -129,6 +129,12 @@ public class DBService {
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
+/*
+    public boolean insertMessage(int dialodId, int userId) {
+
+    }
+*/
+
     public boolean insertMeet(int userId, Map<String, Object> map) {
         session.beginTransaction();
         User user = getUser(userId);
@@ -166,6 +172,7 @@ public class DBService {
         return user;
     }
 
+
     public List getFriendsMeet(int userId) {
         String sql = String.format(Locale.ENGLISH,"select m.title, group_concat(user2) as frds_id, group_concat(frd.name) as frds_name from " +
                         "(select user2,name from friends as f inner join user as u on f.user2=u.id and user1=%d) as frd " +
@@ -178,7 +185,7 @@ public class DBService {
     public boolean updateUser(int userId, Map<String, Object> map) {
         String field = updateRequest(map, "user");
         String sql = String.format(Locale.ENGLISH, "update user set %s where user.id=%d", field, userId);
-        return session.createQuery(sql).executeUpdate() > 0 ? true : false;
+        return session.createQuery(sql).executeUpdate() > 0;
     }
 
     private static String updateRequest(Map<String, Object> map, String key) {

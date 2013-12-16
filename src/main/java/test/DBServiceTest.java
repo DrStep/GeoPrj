@@ -7,8 +7,12 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 import server.dbService.HibernateUtil;
+import server.dbService.InsertRequest;
 import server.dbService.tables.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -57,6 +61,70 @@ public class DBServiceTest {
             session.save(user);
         }
 
+        session.getTransaction().commit();
+    }
+
+
+    @Test
+    public void insertMessage() {
+        User user = (User) session.createQuery("from User user where user.id = 5020").list().get(0);
+        Dialog dialog = (Dialog) session.createQuery("from Dialog dialog where dialog.id = 5020").list().get(0);
+
+        Messanger messanger = new Messanger();
+        messanger.setUser(user);
+        messanger.setDialog(dialog);
+        messanger.setMsg("Message");
+        messanger.setDateTime(new Date());
+        messanger.setRead(false);
+
+        session.save(messanger);
+        session.getTransaction().commit();
+    }
+
+    @Test
+    public void insertFriends() {
+        /*User user1 = (User) session.createQuery("from User user where user.id = 5020").list().get(0);
+        User user2 = (User) session.createQuery("from User user where user.id = 5021").list().get(0);
+        user1.getFriendsList2().add(user2);
+
+        session.update(user1);
+        session.getTransaction().commit();*/
+    }
+
+/*    @Test
+    public void insertPlace() throws SQLException {
+        InsertRequest ir = new InsertRequest();
+        ir.insertData("place", "NULL, 10, 20, 30, 'dsad', 'dsads', 'dasd', 'dasds'");
+    }*/
+
+    @Test
+    public void insertMeet() {
+        User user = getRandomUser();
+
+        Location loc = new Location();
+        loc.setLatitude((random.nextFloat() * 100) % 180);
+        loc.setLongitude((random.nextFloat() * 100) % 180);
+        loc.setTime(new Date());
+
+        Wall wall = new Wall();
+        wall.setMsg("dsadasd");
+        wall.setDateTime(new Date());
+
+        Meet meet = new Meet();
+        meet.setAdmin(user);
+        meet.setTitle("dasdsad");
+        meet.setDescription("dasdsad");
+        meet.setPhoto("dasdsad");
+        meet.setDateTime(new Date());
+        meet.setAccess(Access.PUBLIC);
+        meet.setStatus("dasdsad");
+        meet.setLastUpdate(new Date());
+        meet.setWhatChange("Ok");
+        meet.setType(1);
+        meet.setWall(wall);
+        meet.setLocation(loc);
+
+        session.save(meet);
         session.getTransaction().commit();
     }
 

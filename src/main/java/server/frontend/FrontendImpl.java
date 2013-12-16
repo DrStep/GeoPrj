@@ -5,7 +5,8 @@ import base.MessageSystem;
 import json.JSONArray;
 import json.JSONObject;
 import server.UserData;
-import server.dbService.DBService;
+import server.dbService.DAO;
+import server.dbService.InsertRequest;
 import server.dbService.LocationRange;
 import server.msgsystem.Address;
 import server.vkauth.VkUserData;
@@ -33,14 +34,15 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
     private MessageSystem messageSystem;
     private Address address;
     private ObtainRequest obtainRequest;
-    private DBService dbService;
+    private DAO dbService;
+    private InsertRequest insertRequest;
 
     // Contain Session_id and userData
     private Map<String, VkUserData> vkSessionIdToUserData;
     private Map<String, UserData> sessionIdToUserData;
     private Map<String, UserData> sessionIdToInvalidUserData;
 
-    public FrontendImpl(MessageSystem messageSystem, DBService dbService) {
+    public FrontendImpl(MessageSystem messageSystem, DAO dbService) {
         super();
 
         this.messageSystem = messageSystem;
@@ -53,6 +55,7 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         sessionIdToInvalidUserData = new HashMap<String, UserData>();
 
         obtainRequest = new ObtainRequest(this);
+        insertRequest = new InsertRequest();
     }
 
     public void setVkUserData(String sessionId, VkUserData vkUserData) {
@@ -192,11 +195,51 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    map =  getMapByJSON(request.getParameter("fields"));
                    boolean isInsert = dbService.insertMeet(userId, map);
                    response.getWriter().println("{response:" + isInsert + "}");
-                   break;
+                   return;
+               case INSERT:
+                   String table = request.getParameter("table");
+                   String field = request.getParameter("fields");
+                   String col =  getColByJSON(field);
+                   String val =  getValByJSON(field);
+                   isInsert = insertRequest.insertPlace(table, col ,val);
+                   response.getWriter().println("{response:" + isInsert + "}");
+                   return;
            }
             response.getWriter().println(getJSONByList(res));
         }
         return;
+    }
+
+    private static String getColByJSON(String json) {
+        JSONObject obj = new JSONObject(json);
+        Set set = obj.keySet();
+        Iterator it = set.iterator();
+
+        String col = "";
+        while(it.hasNext()) {
+            String key = it.next().toString();
+            col += key + ",";
+        }
+        return col.substring(0, col.length() - 1);
+    }
+
+    private static String getValByJSON(String json) {
+        JSONObject obj = new JSONObject(json);
+        Set set = obj.keySet();
+        Iterator it = set.iterator();
+
+        String val = "";
+
+        while(it.hasNext()) {
+            String key = it.next().toString();
+            Object value = obj.get(key);
+            if (value instanceof String) {
+                val += "'" + value + "',";
+            } else {
+                val += value.toString() + ",";
+            }
+        }
+        return val.substring(0, val.length() - 1);
     }
 
     private static Map<String, Object> getMapByJSON(String json) {

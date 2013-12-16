@@ -77,6 +77,15 @@ class UserLocation:
 		while not mysql.isDataExistInTable('user_location', 'user_id', self.userId,'loc_id_extra', self.locIdExtra):
 			self.locIdExtra = random.randint(1, nLoc) 
 		
+class Participants:
+	def __init__(self, mysql, nUsers, nMeet):
+		self.participantId = 0
+		self.meetId = random.randint(1, nUsers) 
+		self.userId = random.randint(1, nMeet) 
+		self.lastUpdate = getRandomTimeStamp()
+		while not mysql.isDataExistInTable('participants', 'meet_id', self.meetId,'user_id', self.userId):
+			self.meetId = random.randint(1, nMeet)
+		
 class Place:
 	
 	def __init__(self, nLoc, nUser):
@@ -98,10 +107,11 @@ class Wall:
 		
 class Messanger:
 	
-	def __init__(self, mysql, numDialogs):
+	def __init__(self, mysql, nUser, numDialogs):
 		self.msgId = 0
 		self.dialogId = random.randint(1, numDialogs) 
 		self.msg = ""
+		self.userId = random.randint(1, nUser)
 		self.dateTime = getRandomTimeStamp() 
 		self.isRead = random.randint(0, 1) 
 		while not mysql.isDataExistInTable('messanger', 'msg_id', self.msgId,'dialog_id', self.dialogId):
@@ -202,11 +212,13 @@ class Meet:
 		
 		self.description = "" 
 		self.photo = ""
+		self.userId = random.randint(1, 5) 
 		self.dateTime = getRandomTimeStamp()
-		self.access = "'" + random.choice(['friends','public','private','all_friends']) +  "'"
+		self.access = random.randint(1, 3)
 		self.status = girls[random.randint(0, len(girls) - 1)] + boys[random.randint(0, len(boys) - 1)]
 		self.lastUpdate = getRandomTimeStamp()
 		self.whatChange = "" 
+		self.type = random.randint(1, 3) 
 
 class MySql:
 
@@ -224,6 +236,14 @@ class MySql:
 				return 0
 		print ("Created {0} users".format(num))
 
+	def createParticipants(self, num, nUser, nMeet):
+		for i in range(0, num):
+			p = Participants(self, nUser, nMeet)
+			t = self.insertData('participants', ['NULL', p.meetId, p.userId, p.lastUpdate])
+			if t == 0:
+				return 0
+		print ("Created {0} users".format(num))
+		
 	def createLocations(self, num):
 		for i in range(0, num):
 			l = Location()
@@ -252,10 +272,10 @@ class MySql:
 			w = Wall()
 			self.insertData('wall', ['NULL', w.dateTime, "'" + w.msg + "'"])
 	
-	def createMessanger(self, num, numDialods):
+	def createMessanger(self, num, nUser, numDialods):
 		for i in range(0, num):
-			m = Messanger(self, numDialods)
-			self.insertData('messanger', ['NULL', m.dialogId, "'" + m.msg + "'", m.dateTime, m.isRead])
+			m = Messanger(self, nUser, numDialods)
+			self.insertData('messanger', ['NULL', m.dialogId, "'" + m.msg + "'", m.dateTime, m.isRead, m.userId])
 		print ("Created {0} messanger".format(num))
 	
 	def createDialog(self, num):
@@ -276,7 +296,7 @@ class MySql:
 			self.createWall(1)
 			j += 1
 			m = Meet(nLoc)
-			self.insertData('meet', ['NULL', m.locId, j, "'" + m.title + "'", "'" + m.description + "'", "'" + m.photo + "'",  m.dateTime, m.access, "'" + m.status + "'", m.lastUpdate, "'" + m.whatChange + "'"])
+			self.insertData('meet', ['NULL', m.locId, j, m.userId, "'" + m.title + "'", "'" + m.description + "'", "'" + m.photo + "'",  m.dateTime, m.access, "'" + m.status + "'", m.lastUpdate, "'" + m.whatChange + "'", m.type])
 		print ("Created {0} meet".format(num))
 
 	def createLikeMeet(self, num, nUser, nMeet):
@@ -358,13 +378,54 @@ def main():
 	
 	#Create Users
 	
-	#m.createUsers(5 * million)
+	m.createUsers(5 * million)
 	nUsers = m.getCountData("user")
 	print("Users {0}".format(nUsers))
 	
 	#Friends
 	m.createFriends(4 * million, nUsers)
+	
+	# Message System
+	
+	m.createDialog(3 * million)
+	nDialogs = m.getCountData("dialog")
+	print("Dialogs {0}".format(nDialogs))
+	
+	m.createMessanger(5 * million, nUsers, nDialogs)
+	m.createDialogUser(3 * million, nDialogs, nUsers)
+	
+	#Locations
+	m.createLocations(5 * million)
+	nLoc = m.getCountData("location")
+	print ("Created {0} locations".format(million))
+			
+	#User Locations
+	m.createUserLocation(3 * million, nUsers, nLoc)
+	nUserLoc = m.getCountData("user_location")
+	
+	#Wall
+	m.createWall(3 * million)
+	nWall = m.getCountData("wall")
+	
+	#Meet
+	m.createMeets(4 * million, nUserLoc, nWall, nUsers)
+	nMeet = m.getCountData("meet")
+	print("Count(Wall):{0} Count(Loc):{1} Meets:{2}".format(nWall, nLoc, nMeet))
+	
+	# Place
+	m.createPlaces(3 * million, nLoc, nUsers, nWall)
 
+	
+	#Meet
+	m.createMeets(4 * million, 1000, 1000, 1000)
+	nMeet = m.getCountData("meet")
+	print("Count(Wall):{0} Count(Loc):{1} Meets:{2}".format(nWall, nLoc, nMeet))
+	
+	#Participants
+	m.createParticipants(4 * million, nUsers, nMeet)
+	
+	# Place
+	m.createPlaces(3 * million, nLoc, nUsers, nWall)
 	return 0
 
 if __name__ == '__main__':

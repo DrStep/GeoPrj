@@ -1,5 +1,4 @@
-import json.JSONArray;
-import server.dbService.DBService;
+import server.dbService.DAO;
 import server.frontend.FrontendImpl;
 import server.msgsystem.MessageSystemImpl;
 import org.eclipse.jetty.server.Handler;
@@ -11,11 +10,6 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import server.auth.AccountServiceImpl;
 import utils.Logger;
 import server.vkauth.AccountVkService;
-import server.resourceSystem.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -44,7 +38,7 @@ public class Main {
         System.out.append("Starting at port: ").append(portString).append('\n');
          */
         MessageSystemImpl ms = new MessageSystemImpl();
-        DBService dbService = new DBService();
+        DAO dbService = new DAO();
 
         FrontendImpl frontendImpl = new FrontendImpl(ms, dbService);
         AccountVkService vkService = new AccountVkService(ms);
@@ -66,7 +60,6 @@ public class Main {
         handlers.setHandlers(new Handler[]{resource_handler, context});
         server.setHandler(handlers);
 
-        //DBService db = new DBService();
         try {
            server.start();
            server.join();

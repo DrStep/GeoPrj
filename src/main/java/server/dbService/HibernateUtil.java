@@ -41,9 +41,6 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Friends.class);
             configuration.addAnnotatedClass(Participants.class);
 
-
-
-
             SessionFactory sessionFactory = createSessionFactory(configuration);
             return sessionFactory;
 
