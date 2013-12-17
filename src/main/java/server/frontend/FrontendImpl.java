@@ -115,6 +115,7 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         if (path.contains(apiTemplate)) {
            String re = path.replace(apiTemplate, "");
 
+           boolean isInsert = false;
            List<Map<Object, Object>> res = null;
            LocationRange locationRange;
 
@@ -190,12 +191,12 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    boolean isUpdate = dbService.updateUser(userId, map);
                    response.getWriter().println("{response:" + isUpdate + "}");
                    break;
-               case INSERT_MEET:
+               /*case INSERT_MEET:
                    userId = Integer.parseInt(request.getParameter("user_id"));
                    map =  getMapByJSON(request.getParameter("fields"));
                    boolean isInsert = dbService.insertMeet(userId, map);
                    response.getWriter().println("{response:" + isInsert + "}");
-                   return;
+                   return;*/
                case INSERT:
                    String table = request.getParameter("table");
                    String field = request.getParameter("fields");
@@ -217,6 +218,14 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    isInsert = insertRequest.updateLocation(userId, val);
                    response.getWriter().println("{response:" + isInsert + "}");
                    return;
+               case INSERT_MEET:
+                   Float lat = Float.parseFloat(request.getParameter("lat"));
+                   Float lng = Float.parseFloat(request.getParameter("lat"));
+                   field = request.getParameter("fields");
+                   col =  getColByJSON(field);
+                   val =  getValByJSON(field);
+                   insertRequest.insertMeetString(lat, lng, col, val);
+                   break;
            }
             response.getWriter().println(getJSONByList(res));
         }

@@ -50,6 +50,25 @@ public class InsertRequest {
         return true;
     }
 
+    public boolean insertMeetString (Float latitude, Float longitude, String col, String val) {
+        String sql1 = String.format(Locale.ENGLISH, "insert into location values(NULL, %f, %f, now());", latitude, longitude);
+        String sql2 = String.format(Locale.ENGLISH, "insert into wall values(NULL, now(), 'Wall');");
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql1);
+            int locId = ps.executeUpdate();
+
+            ps = conn.prepareStatement(sql2);
+            int wallId = ps.executeUpdate();
+
+            String sql3 = String.format(Locale.ENGLISH, "insert into meet(%s,loc_id, wall_id) values(%s,%d,%d);", col, val, locId, wallId);
+            ps = conn.prepareStatement(sql3);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return false;
+        }
+        return true;
+    }
 
     public boolean updateLocation(int userId, String val) {
         String sql1 = String.format(Locale.ENGLISH, "select l.loc_id from `user` as u inner join `user_location` as ul inner join location as l  on u.id=ul.user_id and ul.loc_id_extra=l.loc_id and u.id=%d limit 0,1; ", userId);
