@@ -1,9 +1,6 @@
 package server.dbService;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -36,7 +33,43 @@ public class InsertRequest {
         }
         return true;
     }
-}
+
+    public boolean insertFriends(int user1, int user2) {
+        String sql1 = String.format(Locale.ENGLISH, "insert into friends  values(NULL, %d, %d);", user1, user2);
+        String sql2 = String.format(Locale.ENGLISH, "insert into friends  values(NULL, %d, %d);", user2, user1);
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql1);
+            ps.executeUpdate();
+            ps = conn.prepareStatement(sql2);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return false;
+        }
+        return true;
+    }
+
+
+    public boolean updateLocation(int userId, String val) {
+        String sql1 = String.format(Locale.ENGLISH, "select l.loc_id from `user` as u inner join `user_location` as ul inner join location as l  on u.id=ul.user_id and ul.loc_id_extra=l.loc_id and u.id=%d limit 0,1; ", userId);
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql1);
+            ResultSet rs = ps.executeQuery(sql1);
+            rs.next();
+            int res = rs.getInt("loc_id");
+            String sql2 = String.format(Locale.ENGLISH, "update location set %s where loc_id=%d", val, res);
+            ps = conn.prepareStatement(sql2);
+            res = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return false;
+        }
+        return true;
+    }
+
+    }
 
 class JDBCDriver {
 

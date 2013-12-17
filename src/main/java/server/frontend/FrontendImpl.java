@@ -204,6 +204,19 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    isInsert = insertRequest.insertPlace(table, col ,val);
                    response.getWriter().println("{response:" + isInsert + "}");
                    return;
+               case INSERT_FRIENDS:
+                   int user1 =   Integer.parseInt(request.getParameter("user1"));
+                   int user2 =   Integer.parseInt(request.getParameter("user2"));
+                   isInsert = insertRequest.insertFriends(user1, user2);
+                   response.getWriter().println("{response:" + isInsert + "}");
+                   return;
+               case UPDATE_USER_LOCATION:
+                   field = request.getParameter("fields");
+                   userId = Integer.parseInt(request.getParameter("user_id"));
+                   val =  getKeyAndValue(field);
+                   isInsert = insertRequest.updateLocation(userId, val);
+                   response.getWriter().println("{response:" + isInsert + "}");
+                   return;
            }
             response.getWriter().println(getJSONByList(res));
         }
@@ -240,6 +253,21 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             }
         }
         return val.substring(0, val.length() - 1);
+    }
+
+    private static String getKeyAndValue(String json) {
+        String str = "";
+
+        JSONObject obj = new JSONObject(json);
+        Set set = obj.keySet();
+        Iterator it = set.iterator();
+
+        while(it.hasNext()) {
+            String key = it.next().toString();
+            String value = obj.get(key).toString();
+            str += key + "=" + value + ",";
+        }
+        return str.substring(0, str.length() - 1);
     }
 
     private static Map<String, Object> getMapByJSON(String json) {
