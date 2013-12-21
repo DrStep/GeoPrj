@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bee761b9-27d1-4565-821c-eceef26464c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Main_page.tml" afterPath="$PROJECT_DIR$/templates/Main_page.tml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/main_page.css" afterPath="$PROJECT_DIR$/static/css/main_page.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/overlays.css" afterPath="$PROJECT_DIR$/static/css/overlays.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/overlays.js" afterPath="$PROJECT_DIR$/static/js/overlays.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/utils/AddressContext.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/base/GameMechanics.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/gameMechanics/GameMechanicsImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/utils/GeoPoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/MsgDBResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/MsgGetNearObjects.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/gameMechanics/MsgGetRandomMeet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/MsgToAddRandomMeet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/MsgToDbService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/gameMechanics/MsgToGameMechanics.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ResHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ResourceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/restest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore.txt" afterPath="$PROJECT_DIR$/.gitignore.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/DAO.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/DAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/base/DBService.java" afterPath="$PROJECT_DIR$/src/main/java/base/DBService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/DBServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/DBServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" afterPath="$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/base/Frontend.java" afterPath="$PROJECT_DIR$/src/main/java/base/Frontend.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbService/LocationRange.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbService/LocationRange.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/SAXP.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" afterPath="$PROJECT_DIR$/src/main/java/server/resourceSystem/ServerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java" afterPath="$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/utils/VFSImpl.java" afterPath="$PROJECT_DIR$/src/main/java/utils/VFSImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/ajax.tml" afterPath="$PROJECT_DIR$/templates/ajax.tml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="GeoPrj.iws" />
@@ -64,7 +89,7 @@
     <file path="/MsgUpdateUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383253048357" ignored="false" />
     <file path="/MsgGetUserData.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383253783320" ignored="false" />
     <file path="/checkuser.tml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383255127117" ignored="false" />
-    <file path="/FrontendImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387274607903" ignored="false" />
+    <file path="/FrontendImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387608568872" ignored="false" />
     <file path="/AccountServiceImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383720821705" ignored="false" />
     <file path="/UrlsList.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1383935967981" ignored="false" />
     <file path="/UrlList.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387274546000" ignored="false" />
@@ -128,7 +153,7 @@
     <file path="/DAO.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387283113341" ignored="false" />
     <file path="/JDBCUtil.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387227563851" ignored="false" />
     <file path="/InsertRequest.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387279891223" ignored="false" />
-    <file path="$USER_HOME$/IdeaProjects/GeoPrj/.idea/workspace.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387605769012" ignored="false" />
+    <file path="$USER_HOME$/IdeaProjects/GeoPrj/.idea/workspace.xml" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387608718110" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/GeoPrj/src/main/java/server/dbService/HibernateUtil.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387274698247" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/GeoPrj/src/main/java/server/frontend/FrontendImpl.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387275098012" ignored="false" />
     <file path="$USER_HOME$/IdeaProjects/GeoPrj/src/main/java/server/dbService/DBService.java" changelist="bee761b9-27d1-4565-821c-eceef26464c8" time="1387275143702" ignored="false" />
@@ -184,7 +209,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="371" class="test.DBServiceTest" package="test">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="-1" class="test.DBServiceTest" package="test">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -199,7 +224,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="317" class="test.DBServiceTest" package="test">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="-1" class="test.DBServiceTest" package="test">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -214,7 +239,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="320" class="test.DBServiceTest" package="test">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="-1" class="test.DBServiceTest" package="test">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -229,7 +254,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="323" class="test.DBServiceTest" package="test">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" line="-1" class="test.DBServiceTest" package="test">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -244,7 +269,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="199" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="230" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -259,7 +284,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="207" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="238" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -274,7 +299,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="232" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="268" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -319,7 +344,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="206" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="237" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -334,7 +359,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" line="82" class="server.dbService.InsertRequest" package="server.dbService">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" line="95" class="server.dbService.InsertRequest" package="server.dbService">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -349,7 +374,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="220" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="251" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -364,7 +389,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="221" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="252" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -379,7 +404,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" line="79" class="server.dbService.InsertRequest" package="server.dbService">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" line="92" class="server.dbService.InsertRequest" package="server.dbService">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -394,7 +419,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="213" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="244" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -439,7 +464,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="229" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="265" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -454,7 +479,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="307" class="server.frontend.FrontendImpl" package="server.frontend">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" line="343" class="server.frontend.FrontendImpl" package="server.frontend">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -482,7 +507,25 @@
       <file leaf-file-name="FrontendImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="41" selection-start="6798" selection-end="6798" vertical-scroll-proportion="0.0">
+            <state line="40" column="29" selection-start="1158" selection-end="1158" vertical-scroll-proportion="28.4">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="84" selection-start="199" selection-end="199" vertical-scroll-proportion="-2.24">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="32" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -506,46 +549,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Response.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.0.5.v20130815/jetty-server-9.0.5.v20130815-sources.jar!/org/eclipse/jetty/server/Response.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="743" column="0" selection-start="23720" selection-end="23720" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utf8HttpWriter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.0.5.v20130815/jetty-server-9.0.5.v20130815-sources.jar!/org/eclipse/jetty/server/Utf8HttpWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1335" selection-end="1335" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="19" selection-start="5256" selection-end="5256" vertical-scroll-proportion="0.0">
+            <state line="144" column="37" selection-start="7927" selection-end="7927" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HibernateUtil.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="45" selection-start="2880" selection-end="2880" vertical-scroll-proportion="0.43333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="29" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.56838906">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpWriter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/jetty-server/9.0.5.v20130815/jetty-server-9.0.5.v20130815-sources.jar!/org/eclipse/jetty/server/HttpWriter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1393" selection-end="1393" vertical-scroll-proportion="0.0">
+            <state line="67" column="11" selection-start="2328" selection-end="2328" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -554,7 +579,7 @@
       <file leaf-file-name="APIFUNC.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="67" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0">
+            <state line="14" column="67" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -563,7 +588,7 @@
       <file leaf-file-name="InsertRequest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="31" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
+            <state line="58" column="31" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -597,12 +622,12 @@
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/tables/Place.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/JDBCUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/DBServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/dbService/DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java" />
       </list>
     </option>
   </component>
@@ -1276,8 +1301,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17449306" sideWeight="0.33853006" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.856546" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25075758" sideWeight="0.6405451" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35945484" sideWeight="0.7985843" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25075758" sideWeight="0.64224875" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35775128" sideWeight="0.7985843" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="2925" y="109" width="571" height="881" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1359,30 +1384,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="144" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/LocationRange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="13" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="48" selection-start="2945" selection-end="2945" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="32" selection-start="947" selection-end="947" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1436,35 +1440,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/InsertRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="31" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
+        <state line="58" column="31" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/APIFUNC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="67" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="41" selection-start="6798" selection-end="6798" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="19" selection-start="5256" selection-end="5256" vertical-scroll-proportion="0.0">
+        <state line="14" column="67" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="29" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.56838906">
+        <state line="67" column="11" selection-start="2328" selection-end="2328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/FrontendImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="29" selection-start="1158" selection-end="1158" vertical-scroll-proportion="28.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/frontend/UrlList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="84" selection-start="199" selection-end="199" vertical-scroll-proportion="-2.24">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DBServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="32" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="37" selection-start="7927" selection-end="7927" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbService/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="45" selection-start="2880" selection-end="2880" vertical-scroll-proportion="0.43333334">
           <folding />
         </state>
       </provider>

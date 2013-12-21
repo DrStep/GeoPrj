@@ -5,12 +5,16 @@ import base.MessageSystem;
 import json.JSONArray;
 import json.JSONObject;
 import server.UserData;
-import server.dbService.DAO;
-import server.dbService.InsertRequest;
-import server.dbService.LocationRange;
+import server.dbService.*;
+import server.gameMechanics.GameMechanicsImpl;
+import server.gameMechanics.MsgGetRandomMeet;
+import server.msgsystem.Abonent;
 import server.msgsystem.Address;
+import server.msgsystem.MessageSystemImpl;
 import server.vkauth.VkUserData;
 import templater.PageGenerator;
+import utils.AddressContext;
+import utils.GeoPoint;
 import utils.Logger;
 
 import javax.servlet.ServletException;
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,9 +37,10 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
     private static final int TICK_TIME = 20;
 
     private MessageSystem messageSystem;
+    private AddressContext context;
+    private DAO dao;
     private Address address;
     private ObtainRequest obtainRequest;
-    private DAO dbService;
     private InsertRequest insertRequest;
 
     // Contain Session_id and userData
@@ -42,17 +48,30 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
     private Map<String, UserData> sessionIdToUserData;
     private Map<String, UserData> sessionIdToInvalidUserData;
 
-    public FrontendImpl(MessageSystem messageSystem, DAO dbService) {
-        super();
+    // Request_Id and DBData
+    private Map<Integer, Object> dbData;
 
+    //Game Mechanics Request_Id and Response
+    private Map<Integer, Object> randomMeet;
+
+    // Unique Request Id
+    private final static AtomicInteger generateRequestId = new AtomicInteger();
+
+    public FrontendImpl(MessageSystem messageSystem, AddressContext context) {
+        super();
         this.messageSystem = messageSystem;
-        this.dbService = dbService;
+        this.context = context;
+        this.dao = new DAO();
+
         address = new Address();
         messageSystem.addService(this);
 
         vkSessionIdToUserData = new HashMap<String, VkUserData>();
         sessionIdToUserData = new HashMap<String, UserData>();
         sessionIdToInvalidUserData = new HashMap<String, UserData>();
+
+        dbData = new HashMap<Integer, Object>();
+        randomMeet = new HashMap<Integer, Object>();
 
         obtainRequest = new ObtainRequest(this);
         insertRequest = new InsertRequest();
@@ -74,12 +93,21 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         }
     }
 
+    public void addDbData(Integer reqId, Object data) {
+        dbData.put(reqId, data);
+    }
+
+    public void addRandomMeet(Integer reqId, Object data) {
+        randomMeet.put(reqId, data);
+    }
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         String path =  request.getPathInfo();
         System.out.println(path);
 
+        int reqId = 0;
         switch (UrlList.getUrlListByPath(path)) {
             case VKAUTH:
                 obtainRequest.vkAuthRequest(request, response);
@@ -100,6 +128,14 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                 break;
             case MAIN:
                 response.getWriter().println(PageGenerator.getPage("Main_page.tml", new HashMap()));
+                break;
+            case OBJECTS_LOCATION:
+                reqId = generateRequestId.getAndIncrement();
+                messageSystem.sendMessage(new MsgGetNearObjects(getAddress(), context.get(DBServiceImpl.class), new GeoPoint(0D, 0D), new GeoPoint(180D, 180D), reqId));
+                break;
+            case RANDOM_MEET:
+                reqId = generateRequestId.getAndIncrement();
+                messageSystem.sendMessage(new MsgGetRandomMeet(getAddress(), context.get(GameMechanicsImpl.class), reqId, 1000));
                 break;
             default:
                 break;
@@ -127,79 +163,74 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                     List<String> fields =  getListByJSON(request.getParameter("fields"));
                     int userId =  Integer.parseInt(request.getParameter("user_id"));
                     fields =  getListByJSON(request.getParameter("fields"));
-                    res = dbService.getUser(userId, fields);
+                    res = dao.getUser(userId, fields);
                     break;
                case GET_USERS_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
-                   res = dbService.getAllUsersInCoordinates(locationRange, fields);
+                   res = dao.getAllUsersInCoordinates(locationRange, fields);
                    break;
                case GET_PLACE_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
-                   res = dbService.getAllPlacesInCoordinates(locationRange, fields);
+                   res = dao.getAllPlacesInCoordinates(locationRange, fields);
                    break;
                case GET_MEET_LOCATION:
                    fields =  getListByJSON(request.getParameter("fields"));
                    locationRange = getListLocationByJSON(request.getParameter("loc_range"));
-                   res = dbService.getAllMeetsInCoordinates(locationRange, fields);
+                   res = dao.getAllMeetsInCoordinates(locationRange, fields);
                    break;
                case GET_DIALOGS:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
-                   res = dbService.getAllDialogsByUserId(userId, fields);
+                   res = dao.getAllDialogsByUserId(userId, fields);
                    break;
                case GET_MESSANGER:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
-                   res = dbService.getAllMessageByDialogId(dialogId, fields);
+                   res = dao.getAllMessageByDialogId(dialogId, fields);
                    break;
                case GET_USERS_FRIENDS:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
-                   res = dbService.getUserFriends(userId, fields);
+                   res = dao.getUserFriends(userId, fields);
                    break;
                case GET_MEETS_FOR_USERID:
                    fields =  getListByJSON(request.getParameter("fields"));
                    userId =  Integer.parseInt(request.getParameter("user_id"));
-                   res = dbService.getAllMeetsByUserId(userId, fields);
+                   res = dao.getAllMeetsByUserId(userId, fields);
                    break;
                case GET_MEET:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int meetId =  Integer.parseInt(request.getParameter("meet_id"));
-                   res = dbService.getMeetById(meetId, fields);
+                   res = dao.getMeetById(meetId, fields);
                    break;
                case GET_FRIENDS_MEET:
                    userId = Integer.parseInt(request.getParameter("user_id"));
-                   res = dbService.getFriendsMeet(userId);
+                   res = dao.getFriendsMeet(userId);
                    break;
                case GET_PLACE:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int placeId =  Integer.parseInt(request.getParameter("place_id"));
-                   res = dbService.getPlaceById(placeId, fields);
+                   res = dao.getPlaceById(placeId, fields);
                    break;
                case GET_DIALOG:
                    fields =  getListByJSON(request.getParameter("fields"));
+
                    dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
-                   res = dbService.getDialogById(dialogId, fields);
+                   res = dao.getDialogById(dialogId, fields);
                    break;
                case GET_WALL:
                    fields =  getListByJSON(request.getParameter("fields"));
                    int wallId =  Integer.parseInt(request.getParameter("place_id"));
-                   res = dbService.getPlaceById(wallId, fields);
+                   res = dao.getPlaceById(wallId, fields);
                    break;
                case UPDATE_USER:
                    userId = Integer.parseInt(request.getParameter("user_id"));
                    Map<String, Object> map =  getMapByJSON(request.getParameter("fields"));
-                   boolean isUpdate = dbService.updateUser(userId, map);
+                   boolean isUpdate = dao.updateUser(userId, map);
                    response.getWriter().println("{response:" + isUpdate + "}");
                    break;
-               /*case INSERT_MEET:
-                   userId = Integer.parseInt(request.getParameter("user_id"));
-                   map =  getMapByJSON(request.getParameter("fields"));
-                   boolean isInsert = dbService.insertMeet(userId, map);
-                   response.getWriter().println("{response:" + isInsert + "}");
-                   return;*/
                case INSERT:
                    String table = request.getParameter("table");
                    String field = request.getParameter("fields");
@@ -228,6 +259,11 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    col =  getColByJSON(field);
                    val =  getValByJSON(field);
                    insertRequest.insertMeetString(lat, lng, col, val);
+                   break;
+               case DELETE_MEET:
+                   meetId = Integer.parseInt(request.getParameter("meet_id"));
+                   isInsert =insertRequest.deleteMeet(meetId);
+                   response.getWriter().println("{response:" + isInsert + "}");
                    break;
            }
             response.getWriter().println(getJSONByList(res));
@@ -297,7 +333,7 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
         return map;
     }
 
-    private static String getJSONByList(List<Map<Object, Object>> list) {
+    public static String getJSONByList( List<Map<Object, Object>> list) {
         JSONArray arr = new JSONArray();
 
         for (Map<Object, Object> map : list) {
@@ -315,6 +351,18 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             arr.put(obj);
         }
         return arr.toString();
+    }
+
+    public static String concatJSON(String []str) {
+        String concatStr = "[";
+        StringBuffer res = new StringBuffer(concatStr);
+        for (String s : str) {
+            res.append(s).append(",");
+        }
+        concatStr = res.toString();
+        concatStr.substring(0, concatStr.length() - 1);
+        concatStr += "]";
+        return concatStr;
     }
 
     private LocationRange getListLocationByJSON(String json) {

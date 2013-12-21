@@ -16,6 +16,8 @@ import java.util.Map;
 public interface Frontend extends Abonent {
     void setVkUserData(String sessionId, VkUserData vkUserData);
     void setUserData(String sessionId, UserData userData);
+    void addDbData(Integer reqId, Object data);
+    void addRandomMeet(Integer reqId, Object data);
 
     Map<String, VkUserData> getVkSessionIdToUserData();
     Map<String, UserData> getSessionIdToUserData();

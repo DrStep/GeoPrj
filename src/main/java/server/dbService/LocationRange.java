@@ -13,7 +13,7 @@ public class LocationRange {
     public Double rightlLatitude;
     public Double rightlLongitude;
 
-    public LocationRange(Double leftLatitude, Double rightlLatitude, Double leftLongitude, Double rightlLongitude) {
+    public LocationRange(Double leftLatitude, Double leftLongitude, Double rightlLatitude, Double rightlLongitude) {
         this.leftLatitude = leftLatitude;
         this.leftLongitude = leftLongitude;
         this.rightlLatitude = rightlLatitude;

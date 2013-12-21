@@ -11,5 +11,5 @@ import server.msgsystem.Address;
  * To change this template use File | Settings | File Templates.
  */
 public interface DBService extends Abonent {
-
+    MessageSystem getMessageSystem();
 }
