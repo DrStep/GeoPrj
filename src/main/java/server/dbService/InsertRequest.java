@@ -70,6 +70,19 @@ public class InsertRequest {
         return true;
     }
 
+    public boolean deleteMeet(int meetId) {
+        String sql1 = String.format(Locale.ENGLISH, "delete from `meet` where meet_id=%d", meetId);
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql1);
+            int result = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            return false;
+        }
+        return true;
+    }
+
     public boolean updateLocation(int userId, String val) {
         String sql1 = String.format(Locale.ENGLISH, "select l.loc_id from `user` as u inner join `user_location` as ul inner join location as l  on u.id=ul.user_id and ul.loc_id_extra=l.loc_id and u.id=%d limit 0,1; ", userId);
         PreparedStatement ps = null;

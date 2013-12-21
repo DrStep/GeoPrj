@@ -1,5 +1,7 @@
 package server.resourceSystem;
 
+import org.xml.sax.helpers.DefaultHandler;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -16,10 +18,12 @@ public class SAXP {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
+            ResHandler handler = null;
 
-            ServerHandler serverHandler = new ServerHandler();
-            saxParser.parse(xmlFile, serverHandler);
-            return serverHandler.getObject();
+            handler =  new ServerHandler();
+
+            saxParser.parse(xmlFile, handler);
+            return handler.getObject();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -13,10 +13,20 @@ import java.util.Queue;
  * To change this template use File | Settings | File Templates.
  */
 public class VFSImpl implements VFS {
-
     private String root;
-    public VFSImpl(String root) {
+    private static VFSImpl vfs;
+
+    private VFSImpl(String root) {
         this.root = root;
+    }
+
+    public VFSImpl newInstanse(String root) {
+        if (vfs == null) {
+            vfs = new VFSImpl(root);
+        } else if (!vfs.getRoot().equals(root)) {
+            vfs = new VFSImpl(root);
+        }
+        return vfs;
     }
 
     @Override
@@ -49,23 +59,9 @@ public class VFSImpl implements VFS {
         return new FileIterator(startDir);
     }
 
- /*   private void generateIndent(int count) {
-        StringBuffer indent = new StringBuffer(" ");
-        for (int i = 0; i < count; indent.append(" "), i++) {};
+    public String getRoot() {
+        return root;
     }
-
-    @Override
-    public void showFiles(String path) {
-       File file = new File(path);
-        if (!file.isDirectory()) {
-            return;
-        }
-
-        File[] files = file.listFiles();
-        for (int i = 0; i < files.length; i++) {
-            showFiles(files[i].getAbsolutePath());
-        }
-    }*/
 
     private class FileIterator implements Iterator<String> {
 

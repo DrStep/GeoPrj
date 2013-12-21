@@ -11,7 +11,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * Time: 22:15
  * To change this template use File | Settings | File Templates.
  */
-public class ServerHandler extends DefaultHandler {
+public class ServerHandler extends ResHandler {
     private static String CLASSNAME = "class";
     private String element;
     private Object object;
@@ -45,6 +45,7 @@ public class ServerHandler extends DefaultHandler {
         }
     }
 
+    @Override
     public Object getObject() {
         return object;
     }

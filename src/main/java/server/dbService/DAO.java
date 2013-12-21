@@ -18,6 +18,7 @@ import java.util.*;
  */
 public class DAO {
 
+    private static DAO dao;
     private Session session;
     private Random random;
 
@@ -46,6 +47,15 @@ public class DAO {
         return  session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
+    public List getAllPlacesInCoordinates(LocationRange locRange, String fields)
+    {
+        String sql = String.format(Locale.ENGLISH,"select %s from place"
+                + " inner join location on  place.loc_id = location.loc_id"
+                + " where (location.latitude between %.5f and %.5f) and (location.longitude between %.5f and %.5f);"
+                , fields, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return  session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
     public List getAllMeetsInCoordinates(LocationRange locRange, List<String> fieldsList)
     {
         String field = separateListSymbolFields(fieldsList, ",");
@@ -53,6 +63,16 @@ public class DAO {
                 + " inner join location on  meet.loc_id = location.loc_id"
                     + " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f);"
                         , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+
+    public List getAllMeetsInCoordinates(LocationRange locRange, String fields)
+    {
+        String sql = String.format(Locale.ENGLISH, "select %s from meet"
+                + " inner join location on  meet.loc_id = location.loc_id"
+                + " where (location.latitude between %.5f and %.5f)  and (location.longitude between %.5f and %.5f);"
+                , fields, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
@@ -64,6 +84,16 @@ public class DAO {
                     + " on location.loc_id = user_location.loc_id_extra "
                         + " where (location.latitude between %.5f and %.5f )  and (location.longitude between %.5f and %.5f);"
                             , field, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List  getAllUsersInCoordinates(LocationRange locRange, String fields)
+    {
+        String sql = String.format(Locale.ENGLISH,"select %s from user"
+                + " inner  join user_location on user_location.user_id = user.id inner join  location"
+                + " on location.loc_id = user_location.loc_id_extra "
+                + " where (location.latitude between %.5f and %.5f )  and (location.longitude between %.5f and %.5f);"
+                , fields, locRange.leftLatitude, locRange.rightlLatitude, locRange.leftLongitude, locRange.rightlLongitude);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
@@ -108,6 +138,11 @@ public class DAO {
     public List getMeetById(int meetId, List<String> fieldsList) {
         String field = separateListSymbolFields(fieldsList, ",");
         String sql = String.format(Locale.ENGLISH, "select %s from meet where meet_id=%d", field, meetId);
+        return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
+    public List getMeetById(int meetId, String fields) {
+        String sql = String.format(Locale.ENGLISH, "select %s from meet where meet_id=%d", fields, meetId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 

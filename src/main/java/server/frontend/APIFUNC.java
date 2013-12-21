@@ -12,7 +12,8 @@ public enum APIFUNC {
                 GET_USERS_FRIENDS("users.friends"), GET_USERS_DIALOGS("users.dialogs"), GET_USERS_MEET("users.meet"), GET_DIALOGS("dialog.get"),
                     GET_MESSANGER("messanger.get"), GET_MEETS_FOR_USERID("meets.for_userid"), GET_MEET("meet.get"), GET_FRIENDS_MEET("friends.meet"),
                             UPDATE_USER("user.update"), GET_PLACE("place.get"), GET_WALL("wall.get"), GET_DIALOG("dialog.get"), INSERT_MEET("meet.insert"),
-                                    INSERT("insert"), INSERT_FRIENDS("frd.insert"),  UPDATE_USER_LOCATION("location.update"),DEFAULT("error");
+                                    INSERT("insert"), INSERT_FRIENDS("frd.insert"),  UPDATE_USER_LOCATION("location.update"),DEFAULT("error"),
+                                        DELETE_MEET("meet.delete");
 
     private String method;
     APIFUNC(String method) {
