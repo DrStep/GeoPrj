@@ -14,7 +14,7 @@ import javax.xml.parsers.SAXParserFactory;
  */
 public class SAXP {
 
-    public static Object readServerData(String xmlFile) {
+    public static Object  readServerData(String xmlFile) {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();

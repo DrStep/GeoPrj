@@ -16,9 +16,10 @@ public class MsgGetRandomMeet extends MsgToGameMechanics {
     private Integer reqId;
     private Integer nMeet;
 
-    public MsgGetRandomMeet(Address from, Address to, Integer regId, Integer nMeet) {
+    public MsgGetRandomMeet(Address from, Address to, Integer newReqId, Integer nMeet) {
         super(from, to);
         this.nMeet = nMeet;
+        this.reqId = newReqId;
     }
 
     @Override

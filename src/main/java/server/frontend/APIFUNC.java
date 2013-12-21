@@ -5,7 +5,7 @@ package server.frontend;
  * User: Антон
  * Date: 07.12.13
  * Time: 12:42
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | Settings | File Templ ates.
  */
 public enum APIFUNC {
     GET_USER("user.get"), GET_USERS_LOCATION("users.location"), GET_PLACE_LOCATION("place.location"), GET_MEET_LOCATION("meet.location"),

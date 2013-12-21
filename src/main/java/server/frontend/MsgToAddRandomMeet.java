@@ -23,6 +23,7 @@ public class MsgToAddRandomMeet extends MsgToFrontend {
 
     @Override
     protected void exec(Frontend frontendImpl) {
+        System.out.println("exec");
         frontendImpl.addRandomMeet(reqId, data);
     }
 }

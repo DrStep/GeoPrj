@@ -36,22 +36,81 @@ public class DBServiceTest {
     }
 
     @Test
-    public void getAllLocations() {
-        List meets = dao.getAllMeetsInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "meet_id,title");
-        String place = FrontendImpl.getJSONByList(dao.getAllPlacesInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "place_id, title"));
-        String users = FrontendImpl.getJSONByList(dao.getAllUsersInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "user.id,name"));
+    public void testInserts()
+    {
+        Map<String, Object> mapInsert = new HashMap<>();
+        String key;
+        String value;
 
-        //Assert.assertTrue(meets.length() > 0);
-        Assert.assertTrue(place.length() > 0);
-        Assert.assertTrue(users.length() > 0);
+        key = "title1";
+        value = "mytitle";
+        mapInsert.put(key, value);
+        key = "photo";
+        value = "qqq";
+        mapInsert.put(key, value);
+        key = "status";
+        value = "perfect";
+        mapInsert.put(key, value);
+        key = "message";
+        value = "message";
+        mapInsert.put(key, value);
+
+        key = "description";
+        value = "qwerty";
+        mapInsert.put(key, value);
+
+        int userId=8;
+        dao.insertMeet(userId,mapInsert);
+
+        List list =  dao.getLastMeetsId();
+        Map row = (Map)list.get(0);
+        Integer str =  (Integer) row.get("max");
+
+        System.out.println(row.get("max"));
+
+        String fields = "title as title, description as description, status as status";
+        list = dao.getMeetById( str, fields);
+
+        row = (Map)list.get(0);
+        Assert.assertTrue(row.get("title").equals("mytitle"));
+        Assert.assertTrue(row.get("description").equals("qwerty"));
+        Assert.assertTrue(row.get("status").equals( "perfect"));
     }
 
     @Test
-    public void resourceSystemTest() {
-        ResourceTest resourceTest = (ResourceTest) SAXP.readServerData("restest.xml");
-        if (resourceTest.getId() == 10) {
+    public void getAllLocations() {
+        int meetRange = 179904;
+        int placeRange = 100000;
+        int usersRange = 15000;
 
+        List meets = dao.getAllMeetsInCoordinates(new LocationRange(-180D, -180D, 180D, 180D), "meet_id,title");
+
+        String place = FrontendImpl.getJSONByList(dao.getAllPlacesInCoordinates(new LocationRange(-180D, -180D, 180D, 180D), "place_id, title"));
+        String users = FrontendImpl.getJSONByList(dao.getAllUsersInCoordinates(new LocationRange(-180D, -180D, 180D, 180D), "user.id,name"));
+
+        for (int i = 0; i < meets.size(); i++) {
+            Map map = (HashMap) meets.get(i);
+            Integer meetId = Integer.parseInt(map.get("meet_id").toString());
+            Assert.assertTrue(meetId <= meetRange);
         }
-        System.out.println(resourceTest.getId() + " " + resourceTest.getName() + " " + resourceTest.getLat() + resourceTest.getLng());
+
+        List places = dao.getAllPlacesInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "place_id, title");
+        for (int i = 0; i < places.size(); i++) {
+            Map map = (HashMap) places.get(i);
+            Integer placeId = Integer.parseInt(map.get("place_id").toString());
+            Assert.assertTrue(placeId <= placeRange);
+        }
+
+        List user = dao.getAllUsersInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "user.id,name");
+        for (int i = 0; i < user.size(); i++) {
+            Map map = (HashMap) user.get(i);
+            Integer userId = Integer.parseInt(map.get("id").toString());
+            Assert.assertTrue(userId <= usersRange);
+        }
+
+        Assert.assertTrue(users.length() > 0);
+        Assert.assertTrue(place.length() > 0);
+
     }
+
 }

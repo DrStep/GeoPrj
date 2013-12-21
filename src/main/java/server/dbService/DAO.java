@@ -203,6 +203,10 @@ public class DAO {
         return true;
     }
 
+    public List getLastMeetsId() {
+        return session.createSQLQuery("select max(meet_id) as max from meet").setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
+    }
+
     private User getUser(int userId) {
         User user = (User) session.createQuery("from User user where user.id = :userId").setParameter("userId", userId).list().get(0);
         return user;

@@ -130,7 +130,7 @@ public class ObtainRequest {
         response.getWriter().println(PageGenerator.getPage("authform.tml", pageVariables));
     }
 
-    public String getJSONP(String callbackFunc, Map<Object, Object> values) {
+    public static String getJSONP(String callbackFunc, Map<Object, Object> values) {
         if (values == null) {
             return null;
         }
@@ -153,6 +153,32 @@ public class ObtainRequest {
             i++;
         }
         jsonp.append("})");
+        return jsonp.toString();
+    }
+
+    public static String getJSONP(Map<Object, Object> values) {
+        if (values == null) {
+            return null;
+        }
+
+        int size = values.size();
+        int i = 1;
+
+        StringBuffer jsonp = new StringBuffer("");
+        jsonp.append("{");
+
+        Iterator it = values.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
+            jsonp.append("\"").append(entry.getKey()).append("\":\"").append(entry.getValue()).append("\"");
+
+            if (i != size) {
+                jsonp.append(",");
+            }
+
+            i++;
+        }
+        jsonp.append("}");
         return jsonp.toString();
     }
 

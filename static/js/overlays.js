@@ -10,6 +10,8 @@ var nelon;
 var svlat;
 var svlon;
 var typeOfMarkers="user";
+
+var reqId=0;
 USGSOverlay.prototype = new google.maps.OverlayView();
 Picture.prototype = new google.maps.OverlayView();
 
@@ -52,6 +54,7 @@ function initialize() {
  }
   });
   google.maps.event.addListener(map, 'zoom_changed', function(event) {
+    if (typeOfMarkers != "random_meet")
      ajaxes(); 
   });
  
@@ -122,19 +125,20 @@ function initialize() {
             }); 
             break;
             case "random_meet":
+            alert('s');
             $.ajax({
                    type: "POST",
-                  url: "http://localhost:8090/api/place.location",
+                  url: "http://localhost:8090/random_meet",
                   dataType: "json",
-                  data: "fields=['title','latitude','longitude']" + "&" + "loc_range=" + "{latL:" + svlat + "," + "latR:" + nelat +"," + "lngL:" + svlon + ",lngR:" + nelon + "}",
+                  data: "",
                   beforeSend: function() {
                   },
-                  success: function(res) {;
-                      for(i=0;i<res.length;i++) {
+                  success: function(res) {
+                   /*   for(i=0;i<res.length;i++) {
                             var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
                            addMarker(location,'met',res[i].place_id,res[i].title);
                      };
-                  redraw();
+                  redraw();*/
                   },
                   error: function() {
               }
@@ -144,7 +148,9 @@ function initialize() {
  }
 
   google.maps.event.addListener(map,'dragend', function(event) {
-          ajaxes(); 
+          if (typeOfMarkers != "random_meet")  {
+            ajaxes(); 
+          }
          //markerclusterer
 
   });
@@ -337,7 +343,7 @@ function redraw() {
     markerCluster.redraw();
     //markerCluster = new MarkerClusterer(map,markers)
 }
-/*var markerImage = new google.maps.MarkerImage(
+/*var markerImage = new google.maps.MarkerImage( 
             'bg-num.png',
             //  '/home/philipp/bg-num.png',
             new google.maps.Size(33,33),
@@ -346,6 +352,7 @@ function redraw() {
         );*/
 
 function addMarker(location, type, user_id,name) {
+  alert('fff');
   srcImage = "/img/ava_1.png";
   picture = new Picture(location, srcImage, map, type, user_id,name);
     markers.push(picture);  
@@ -621,6 +628,145 @@ function changetype(str) {
       document.getElementById('random_meet').className = "global_button_random_meet_active";
 
       break;
-  }
-  ajaxes();
+  };
+  //ajaxes();
+   markers = [];
+            nelat = map.getBounds().getNorthEast().lat();
+            nelon = map.getBounds().getNorthEast().lng();
+            svlat = map.getBounds().getSouthWest().lat();
+            svlon = map.getBounds().getSouthWest().lng();
+            switch (typeOfMarkers) {
+              case "user" :
+                 $.ajax({
+                   type: "POST",
+                  url: "http://localhost:8090/api/users.location",
+                  dataType: "json",
+                  data: "fields=['name','latitude','longitude','user_id']" + "&" + "loc_range=" + "{latL:" + svlat + "," + "latR:" + nelat +"," + "lngL:" + svlon + ",lngR:" + nelon + "}",
+                  beforeSend: function() {
+                  },
+                  success: function(res) {;
+                      for(i=0;i<res.length;i++) {
+                            var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                           addMarker(location,'self',res[i].user_id,res[i].name);
+                     };
+                  redraw();
+                  },
+                  error: function() {
+              }
+            });
+              break;
+           case "meet" :  
+            $.ajax({
+                   type: "POST",
+                  url: "http://localhost:8090/api/meet.location",
+                  dataType: "json",
+                  data: "fields=['title','latitude','longitude','meet_id','user_id']" + "&" + "loc_range=" + "{latL:" + svlat + "," + "latR:" + nelat +"," + "lngL:" + svlon + ",lngR:" + nelon + "}",
+                  beforeSend: function() {
+                  },
+                  success: function(res) {;
+                      for(i=0;i<res.length;i++) {
+                            var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                           addMarker(location,'met',res[i].meet_id,res[i].title);
+                     };
+                  redraw();
+                  },
+                  error: function() {
+              }
+            }); 
+            break;
+            case "place" :  
+            $.ajax({
+                   type: "POST",
+                  url: "http://localhost:8090/api/place.location",
+                  dataType: "json",
+                  data: "fields=['title','latitude','longitude']" + "&" + "loc_range=" + "{latL:" + svlat + "," + "latR:" + nelat +"," + "lngL:" + svlon + ",lngR:" + nelon + "}",
+                  beforeSend: function() {
+                  },
+                  success: function(res) {;
+                      for(i=0;i<res.length;i++) {
+                            var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                           addMarker(location,'met',res[i].place_id,res[i].title);
+                     };
+                  redraw();
+                  },
+                  error: function() {
+              }
+            }); 
+            break;
+            case "random_meet":
+            $.ajax({
+                   type: "GET",
+                  url: "http://localhost:8090/random_meet",
+                  dataType: "json",
+                  data:  "reqId=",
+                  beforeSend: function() {
+                  },
+                  success: function(res) {
+
+                    if (res.reqId >=0 )
+                    {
+                      reqId = res.reqId; 
+                      function Req() {
+                        $.ajax({
+                        type: "GET",
+                        url: "http://localhost:8090/random_meet",
+                        dataType: "json",
+                        data: {'reqId' : reqId },
+                        beforeSend: function() {
+                        },
+                        success: function(res) {
+                        if (res.meet)
+                        {
+                            alert(res.meet)
+                             $.ajax({
+                              type: "POST",
+                               url: "http://localhost:8090/api/meet.get",
+                                dataType: "json",
+                                data: "fields=['title','photo']&meet_id="+ res.meet,
+                                beforeSend: function() {
+                                },
+                                success: function(ress) {
+                                var loc = new google.maps.LatLng(55.756136,37.616265);
+                                addMarker(loc,'self',res.meet,ress[i].title); 
+                       /*   for(i=0;i<res.length;i++) {
+                                var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                               addMarker(location,'met',res[i].place_id,res[i].title);
+                         };
+                      redraw();*/
+                      },
+                      error: function() {
+                        }
+                      }); 
+                        }
+                        else {
+                          reqId = res.reqId;
+                          setTimeout(function () { Req() }, 1500);
+
+                        }
+                       /*   for(i=0;i<res.length;i++) {
+                                var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                               addMarker(location,'met',res[i].place_id,res[i].title);
+                         };
+                      redraw();*/
+                      },
+                      error: function() {
+                        }
+                      }); 
+                    }
+                    Req();
+        }
+
+                    }
+
+                   /*   for(i=0;i<res.length;i++) {
+                            var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                           addMarker(location,'met',res[i].place_id,res[i].title);
+                     };
+                  redraw();*/
+                  , //cajax
+                  error: function() {
+              }
+            }); 
+            break;
+        }
 }
