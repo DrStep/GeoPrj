@@ -8,7 +8,7 @@ package server.frontend;
  * To change this template use File | Settings | File Templates.
  */
 public enum UrlList {
-    VKAUTH("vk-auth"), AUTH("auth"), AUTHFORM("authform"), CHECKUSERAUTH("checkuserjsonp"), ADMIN("admin"), API("api"), AJAX("ajax"), ERROR("error");
+    VKAUTH("vk-auth"), AUTH("auth"), AUTHFORM("authform"), CHECKUSERAUTH("checkuserjsonp"), ADMIN("admin"), API("api"), AJAX("ajax"),MAIN("main"), ERROR("error");
     private String url;
 
     UrlList(String url) {

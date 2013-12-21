@@ -97,7 +97,7 @@ class JDBCDriver {
     public static Connection newInstance() {
         if (connection == null) {
             try {
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoV1", "root", "");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoV1", "root", "123456");
             } catch (SQLException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }

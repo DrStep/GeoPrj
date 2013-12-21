@@ -85,9 +85,10 @@ public class DAO {
 
     public List getAllMeetsByUserId(int userId, List<String> fieldsList) {
         String field = separateListSymbolFields(fieldsList, ",");
-        String sql = String.format(Locale.ENGLISH, "select %s from user inner join participants" +
-                " inner join meet on user.id=participants.user_id and meet.meet_id=participants.meet_id and user.id=%d"
-                    , field, userId);
+       // String sql = String.format(Locale.ENGLISH, "select %s from user inner join participants" +
+        //        " inner join meet on user.id=participants.user_id and meet.meet_id=participants.meet_id and user.id=%d"
+        //           , field, userId);
+        String sql=String.format(Locale.ENGLISH, "select %s from meet where user_id= %d", field,userId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
@@ -101,7 +102,7 @@ public class DAO {
 
     public List getUserFriends(int userId, List<String> fieldsList) {
         String field = separateListSymbolFields(fieldsList, ",");
-        String sql = String.format(Locale.ENGLISH, "select %s from friends as f inner join user as u on f.user1=u.id and f.user1=%d", field, userId);
+        String sql = String.format(Locale.ENGLISH, "select %s from friends as f inner join user as u on f.user2=u.id and f.user1=%d", field, userId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 
@@ -113,7 +114,7 @@ public class DAO {
 
     public List getDialogById(int dialogId, List<String> fieldsList) {
         String field = separateListSymbolFields(fieldsList, ",");
-        String sql = String.format(Locale.ENGLISH, "select %s from meet where dialog_id=%d", field, dialogId);
+        String sql = String.format(Locale.ENGLISH, "select %s from messanger inner join user on user_id=user.id where dialog_id=%d", field, dialogId);
         return session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
     }
 

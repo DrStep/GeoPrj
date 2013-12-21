@@ -98,6 +98,9 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             case AJAX:
                 response.getWriter().println(PageGenerator.getPage("ajax.tml", new HashMap()));
                 break;
+            case MAIN:
+                response.getWriter().println(PageGenerator.getPage("Main_page.tml", new HashMap()));
+                break;
             default:
                 break;
         }
@@ -177,8 +180,8 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                    break;
                case GET_DIALOG:
                    fields =  getListByJSON(request.getParameter("fields"));
-                   dialogId =  Integer.parseInt(request.getParameter("place_id"));
-                   res = dbService.getPlaceById(dialogId, fields);
+                   dialogId =  Integer.parseInt(request.getParameter("dialog_id"));
+                   res = dbService.getDialogById(dialogId, fields);
                    break;
                case GET_WALL:
                    fields =  getListByJSON(request.getParameter("fields"));
@@ -301,7 +304,12 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
             JSONObject obj = new JSONObject();
             for (Map.Entry<Object, Object> e : map.entrySet()) {
                 String key = e.getKey().toString();
-                String value = e.getValue().toString();
+                String value = "";
+                if ( e.getValue() instanceof byte[]) {
+                    value = new String((byte[])e.getValue());
+                } else {
+                    value = e.getValue().toString();
+                }
                 obj.put(key, value);
             }
             arr.put(obj);
