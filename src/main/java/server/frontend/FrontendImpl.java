@@ -131,13 +131,33 @@ public class FrontendImpl extends HttpServlet implements Frontend, Runnable {
                 messageSystem.sendMessage(new MsgGetNearObjects(getAddress(), context.get(DBServiceImpl.class), new GeoPoint(0D, 0D), new GeoPoint(180D, 180D), reqId));
                 break;
             case RANDOM_MEET:
-                reqId = generateRequestId.getAndIncrement();
-                messageSystem.sendMessage(new MsgGetRandomMeet(getAddress(), context.get(GameMechanicsImpl.class), reqId, 1000));
+                Map<Object, Object> pageVariables = new HashMap<>();
+                String getReqId = request.getParameter("reqId");
+
+                if (getReqId.contains("")) {
+                    generateNewReqId(response, pageVariables);
+                }  else {
+                    if (randomMeet.containsKey(Integer.parseInt(getReqId))) {
+                        Object key = randomMeet.get(Integer.parseInt(getReqId));
+                        pageVariables.put("meet",key.toString());
+                        response.getWriter().println(ObtainRequest.getJSONP("response", pageVariables));
+                    } else {
+                        generateNewReqId(response, pageVariables);
+                    }
+                }
                 break;
             default:
                 break;
         }
         //responseUserPage(response, "Permission denied. Please authorized you account.");
+    }
+
+    private void generateNewReqId(HttpServletResponse response, Map<Object, Object> pageVariables) throws IOException {
+        int reqId;
+        reqId = generateRequestId.getAndIncrement();
+        pageVariables.put("reqId", reqId);
+        messageSystem.sendMessage(new MsgGetRandomMeet(getAddress(), context.get(GameMechanicsImpl.class), reqId, 1000));
+        response.getWriter().println(ObtainRequest.getJSONP("getReqId", pageVariables));
     }
 
     public void doPost(HttpServletRequest request,

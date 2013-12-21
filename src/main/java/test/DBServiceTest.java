@@ -37,21 +37,30 @@ public class DBServiceTest {
 
     @Test
     public void getAllLocations() {
-        List meets = dao.getAllMeetsInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "meet_id,title");
+        int meetRange = 1000;
+
+        List<Map> meets = dao.getAllMeetsInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "meet_id,title");
         String place = FrontendImpl.getJSONByList(dao.getAllPlacesInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "place_id, title"));
         String users = FrontendImpl.getJSONByList(dao.getAllUsersInCoordinates(new LocationRange(0D, 0D, 180D, 180D), "user.id,name"));
 
-        //Assert.assertTrue(meets.length() > 0);
-        Assert.assertTrue(place.length() > 0);
+        for (int i = 0; i < meets.size(); i++) {
+            Map map = (HashMap) meets.get(i);
+            Integer meetId = Integer.parseInt(map.get("meet_id").toString());
+            Assert.assertTrue(meetId <= meetRange);
+            //String title = map.get("title").toString();
+        }
+
         Assert.assertTrue(users.length() > 0);
     }
 
     @Test
     public void resourceSystemTest() {
         ResourceTest resourceTest = (ResourceTest) SAXP.readServerData("restest.xml");
-        if (resourceTest.getId() == 10) {
+        Assert.assertTrue(resourceTest.getId() == 10);
+        Assert.assertTrue(resourceTest.getName().equals("Anton"));
+        Assert.assertTrue(resourceTest.getLat() == 100);
+        Assert.assertTrue(resourceTest.getLng() == 180);
 
-        }
         System.out.println(resourceTest.getId() + " " + resourceTest.getName() + " " + resourceTest.getLat() + resourceTest.getLng());
     }
 }

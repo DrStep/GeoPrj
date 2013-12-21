@@ -130,7 +130,8 @@ public class ObtainRequest {
         response.getWriter().println(PageGenerator.getPage("authform.tml", pageVariables));
     }
 
-    public String getJSONP(String callbackFunc, Map<Object, Object> values) {
+
+    public static String getJSONP(String callbackFunc, Map<Object, Object> values) {
         if (values == null) {
             return null;
         }

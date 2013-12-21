@@ -27,7 +27,7 @@ public class ServerHandler extends ResHandler {
 
     public void startElement(String uri, String localName,String qName,
                              Attributes attributes) throws SAXException {
-        if(qName != CLASSNAME){
+        if(qName.equals(CLASSNAME)){
             element = qName;
         }
         else{
