@@ -150,6 +150,7 @@
 <input id="place" onclick="changetype('place');" type=button value="Места" class='global_button_place'>
 <input id="user" onclick="changetype('user');" type=button value="Пользователи" class='global_button_self_active'>
 <input id="meet" onclick="changetype('meet');" type=button value="Встречи" class='global_button_meet'>
+<input id="random_meet" onclick="changetype('random_meet');" type=button value="Случайная встреча" class='global_button_random_meet'>
 
 <ul id="avatar_menu">
    <li id="li1"><a href="#"><img src="/img/1.png"></a></li>

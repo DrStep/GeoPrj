@@ -458,10 +458,10 @@ font-size: 18px;
 .global_button_self{
   position: absolute;
   top: 0px;
-  left: 85%;
+  left: 82%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#15a0f4;
     border-radius: 1px;
     border: 2px solid #4682B4;
@@ -486,10 +486,10 @@ font-size: 18px;
 .global_button_meet{
   position: absolute;
   top: 0px;
-  left: 70%;
+  left: 68%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#15a0f4;
     border-radius: 1px;
     border: 2px solid #4682B4;
@@ -514,10 +514,10 @@ font-size: 18px;
 .global_button_place{
   position: absolute;
   top: 0px;
-  left: 55%;
+  left: 54%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#15a0f4;
     border-radius: 1px;
     border: 2px solid #4682B4;
@@ -539,14 +539,69 @@ font-size: 18px;
     -webkit-transition: all 0.5s ease-out;
 }
 
+.global_button_random_meet{
+  position: absolute;
+  top: 0px;
+  left: 96%;
+  margin-left: -180px;
+    z-index: 1;
+    width:180px;
+    background-color:#15a0f4;
+    border-radius: 1px;
+    border: 2px solid #4682B4;
+    box-shadow: #6E7849 0px 0px 10px;
+    color:#fff;
+    display: block;
+    font-size: 17px;
+    padding: 6px;
+    text-decoration: none;
+    text-shadow: #000000 5px 5px 15px;
+    transition: all 0.5s ease-out;
+      -moz-border-radius: 1px;
+    -moz-box-shadow: #6E7849 0px 0px 10px;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -webkit-border-radius: 1px;
+    -webkit-box-shadow: #6E7849 0 0 10px;
+    -webkit-transition: all 0.5s ease-out;
+}
+
+.global_button_random_meet_active{
+  position: absolute;
+  top: 0px;
+  left: 96%;
+  margin-left: -180px;
+    z-index: 1;
+    width:180px;
+    background-color:#DAA520;
+    border-radius: 1px;
+    border: 2px solid #4682B4;
+    box-shadow: #6E7849 0px 0px 10px;
+    color:#fff;
+    display: block;
+    font-size: 17px;
+    padding: 6px;
+    text-decoration: none;
+    text-shadow: #000000 5px 5px 15px;
+    transition: all 0.5s ease-out;
+      -moz-border-radius: 1px;
+    -moz-box-shadow: #6E7849 0px 0px 10px;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -webkit-border-radius: 1px;
+    -webkit-box-shadow: #6E7849 0 0 10px;
+    -webkit-transition: all 0.5s ease-out;
+}
 
 .global_button_self_active{
   position: absolute;
   top: 0px;
-  left: 85%;
+  left: 82%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#DAA520;
     border-radius: 1px;
     border: 2px solid #4682B4;
@@ -571,10 +626,10 @@ font-size: 18px;
 .global_button_meet_active{
   position: absolute;
   top: 0px;
-  left: 70%;
+  left: 68%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#DAA520;
     border-radius: 1px;
     border: 2px solid #4682B4;
@@ -599,10 +654,10 @@ font-size: 18px;
 .global_button_place_active{
   position: absolute;
   top: 0px;
-  left: 55%;
+  left: 54%;
   margin-left: -180px;
     z-index: 1;
-    width:200px;
+    width:180px;
     background-color:#DAA520;
     border-radius: 1px;
     border: 2px solid #4682B4;

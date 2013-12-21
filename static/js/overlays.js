@@ -121,6 +121,25 @@ function initialize() {
               }
             }); 
             break;
+            case "random_meet":
+            $.ajax({
+                   type: "POST",
+                  url: "http://localhost:8090/api/place.location",
+                  dataType: "json",
+                  data: "fields=['title','latitude','longitude']" + "&" + "loc_range=" + "{latL:" + svlat + "," + "latR:" + nelat +"," + "lngL:" + svlon + ",lngR:" + nelon + "}",
+                  beforeSend: function() {
+                  },
+                  success: function(res) {;
+                      for(i=0;i<res.length;i++) {
+                            var location = new google.maps.LatLng(res[i].latitude,res[i].longitude);
+                           addMarker(location,'met',res[i].place_id,res[i].title);
+                     };
+                  redraw();
+                  },
+                  error: function() {
+              }
+            }); 
+            break;
         }
  }
 
@@ -581,16 +600,26 @@ function changetype(str) {
       document.getElementById('place').className = "global_button_place_active";
       document.getElementById('meet').className = "global_button_meet";
       document.getElementById('user').className = "global_button_self";
+      document.getElementById('random_meet').className = "global_button_random_meet";
       break;
     case 'user':
-      document.getElementById('place').className = "global_button_place"
-      document.getElementById('meet').className = "global_button_meet"
-      document.getElementById('user').className = "global_button_self_active"
+      document.getElementById('place').className = "global_button_place";
+      document.getElementById('meet').className = "global_button_meet";
+      document.getElementById('user').className = "global_button_self_active";
+      document.getElementById('random_meet').className = "global_button_random_meet";
       break;
     case 'meet': 
-      document.getElementById('place').className = "global_button_place"
-      document.getElementById('meet').className = "global_button_meet_active"
-      document.getElementById('user').className = "global_button_self"
+      document.getElementById('place').className = "global_button_place";
+      document.getElementById('meet').className = "global_button_meet_active";
+      document.getElementById('user').className = "global_button_self";
+      document.getElementById('random_meet').className = "global_button_random_meet";
+      break;
+    case 'random_meet':
+      document.getElementById('place').className = "global_button_place";
+      document.getElementById('meet').className = "global_button_meet ";
+      document.getElementById('user').className = "global_button_self";
+      document.getElementById('random_meet').className = "global_button_random_meet_active";
+
       break;
   }
   ajaxes();
